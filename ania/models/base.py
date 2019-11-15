@@ -2,6 +2,7 @@ from scipy.io import loadmat
 
 
 class MatModel:
+
     def __init__(self, name):
         self.name = name
         self.data = {}
@@ -18,6 +19,12 @@ class MatModel:
                 msg += str(v) + "\n"
         msg += "}\n"
         return msg
+
+    def get_training_sessions(self, prop):
+        no_of_sessions = self.data['Training_sessions']
+        sessions = self.data[prop]
+        training_sessions = sessions[:no_of_sessions]
+        return training_sessions
 
     def from_mat(self, path=None):
         if not path:

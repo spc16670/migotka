@@ -96,7 +96,7 @@ class Patient(MatModel):
             elif k == 'Time_after_injury':
                 data[k] = v[0, 0][0, 0][0][0, 0][0]
             elif k == 'Training_sessions':
-                data[k] = v[0, 0][0, 0][0][0, 0][0]
+                data[k] = int(v[0, 0][0, 0][0][0, 0][0])
             elif k == 'Donning':
                 data[k] = process_nested(v[0, 0], ['session', 'all_green', 'final_thresh', 'final_FES', 'total'])
             elif k == 'NASA_TLX':
@@ -163,4 +163,5 @@ class Patient(MatModel):
                 data[k] = v[0, 0][0, 0]
             else:
                 raise Exception("Unexpected field: {}!".format(k))
+
         return data

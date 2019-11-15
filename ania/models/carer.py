@@ -69,7 +69,7 @@ class Carer(MatModel):
                 if data[k]:
                     data[k] = data[k][0][0][0][0, 0]
             elif k == 'Training_sessions':
-                data[k] = v[0, 0][0, 0][0][0, 0][0]
+                data[k] = int(v[0, 0][0, 0][0][0, 0][0])
             elif k == 'NASA_TLX':
                 data[k] = process_nested(v[0, 0], [
                     'session', 'mental_demand', 'physical_demand', 'temporal_demand', 'performance', 'effort',

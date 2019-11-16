@@ -4,16 +4,6 @@ import matplotlib.pyplot as plt
 from dao import PATIENTS
 
 
-def donning_all_s_1_5_10_14():
-    patients = [p.name for p in PATIENTS]
-    _donnings(patients, [1, 5, 10, 14])
-
-
-def donning_p2_p5_p8_s_all():
-    patients = [p.name for p in PATIENTS if p.name in ['p2', 'p5', 'p8']]
-    _donnings(patients, range(1, 16))
-
-
 def _donnings(patients: list, sessions: list):
     patient_donnings = [p.data['Donning'] for p in PATIENTS if p.name in patients]
     session_dict = {}
@@ -36,7 +26,17 @@ def _donnings(patients: list, sessions: list):
     plt.show()
 
 
-def nasa_first_last_training():
+def plot_patient_donning_all_s_1_5_10_14():
+    patients = [p.name for p in PATIENTS]
+    _donnings(patients, [1, 5, 10, 14])
+
+
+def plot_patient_donning_p2_p5_p8_s_all():
+    patients = [p.name for p in PATIENTS if p.name in ['p2', 'p5', 'p8']]
+    _donnings(patients, range(1, 16))
+
+
+def plot_patient_nasa_first_last_training():
     firsts = []
     lasts = []
     for p in PATIENTS:
@@ -63,7 +63,7 @@ def nasa_first_last_training():
     plt.show()
 
 
-def nasa_first_last_training_and_independent():
+def plot_patient_nasa_first_last_training_and_independent():
     training_firsts = []
     independent_firsts = []
     training_lasts = []
@@ -107,7 +107,7 @@ def nasa_first_last_training_and_independent():
     plt.show()
 
 
-def nasa_last_training_and_independent():
+def plot_patient_nasa_last_training_and_independent():
     patient_ids = ['p2', 'p5', 'p8']
     training_lasts = []
     patient_session = {}

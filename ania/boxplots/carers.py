@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from dao import CARERS
 
 
-def nasa_first_last_training():
+def plot_carer_nasa_first_last_training():
     firsts = []
     lasts = []
     for c in CARERS:
@@ -29,7 +29,7 @@ def nasa_first_last_training():
     plt.show()
 
 
-def nasa_first_last_training_and_independent():
+def plot_carer_nasa_first_last_training_and_independent():
     training_firsts = []
     independent_firsts = []
     training_lasts = []
@@ -73,7 +73,7 @@ def nasa_first_last_training_and_independent():
     plt.show()
 
 
-def nasa_last_training_and_independent():
+def plot_carer_nasa_last_training_and_independent():
     carer_ids = ['c2', 'c5', 'c8']
     training_lasts = []
     carer_session = {}

@@ -1,6 +1,6 @@
 
-from ania.models.patient import load as patient_load
-from ania.models.carer import load as carer_load
+from migotki.models.patient import load as patient_load
+from migotki.models.carer import load as carer_load
 
 
 PATIENTS = patient_load()

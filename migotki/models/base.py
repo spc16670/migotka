@@ -26,6 +26,20 @@ class MatModel:
         training_sessions = sessions[:no_of_sessions]
         return training_sessions
 
+    def get_extensor(self, session):
+        c1, c2 = tuple(c for c in session['current'])
+        return c1 if c1 > c2 else c2
+
+    def get_flexor(self, session):
+        c1, c2 = tuple(c for c in session['current'])
+        return c1 if c1 < c2 else c2
+
+    def get_tpr(self, trial):
+        tp = trial['TP']
+        fp = trial['FP']
+        tn = trial['TN']
+        return tp/(tp+fp+tn)
+
     def from_mat(self, path=None):
         if not path:
             path = "data/{}.mat".format(self.name)

@@ -2,18 +2,21 @@ import dao
 import inspect
 import tkinter as tk
 from tkinter import Tk, Frame, Listbox
-import ania.boxplots.patients as p_plots
-import ania.boxplots.carers as c_plots
+
+import migotki.plotki.box.carer as boxplots_carers
+import migotki.plotki.box.patient as boxplots_patients
+import migotki.plotki.bar.patient as barchart_patients
+import migotki.plotki.scatter.patient as scatterplots_patients
 
 
 class App:
 
-    WIDTH = 300
-    HEIGHT = 500
+    WIDTH = 600
+    HEIGHT = 600
 
     def __init__(self, root, funcs):
         self.root = root
-        self.root.title("Boxploty Migotki :****")
+        self.root.title("Plotki Migotki")
         self.root.geometry("%dx%d%+d%+d" % (App.WIDTH, App.HEIGHT, 0, 0))
         self.main_frame = Frame(root, width=App.WIDTH, height=App.HEIGHT)
         self.main_frame.pack_propagate(0)
@@ -46,10 +49,16 @@ def get_plotting_functions(modules):
 
 
 def main():
-    #dao.print_patients()
+    dao.print_patients()
     root = Tk()
-    funcs = get_plotting_functions([p_plots, c_plots])
+    funcs = get_plotting_functions([
+        boxplots_carers,
+        boxplots_patients,
+        barchart_patients,
+        scatterplots_patients
+    ])
     App(root, funcs)
+    root.bind("<Escape>", lambda q: root.destroy())
     root.mainloop()
 
 

@@ -67,8 +67,7 @@ class Patient(MatModel):
 
         def process_nested(a, keys: list):
             l = []
-            if not a[0, 0]:
-                return l
+            print(str(a))
             for i in a:
                 nd = dict()
                 for k in keys:

@@ -1,8 +1,8 @@
-import dao
 import inspect
 import tkinter as tk
 from tkinter import Tk, Frame, Listbox
 
+import dao
 import migotki.plotki.box.carer as boxplots_carers
 import migotki.plotki.box.patient as boxplots_patients
 import migotki.plotki.bar.patient as barchart_patients

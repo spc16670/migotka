@@ -67,7 +67,8 @@ class Patient(MatModel):
 
         def process_nested(a, keys: list):
             l = []
-            print(str(a))
+            if not a.flatten()[0]:
+                return l
             for i in a:
                 nd = dict()
                 for k in keys:
@@ -75,11 +76,40 @@ class Patient(MatModel):
                 l.append(nd)
             return l
 
+        def process_muscle_data(data):
+            l = []
+            if not data.flatten()[0]:
+                return l
+            for e in data:
+                muscle, L, R = e[0]
+                muscle = muscle[0, 0][0]
+                L = L.flatten()[0]
+                L = L[0] if L.dtype else L
+                R = R.flatten()[0]
+                R = R[0] if R.dtype else L
+                d = {'muscle': muscle, 'L': L, 'R': R}
+                l.append(d)
+            return l
+
+        def process_roms(data):
+            l = []
+            if data[0, 0] is None:
+                return l
+            for d in data:
+                trial, type, flex, ext = d[0]
+                t = {'trial': trial.flatten()[0],
+                     'type': type.flatten()[0],
+                     'extension': flex.flatten()[0],
+                     'flexion': ext.flatten()[0]}
+                l.append(t)
+
+            return l
+
         for k, v in data.items():
             if k == 'Age':
                 data[k] = v[0, 0][0, 0]
                 if data[k]:
-                    data[k] = data[k][0][0][0][0]
+                    data[k] = data[k][0][0][0][0, 0]
             elif k == 'Gender':
                 data[k] = v[0, 0][0, 0]
                 if data[k]:
@@ -107,24 +137,16 @@ class Patient(MatModel):
             elif k == 'BCIFES_Trials':
                 data[k] = process_nested(v[0, 0], ['session', 'TP', 'FP', 'TN'])
             elif k == 'MMT_initial':
-                mmts = process_nested(v[0, 0], ['muscle', 'L', 'R'])
-                for d in mmts:
-                    for key in d.keys():
-                        d[key] = d[key][0]
-                data[k] = mmts
+                data[k] = process_muscle_data(v[0, 0])
             elif k == 'MMT_final':
-                mmts = process_nested(v[0, 0], ['muscle', 'L', 'R'])
-                for d in mmts:
-                    for key in d.keys():
-                        d[key] = d[key][0]
-                data[k] = mmts
+                data[k] = process_muscle_data(v[0, 0])
             elif k == 'PIADS':
                 data[k] = process_nested(v[0, 0], [
                     'confident', 'secure', 'fit_with_routine', 'fit_in_environments', 'comfortable'])
             elif k == 'ROM_initial':
-                data[k] = v[0, 0][0, 0]
+                data[k] = process_roms(v[0, 0])
             elif k == 'ROM_final':
-                data[k] = v[0, 0][0, 0]
+                data[k] = process_roms(v[0, 0])
             elif k == 'Threshold':
                 thresholds = process_nested(v[0, 0], ['session', 'threshold'])
                 for d in thresholds:
@@ -156,7 +178,7 @@ class Patient(MatModel):
                             if d[key].size == 0:
                                 d[key] = []
                             else:
-                                d[key] = d[key][0].tolist()
+                                d[key] = d[key].flatten().tolist()
                 data[k] = feses
             elif k == 'Perceived_usefulness':
                 data[k] = v[0, 0][0, 0]

@@ -180,3 +180,27 @@ def plot_rom_l():
 
 def plot_rom_r():
     _rom('R')
+
+
+def plot_fes_all():
+    feses = {}
+    for p in PATIENTS:
+        feses[p.name] = {'labels': [], 'data': []}
+        fes = p.data['FES_times']
+        for f in fes:
+            feses[p.name]['labels'].append('s' + str(f['session']))
+            d = [v for v in f['times_for_activation'] if v > 1.2]
+            feses[p.name]['data'].append(d)
+
+    keys = list(feses.keys())
+    fig, axes = plt.subplots(2, 4)
+    for ix, ax in enumerate(axes.flat):
+        key = keys[ix]
+        p = feses[key]
+        ax.boxplot(p['data'], labels=p['labels'])
+        ax.set_title("FES ({})".format(key))
+        ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
+        ax.set_axisbelow(True)
+        ax.set_xlabel('Sessions')
+        ax.set_ylabel('Value')
+    plt.show()

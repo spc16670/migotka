@@ -166,7 +166,7 @@ def _rom(side):
 
     fig, ax = plt.subplots()
     ax.boxplot(data, labels=labels)
-    ax.set_title("ROMS ({})".format(side))
+    ax.set_title("Range of Motion ({})".format(side))
     ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
     ax.set_axisbelow(True)
     ax.set_xlabel('Patients')
@@ -206,10 +206,10 @@ def _fes(predicate):
     plt.show()
 
 
-def plot_fes_all():
+def plot_times_for_activation_all():
     _fes(lambda a: True)
 
 
-def plot_fes_greater_than_1_2():
+def plot_times_for_activation_greater_than_1_2():
     _fes(lambda a: a >= 1.2)
 

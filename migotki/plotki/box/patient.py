@@ -193,11 +193,26 @@ def _fes(predicate):
             feses[p.name]['data'].append(d)
 
     keys = list(feses.keys())
+    # Turn
+    # { 'p2': {'labels': [], 'data': []} }
+    # to
+    # [ p[ l[], d[] ], p[ ... ]... ]
+    series = []
+    for k, v in feses.items():
+        data = v['data']
+        # instead of session labels use trial counts
+        labels = [len(d) for d in data]
+        zipped = zip(labels, data)
+        srt = sorted(zipped, key=lambda x: x[0])
+        sorted_labels = [v[0] for v in srt]
+        sorted_values = [v[1] for v in srt]
+        series.append([sorted_labels, sorted_values])
+
     fig, axes = plt.subplots(2, 4)
     for ix, ax in enumerate(axes.flat):
+        s = series[ix]
+        ax.boxplot(s[1], labels=s[0])
         key = keys[ix]
-        p = feses[key]
-        ax.boxplot(p['data'], labels=p['labels'])
         ax.set_title("Time per activation ({})".format(key))
         ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
         ax.set_axisbelow(True)

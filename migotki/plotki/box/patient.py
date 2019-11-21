@@ -182,14 +182,14 @@ def plot_rom_r():
     _rom('R')
 
 
-def plot_fes_all():
+def _fes(predicate):
     feses = {}
     for p in PATIENTS:
         feses[p.name] = {'labels': [], 'data': []}
         fes = p.data['FES_times']
         for f in fes:
-            feses[p.name]['labels'].append('s' + str(f['session']))
-            d = [v for v in f['times_for_activation'] if v > 1.2]
+            feses[p.name]['labels'].append(str(f['session']))
+            d = [v for v in f['times_for_activation'] if predicate(v)]
             feses[p.name]['data'].append(d)
 
     keys = list(feses.keys())
@@ -198,9 +198,18 @@ def plot_fes_all():
         key = keys[ix]
         p = feses[key]
         ax.boxplot(p['data'], labels=p['labels'])
-        ax.set_title("FES ({})".format(key))
+        ax.set_title("Time per activation ({})".format(key))
         ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
         ax.set_axisbelow(True)
         ax.set_xlabel('Sessions')
-        ax.set_ylabel('Value')
+        ax.set_ylabel('Time (s)')
     plt.show()
+
+
+def plot_fes_all():
+    _fes(lambda a: True)
+
+
+def plot_fes_greater_than_1_2():
+    _fes(lambda a: a >= 1.2)
+

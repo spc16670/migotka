@@ -139,3 +139,44 @@ def plot_patient_nasa_last_training_and_independent():
     ax.set_xlabel('Session')
     ax.set_ylabel('Total')
     plt.show()
+
+
+def _rom(side):
+    roms = dict()
+    for p in PATIENTS:
+        roms[p.name] = {'i': [], 'f': []}
+        for t in p.data['ROM_initial']:
+            if t['type'] == side:
+                rom = t['flexion'] - t['extension']
+                if not np.isnan(rom):
+                    roms[p.name]['i'].append(rom)
+        for t in p.data['ROM_final']:
+            if t['type'] == side:
+                rom = t['flexion'] - t['extension']
+                if not np.isnan(rom):
+                    roms[p.name]['f'].append(rom)
+    data = []
+    labels = []
+    for p, d in roms.items():
+        for k in d.keys():
+            if d[k]:
+                data.append(d[k])
+                l = p + k
+                labels.append(l)
+
+    fig, ax = plt.subplots()
+    ax.boxplot(data, labels=labels)
+    ax.set_title("ROMS ({})".format(side))
+    ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
+    ax.set_axisbelow(True)
+    ax.set_xlabel('Patients')
+    ax.set_ylabel('Degrees')
+    plt.show()
+
+
+def plot_rom_l():
+    _rom('L')
+
+
+def plot_rom_r():
+    _rom('R')

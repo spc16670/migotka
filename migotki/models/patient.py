@@ -99,10 +99,9 @@ class Patient(MatModel):
                 trial, type, flex, ext = d[0]
                 t = {'trial': trial.flatten()[0],
                      'type': type.flatten()[0],
-                     'extension': flex.flatten()[0],
-                     'flexion': ext.flatten()[0]}
+                     'flexion': flex.flatten()[0],
+                     'extension': ext.flatten()[0]}
                 l.append(t)
-
             return l
 
         for k, v in data.items():

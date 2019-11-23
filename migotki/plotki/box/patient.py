@@ -21,8 +21,8 @@ def _donnings(patients: list, sessions: list):
     ax.set_yticks(ticks[1:])
     ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
     ax.set_axisbelow(True)
-    ax.set_xlabel('Session number')
-    ax.set_ylabel('Donning time(min)')
+    ax.set_xlabel('Session')
+    ax.set_ylabel('Donning Time (min)')
     plt.show()
 
 
@@ -52,14 +52,14 @@ def plot_patient_nasa_first_last_training():
         if not np.isnan(last_total):
             lasts.append(last_total)
     fig, ax = plt.subplots()
-    ax.boxplot([firsts, lasts], labels=['First', 'Last'])
-    ax.set_title("NasaX sessions")
+    ax.boxplot([firsts, lasts], labels=['First Training', 'Last Training'])
+    ax.set_title("NASA TLX Total Workload")
     ticks = np.arange(0, 140, 20)
     ax.set_yticks(ticks[1:])
     ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
     ax.set_axisbelow(True)
     ax.set_xlabel('Session')
-    ax.set_ylabel('Total')
+    ax.set_ylabel('Workload')
     plt.show()
 
 
@@ -97,13 +97,13 @@ def plot_patient_nasa_first_last_training_and_independent():
     fig, ax = plt.subplots()
     ax.boxplot([training_firsts, training_lasts, independent_firsts, independent_lasts],
                labels=['First Training', 'Last Training', 'First Independent', 'Last Independent'])
-    ax.set_title("NasaX sessions " + ",".join(patient_ids))
+    ax.set_title("NASA TLX Total Workload " + ",".join(patient_ids))
     ticks = np.arange(0, 140, 20)
     ax.set_yticks(ticks[1:])
     ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
     ax.set_axisbelow(True)
     ax.set_xlabel('Session')
-    ax.set_ylabel('Total')
+    ax.set_ylabel('Workload')
     plt.show()
 
 
@@ -131,13 +131,13 @@ def plot_patient_nasa_last_training_and_independent():
     labels = ['Last Training'] + [str(k) for k in list(patient_session.keys())]
     fig, ax = plt.subplots()
     ax.boxplot(data, labels=labels)
-    ax.set_title("NasaX sessions " + ",".join(patient_ids))
+    ax.set_title("NASA TLX Total Workload " + ",".join(patient_ids))
     ticks = np.arange(0, 140, 20)
     ax.set_yticks(ticks[1:])
     ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
     ax.set_axisbelow(True)
     ax.set_xlabel('Session')
-    ax.set_ylabel('Total')
+    ax.set_ylabel('Workload')
     plt.show()
 
 
@@ -166,7 +166,7 @@ def _rom(side):
 
     fig, ax = plt.subplots()
     ax.boxplot(data, labels=labels)
-    ax.set_title("ROMS ({})".format(side))
+    ax.set_title("Range of Motion ({})".format(side))
     ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
     ax.set_axisbelow(True)
     ax.set_xlabel('Patients')
@@ -221,10 +221,10 @@ def _fes(predicate):
     plt.show()
 
 
-def plot_fes_all():
+def plot_times_for_activation_all():
     _fes(lambda a: True)
 
 
-def plot_fes_greater_than_1_2():
+def plot_times_for_activation_greater_than_1_2():
     _fes(lambda a: a >= 1.2)
 

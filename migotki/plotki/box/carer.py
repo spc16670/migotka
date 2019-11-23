@@ -18,14 +18,14 @@ def plot_carer_nasa_first_last_training():
         if not np.isnan(last_total):
             lasts.append(last_total)
     fig, ax = plt.subplots()
-    ax.boxplot([firsts, lasts], labels=['First', 'Last'])
-    ax.set_title("NasaX sessions")
+    ax.boxplot([firsts, lasts], labels=['First Training', 'Last Training'])
+    ax.set_title("NASA TLX Total Workload")
     ticks = np.arange(0, 140, 20)
     ax.set_yticks(ticks[1:])
     ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
     ax.set_axisbelow(True)
     ax.set_xlabel('Session')
-    ax.set_ylabel('Total')
+    ax.set_ylabel('Workload')
     plt.show()
 
 
@@ -63,13 +63,13 @@ def plot_carer_nasa_first_last_training_and_independent():
     fig, ax = plt.subplots()
     ax.boxplot([training_firsts, training_lasts, independent_firsts, independent_lasts],
                labels=['First Training', 'Last Training', 'First Independent', 'Last Independent'])
-    ax.set_title("NasaX sessions " + ",".join(carer_ids))
+    ax.set_title("NASA TLX Total Workload " + ",".join(carer_ids))
     ticks = np.arange(0, 140, 20)
     ax.set_yticks(ticks[1:])
     ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
     ax.set_axisbelow(True)
     ax.set_xlabel('Session')
-    ax.set_ylabel('Total')
+    ax.set_ylabel('Workload')
     plt.show()
 
 
@@ -97,11 +97,11 @@ def plot_carer_nasa_last_training_and_independent():
     labels = ['Last Training'] + [str(k) for k in list(carer_session.keys())]
     fig, ax = plt.subplots()
     ax.boxplot(data, labels=labels)
-    ax.set_title("NasaX sessions " + ",".join(carer_ids))
+    ax.set_title("NASA TLX Total Workload " + ",".join(carer_ids))
     ticks = np.arange(0, 140, 20)
     ax.set_yticks(ticks[1:])
     ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
     ax.set_axisbelow(True)
     ax.set_xlabel('Session')
-    ax.set_ylabel('Total')
+    ax.set_ylabel('Workload')
     plt.show()

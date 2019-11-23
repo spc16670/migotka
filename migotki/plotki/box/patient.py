@@ -182,14 +182,18 @@ def plot_rom_r():
     _rom('R')
 
 
-def _fes(predicate):
+def _fes(predicate, sort_sessions):
     feses = {}
     for p in PATIENTS:
         feses[p.name] = {'labels': [], 'data': []}
         fes = p.data['FES_times']
         for f in fes:
             feses[p.name]['labels'].append(str(f['session']))
-            d = [v for v in f['times_for_activation'] if predicate(v)]
+            d = []
+            for v in f['times_for_activation']:
+                if not np.isnan(v):
+                    if predicate(v):
+                        d .append(v)
             feses[p.name]['data'].append(d)
 
     keys = list(feses.keys())
@@ -203,7 +207,7 @@ def _fes(predicate):
         # instead of session labels use trial counts
         labels = [len(d) for d in data]
         zipped = zip(labels, data)
-        srt = sorted(zipped, key=lambda x: x[0])
+        srt = sorted(zipped, key=lambda x: x[0]) if sort_sessions else list(zipped)
         sorted_labels = [v[0] for v in srt]
         sorted_values = [v[1] for v in srt]
         series.append([sorted_labels, sorted_values])
@@ -221,10 +225,18 @@ def _fes(predicate):
     plt.show()
 
 
+def plot_fes_all_sorted():
+    _fes(lambda a: True, True)
+
+
 def plot_fes_all():
-    _fes(lambda a: True)
+    _fes(lambda a: True, False)
+
+
+def plot_fes_greater_than_1_2_sorted():
+    _fes(lambda a: a >= 1.2, True)
 
 
 def plot_fes_greater_than_1_2():
-    _fes(lambda a: a >= 1.2)
+    _fes(lambda a: a >= 1.2, False)
 

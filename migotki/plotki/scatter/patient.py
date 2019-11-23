@@ -1,4 +1,4 @@
-
+import numpy as np
 import matplotlib.pyplot as plt
 
 from dao import PATIENTS
@@ -41,4 +41,29 @@ def plot_all_patients_extensors_currents():
 def plot_all_patients_flexors_currents():
     patients_currents(False)
 
+
+def plot_threshold_across_sessions():
+    # find max sessions
+    data = []
+    for p in PATIENTS:
+        sessions = p.data['Threshold']
+        d = (len(sessions), [])
+        for ix, t in enumerate(sessions):
+            for v in t['threshold']:
+                if not np.isnan(v):
+                    d[1].append(v)
+        data.append(d)
+    # [ p( s_len, s_data[] ) ]
+    srt = sorted(data, key=lambda x: x[0])
+    sorted_labels = [str(v[0]) for v in srt]
+    sorted_values = [v[1] for v in srt]
+    print(sorted_values)
+    fig, ax = plt.subplots()
+    ax.boxplot(sorted_values, labels=sorted_labels)
+    ax.set_title("Time per activation")
+    ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
+    ax.set_axisbelow(True)
+    ax.set_xlabel('Sessions')
+    ax.set_ylabel('Threshold')
+    plt.show()
 

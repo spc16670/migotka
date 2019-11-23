@@ -28,7 +28,7 @@ def patients_currents(extensors_or_flexors):
     ax.set_xlabel('Session Number')
     ax.set_ylabel('Current (mA)')
 
-    title = "extensors" if extensors_or_flexors else "flexors"
+    title = "Extensors" if extensors_or_flexors else "Flexors"
     plt.title("All Patients " + title + " Currents")
     plt.legend(loc=5)
     plt.show()

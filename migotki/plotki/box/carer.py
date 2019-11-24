@@ -1,7 +1,10 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+from contants import BOXPLOT
 from dao import CARERS
+
+TYPE = BOXPLOT
 
 
 def plot_carer_nasa_first_last_training():

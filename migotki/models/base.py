@@ -40,6 +40,11 @@ class MatModel:
         tn = trial['TN']
         return tp/(tp+fp+tn)
 
+    def get_fdr(self, trial):
+        tp = trial['TP']
+        fp = trial['FP']
+        return fp/(fp+tp)
+
     def from_mat(self, path=None):
         if not path:
             path = "data/{}.mat".format(self.name)

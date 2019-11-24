@@ -1,10 +1,13 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+from contants import BOXPLOT
 from dao import PATIENTS
 
+TYPE = BOXPLOT
 
-def _donnings(patients: list, sessions: list):
+
+def _donnings(patients: list, sessions: list, title: str):
     patient_donnings = [p.data['Donning'] for p in PATIENTS if p.name in patients]
     session_dict = {}
     for s in sessions:
@@ -16,7 +19,7 @@ def _donnings(patients: list, sessions: list):
     fig, ax = plt.subplots()
     session_str = [str(k) for k in session_dict.keys()]
     ax.boxplot(data, labels=session_str)
-    ax.set_title("P-all-S-{}".format(",".join(session_str)))
+    ax.set_title(title)
     ticks = np.arange(0, 65, 5)
     ax.set_yticks(ticks[1:])
     ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
@@ -28,12 +31,12 @@ def _donnings(patients: list, sessions: list):
 
 def plot_patient_donning_all_s_1_5_10_14():
     patients = [p.name for p in PATIENTS]
-    _donnings(patients, [1, 5, 10, 14])
+    _donnings(patients, [1, 5, 10, 14], "P-all-S-ORANGE-JUICE")
 
 
 def plot_patient_donning_p2_p5_p8_s_all():
     patients = [p.name for p in PATIENTS if p.name in ['p2', 'p5', 'p8']]
-    _donnings(patients, range(1, 16))
+    _donnings(patients, range(1, 16), "P-all-S-TOMATO-JUICE")
 
 
 def plot_patient_nasa_first_last_training():
@@ -241,3 +244,61 @@ def plot_fes_greater_than_1_2_sorted():
 def plot_fes_greater_than_1_2():
     _fes(lambda a: a >= 1.2, False)
 
+
+def plot_average_tpr_for_each_patient():
+    data = []
+    error = []
+    for p in PATIENTS:
+        trials = p.data['BCIFES_Trials']
+        sum = 0
+        tprs = []
+        count = len(trials)
+        for t in trials:
+            tpr = p.get_tpr(t)
+            if not np.isnan(tpr):
+                sum += tpr
+                tprs.append(tpr)
+            else:
+                count -= 1
+        pctg = sum / count * 100
+        err = np.std(tprs) * 100
+        error.append(err)
+        data.append((count, pctg))
+
+    counts, y = zip(*data)
+    #x = range(len(counts))
+    fig, ax = plt.subplots()
+    ax.boxplot(data, labels=counts)
+    ax.set_xlabel("Number of Sessions")
+    ax.set_ylabel("Average True Positive Rate (%)")
+    plt.title("Average TPR for  Each patient")
+    plt.show()
+
+
+def plot_average_fdr_for_each_patient():
+    data = []
+    error = []
+    for p in PATIENTS:
+        trials = p.data['BCIFES_Trials']
+        sum = 0
+        tprs = []
+        count = len(trials)
+        for t in trials:
+            tpr = p.get_fdr(t)
+            if not np.isnan(tpr):
+                sum += tpr
+                tprs.append(tpr)
+            else:
+                count -= 1
+        pctg = sum / count * 100
+        err = np.std(tprs) * 100
+        error.append(err)
+        data.append((count, pctg))
+
+    counts, y = zip(*data)
+    fig, ax = plt.subplots()
+    ax.boxplot(data, labels=counts)
+    ax.set_xlabel("Number of Sessions")
+    ax.set_ylabel("Average True Positive Rate (%)")
+    plt.title("Average FDR for  Each patient")
+    plt.show()

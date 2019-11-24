@@ -37,11 +37,6 @@ TO DO
 
 TO DO 24.11.2019
 
-- Add error bars to TPR histogram (+/- 1 standard deviation)
-- Make TPR plot as box plot
-- Make FDR plot (FP/(FP+TP)) also as histogram with error bars
-    and box plot
-- Fix title for Patient donning p2 p5 p8 s all 
 - Make scatter plot of threshold values vs session for 
     each patient and all patients on one plot
 - Make boxplots for patients and separate for carers as follows

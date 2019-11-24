@@ -3,6 +3,7 @@ import tkinter as tk
 from tkinter import Tk, Frame, Listbox
 
 import dao
+from contants import BARCHART, BOXPLOT, SCATTERPLOT
 import migotki.plotki.box.carer as boxplots_carers
 import migotki.plotki.box.patient as boxplots_patients
 import migotki.plotki.bar.patient as barchart_patients
@@ -23,8 +24,15 @@ class App:
         self.main_frame.pack()
         self.list_map = funcs
         self.listbox = Listbox(self.main_frame, height=4, width=15, selectbackground="orange")
-        for ix, e in enumerate(self.list_map):
-            self.listbox.insert(ix, e[0])
+        for ix, (entry, _f) in enumerate(self.list_map):
+            plot_type, title = entry
+            self.listbox.insert(ix, title)
+            if plot_type == BARCHART:
+                self.listbox.itemconfig(ix, bg='green')
+            elif plot_type == BOXPLOT:
+                self.listbox.itemconfig(ix, bg='yellow')
+            elif plot_type == SCATTERPLOT:
+                self.listbox.itemconfig(ix, bg='grey')
         self.listbox.bind("<Double-Button-1>", self.call_back)
         self.listbox.pack(expand=1, fill=tk.BOTH)
 
@@ -44,7 +52,8 @@ def get_plotting_functions(modules):
                 name = name[5:]
                 name = name.replace("_", " ")
                 name = name.upper()
-                funcs.append((name, fnc))
+                name = m.TYPE.ljust(13) + "   | " + name
+                funcs.append(((m.TYPE, name), fnc))
     return funcs
 
 

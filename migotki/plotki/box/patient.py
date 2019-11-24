@@ -205,9 +205,10 @@ def _fes(predicate, sort_sessions):
     for k, v in feses.items():
         data = v['data']
         # instead of session labels use trial counts
-        labels = [len(d) for d in data]
+        labels = [len(d) for d in data] if sort_sessions else v['labels']
         zipped = zip(labels, data)
         srt = sorted(zipped, key=lambda x: x[0]) if sort_sessions else list(zipped)
+        srt = [(k, v) for (k, v) in srt if v]
         sorted_labels = [v[0] for v in srt]
         sorted_values = [v[1] for v in srt]
         series.append([sorted_labels, sorted_values])

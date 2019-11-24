@@ -39,31 +39,39 @@ def plot_patient_donning_p2_p5_p8_s_all():
     _donnings(patients, range(1, 16), "P-all-S-TOMATO-JUICE")
 
 
-def plot_patient_nasa_first_last_training():
+def _first_and_last(title, y_label, key, indicator):
     firsts = []
     lasts = []
     for p in PATIENTS:
-        patients_trainings = p.get_training_sessions('NASA_TLX')
+        patients_trainings = p.get_training_sessions(key)
         # firsts
         first = patients_trainings[0]
-        first_total = first['total']
+        first_total = first[indicator]
         if not np.isnan(first_total):
             firsts.append(first_total)
         # lasts
         last = patients_trainings[-1]
-        last_total = last['total']
+        last_total = last[indicator]
         if not np.isnan(last_total):
             lasts.append(last_total)
     fig, ax = plt.subplots()
-    ax.boxplot([firsts, lasts], labels=['First', 'Last'])
-    ax.set_title("NasaX sessions")
-    ticks = np.arange(0, 140, 20)
-    ax.set_yticks(ticks[1:])
+    ax.boxplot([firsts, lasts], labels=['First Training', 'Last Training'])
+    ax.set_title(title)
+    #ticks = np.arange(0, 140, 20)
+    #ax.set_yticks(ticks[1:])
     ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
     ax.set_axisbelow(True)
     ax.set_xlabel('Session')
-    ax.set_ylabel('Total')
+    ax.set_ylabel(y_label)
     plt.show()
+
+
+def plot_patient_nasa_first_last_training():
+    _first_and_last('NASA TLX Workload All Patients', 'Total Workload', 'NASA_TLX', 'total')
+
+
+def plot_patient_sands_first_last_training():
+    _first_and_last('Stress All Patients', 'Stress', 'SAndS', 'stress')
 
 
 def plot_patient_nasa_first_last_training_and_independent():
@@ -302,3 +310,5 @@ def plot_average_fdr_for_each_patient():
     ax.set_ylabel("Average True Positive Rate (%)")
     plt.title("Average FDR for  Each patient")
     plt.show()
+
+

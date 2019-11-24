@@ -5,6 +5,11 @@ Open terminal (Alt+F12)
 pip install -r requirements.txt
 
 
+To get latest changes from original repository (to update my fork)
+git fetch upstream
+git merge upstream/master
+
+
 Box plots
 
 https://matplotlib.org/3.1.1/gallery/pyplots/boxplot_demo_pyplot.html#sphx-glr-gallery-pyplots-boxplot-demo-pyplot-py
@@ -30,4 +35,19 @@ TO DO
 - Fix title for Patient donning p2 p5 p8 s all 
 
 
+TO DO 24.11.2019
 
+- Add error bars to TPR histogram (+/- 1 standard deviation)
+- Make TPR plot as box plot
+- Make FDR plot (FP/(FP+TP)) also as histogram with error bars
+    and box plot
+- Fix title for Patient donning p2 p5 p8 s all 
+- Make scatter plot of threshold values vs session for 
+    each patient and all patients on one plot
+- Make boxplots for patients and separate for carers as follows
+    1. stress at first and last training session for all users
+        (one for patients and one for carers)
+    2. stress at first, last training, first independent,
+        last independent for p2 p5 p8 and seperate for c2 c5 c8
+    3. satisfaction same way as 1 for all patients and all carers. 
+    4. satisfaction same way as 2. for p2 p5 p8 and c2 c5 c8

@@ -68,7 +68,7 @@ def plot_threshold_across_sessions():
     for p, data in pids.items():
         session, currents = zip(*data)
         marker = markers[p]
-        ax.scatter(session, currents, alpha=0.8, edgecolors='none', s=60, marker=marker, label=p)
+        ax.scatter(session, currents, alpha=0.8, edgecolors='none', s=90, marker=marker, label=p)
 
     ax.set_xlabel('Session Number')
     ax.set_ylabel('Current (mA)')

@@ -24,22 +24,22 @@ def _donnings(patients: list, sessions: list, title: str):
     ax.set_yticks(ticks[1:])
     ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
     ax.set_axisbelow(True)
-    ax.set_xlabel('Session number')
-    ax.set_ylabel('Donning time(min)')
+    ax.set_xlabel('Session Number')
+    ax.set_ylabel('Donning Time (min)')
     plt.show()
 
 
 def plot_patient_donning_all_s_1_5_10_14():
     patients = [p.name for p in PATIENTS]
-    _donnings(patients, [1, 5, 10, 14], "P-all-S-ORANGE-JUICE")
+    _donnings(patients, [1, 5, 10, 14], "All Patients - Donning At Select Sessions")
 
 
 def plot_patient_donning_p2_p5_p8_s_all():
     patients = [p.name for p in PATIENTS if p.name in ['p2', 'p5', 'p8']]
-    _donnings(patients, range(1, 16), "P-all-S-TOMATO-JUICE")
+    _donnings(patients, range(1, 16), "P2 P5 P8 - Donning Time")
 
 
-def _first_and_last(title, y_label, key, indicator):
+def _first_and_last(title, y_label, key, indicator, ticks=None):
     firsts = []
     lasts = []
     for p in PATIENTS:
@@ -57,24 +57,28 @@ def _first_and_last(title, y_label, key, indicator):
     fig, ax = plt.subplots()
     ax.boxplot([firsts, lasts], labels=['First Training', 'Last Training'])
     ax.set_title(title)
-    #ticks = np.arange(0, 140, 20)
-    #ax.set_yticks(ticks[1:])
     ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
     ax.set_axisbelow(True)
     ax.set_xlabel('Session')
     ax.set_ylabel(y_label)
+    if ticks is not None:
+        ax.set_yticks(ticks)
     plt.show()
 
 
 def plot_patient_nasa_first_last_training():
-    _first_and_last('NASA TLX Workload All Patients', 'Total Workload', 'NASA_TLX', 'total')
+    _first_and_last('All Patients - Workload', 'Workload', 'NASA_TLX', 'total', np.arange(0, 130, 10))
 
 
-def plot_patient_sands_first_last_training():
-    _first_and_last('Stress All Patients', 'Stress', 'SAndS', 'stress')
+def plot_patient_stress_first_last_training():
+    _first_and_last('All Patients - Stress', 'Stress', 'SAndS', 'stress', np.arange(0, 11, 1))
 
 
-def plot_patient_nasa_first_last_training_and_independent():
+def plot_patient_satisfaction_first_last_training():
+    _first_and_last('All Patients - Satisfaction', 'Satisfaction', 'SAndS', 'satisfaction', np.arange(0, 11, 1))
+
+
+def _first_and_last_training_and_independent_bla_bla(title, ylabel, indicator, key, ticks=None):
     training_firsts = []
     independent_firsts = []
     training_lasts = []
@@ -83,39 +87,54 @@ def plot_patient_nasa_first_last_training_and_independent():
     patients = [p for p in PATIENTS if p.name in patient_ids]
     for p in patients:
         # training
-        patients_trainings = p.get_training_sessions('NASA_TLX')
+        patients_trainings = p.get_training_sessions(indicator)
         first = patients_trainings[0]
-        first_total = first['total']
+        first_total = first[key]
         if not np.isnan(first_total):
             training_firsts.append(first_total)
         last = patients_trainings[-1]
-        last_total = last['total']
+        last_total = last[key]
         if not np.isnan(last_total):
             training_lasts.append(last_total)
         # independent
-        nasa = p.data['NASA_TLX']
+        nasa = p.data[indicator]
         s_ix = p.data['Training_sessions']
         independent = nasa[s_ix:]
         first_independent = independent[0]
-        first_independent_total = first_independent['total']
+        first_independent_total = first_independent[key]
         if not np.isnan(first_independent_total):
             independent_firsts.append(first_independent_total)
         last_independent = independent[-1]
-        last_independent_total = last_independent['total']
+        last_independent_total = last_independent[key]
         if not np.isnan(last_independent_total):
             independent_lasts.append(last_independent_total)
 
     fig, ax = plt.subplots()
     ax.boxplot([training_firsts, training_lasts, independent_firsts, independent_lasts],
                labels=['First Training', 'Last Training', 'First Independent', 'Last Independent'])
-    ax.set_title("NasaX sessions " + ",".join(patient_ids))
-    ticks = np.arange(0, 140, 20)
-    ax.set_yticks(ticks[1:])
+    ax.set_title(title)
     ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
     ax.set_axisbelow(True)
     ax.set_xlabel('Session')
-    ax.set_ylabel('Total')
+    ax.set_ylabel(ylabel)
+    if ticks is not None:
+        ax.set_yticks(ticks)
     plt.show()
+
+
+def plot_patient_nasa_first_last_training_and_independent():
+    _first_and_last_training_and_independent_bla_bla(
+        'P2 P5 P8 - Workload', 'Workload', 'NASA_TLX', 'total', np.arange(0, 130, 10))
+
+
+def plot_patient_stress_first_last_training_and_independent():
+    _first_and_last_training_and_independent_bla_bla(
+        'P2 P5 P8 - Stress', 'Stress', 'SAndS', 'stress', np.arange(0, 11, 1))
+
+
+def plot_patient_satisfaction_first_last_training_and_independent():
+    _first_and_last_training_and_independent_bla_bla(
+        'P2 P5 P8 - Satisfaction', 'Satisfaction', 'SAndS', 'satisfaction', np.arange(0, 11, 1))
 
 
 def plot_patient_nasa_last_training_and_independent():
@@ -142,13 +161,13 @@ def plot_patient_nasa_last_training_and_independent():
     labels = ['Last Training'] + [str(k) for k in list(patient_session.keys())]
     fig, ax = plt.subplots()
     ax.boxplot(data, labels=labels)
-    ax.set_title("NasaX sessions " + ",".join(patient_ids))
+    ax.set_title('P2 P5 P8 - Workload')
     ticks = np.arange(0, 140, 20)
     ax.set_yticks(ticks[1:])
     ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
     ax.set_axisbelow(True)
     ax.set_xlabel('Session')
-    ax.set_ylabel('Total')
+    ax.set_ylabel('Workload')
     plt.show()
 
 
@@ -172,7 +191,7 @@ def _rom(side):
         for k in d.keys():
             if d[k]:
                 data.append(d[k])
-                l = p + k
+                l = p.upper() + k
                 labels.append(l)
 
     fig, ax = plt.subplots()
@@ -193,19 +212,20 @@ def plot_rom_r():
     _rom('R')
 
 
-def _fes(predicate, sort_sessions):
+def _fes(predicate, names, sort_sessions, arrangement=None):
     feses = {}
     for p in PATIENTS:
-        feses[p.name] = {'labels': [], 'data': []}
-        fes = p.data['FES_times']
-        for f in fes:
-            feses[p.name]['labels'].append(str(f['session']))
-            d = []
-            for v in f['times_for_activation']:
-                if not np.isnan(v):
-                    if predicate(v):
-                        d .append(v)
-            feses[p.name]['data'].append(d)
+        if p.name in names:
+            feses[p.name] = {'labels': [], 'data': []}
+            fes = p.data['FES_times']
+            for f in fes:
+                feses[p.name]['labels'].append(str(f['session']))
+                d = []
+                for v in f['times_for_activation']:
+                    if not np.isnan(v):
+                        if predicate(v):
+                            d .append(v)
+                feses[p.name]['data'].append(d)
 
     keys = list(feses.keys())
     # Turn
@@ -224,12 +244,14 @@ def _fes(predicate, sort_sessions):
         sorted_values = [v[1] for v in srt]
         series.append([sorted_labels, sorted_values])
 
-    fig, axes = plt.subplots(2, 4)
+    if arrangement is None:
+        arrangement = {'nrows': 2, 'ncols': 4}
+    fig, axes = plt.subplots(**arrangement)
     for ix, ax in enumerate(axes.flat):
         s = series[ix]
         ax.boxplot(s[1], labels=s[0])
         key = keys[ix]
-        ax.set_title("Time per activation ({})".format(key))
+        ax.set_title("Time For Activation ({})".format(key.upper()))
         ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
         ax.set_axisbelow(True)
         ax.set_xlabel('Sessions')
@@ -237,20 +259,32 @@ def _fes(predicate, sort_sessions):
     plt.show()
 
 
+def plot_fes_all_p2_p3():
+    _fes(lambda a: True, ['p2', 'p3'], False, {'nrows': 1, 'ncols': 2})
+
+
+def plot_fes_all_p4_p5():
+    _fes(lambda a: True, ['p4', 'p5'], False, {'nrows': 1, 'ncols': 2})
+
+
+def plot_fes_all_p6_p7():
+    _fes(lambda a: True, ['p6', 'p7'], False, {'nrows': 1, 'ncols': 2})
+
+
+def plot_fes_all_p8_p9():
+    _fes(lambda a: True, ['p8', 'p9'], False, {'nrows': 1, 'ncols': 2})
+
+
 def plot_fes_all_sorted():
-    _fes(lambda a: True, True)
-
-
-def plot_fes_all():
-    _fes(lambda a: True, False)
+    _fes(lambda a: True, [p.name for p in PATIENTS], True)
 
 
 def plot_fes_greater_than_1_2_sorted():
-    _fes(lambda a: a >= 1.2, True)
+    _fes(lambda a: a >= 1.2, [p.name for p in PATIENTS], True)
 
 
 def plot_fes_greater_than_1_2():
-    _fes(lambda a: a >= 1.2, False)
+    _fes(lambda a: a >= 1.2, [p.name for p in PATIENTS], False)
 
 
 def plot_average_tpr_for_each_patient():
@@ -273,13 +307,13 @@ def plot_average_tpr_for_each_patient():
         error.append(err)
         data.append((count, pctg))
 
-    counts, y = zip(*data)
-    #x = range(len(counts))
+    srt = sorted(data, key=lambda x: x[0])
+    counts, y = zip(*srt)
     fig, ax = plt.subplots()
-    ax.boxplot(data, labels=counts)
+    ax.boxplot(srt, labels=counts)
     ax.set_xlabel("Number of Sessions")
     ax.set_ylabel("Average True Positive Rate (%)")
-    plt.title("Average TPR for  Each patient")
+    plt.title("Average TPR For All Sessions Of Each Patient")
     plt.show()
 
 
@@ -303,12 +337,13 @@ def plot_average_fdr_for_each_patient():
         error.append(err)
         data.append((count, pctg))
 
-    counts, y = zip(*data)
+    srt = sorted(data, key=lambda x: x[0])
+    counts, y = zip(*srt)
     fig, ax = plt.subplots()
-    ax.boxplot(data, labels=counts)
+    ax.boxplot(srt, labels=counts)
     ax.set_xlabel("Number of Sessions")
-    ax.set_ylabel("Average True Positive Rate (%)")
-    plt.title("Average FDR for  Each patient")
+    ax.set_ylabel("Average False Detection Rate (%)")
+    plt.title("Average FDR For All Sessions Of Each Patient")
     plt.show()
 
 

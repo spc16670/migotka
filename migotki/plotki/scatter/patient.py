@@ -26,26 +26,39 @@ def patients_currents(extensors_or_flexors):
     for p, data in extensors.items():
         session, currents = zip(*data)
         marker = markers[p]
-        ax.scatter(session, currents, alpha=0.8, edgecolors='none', s=30, marker=marker, label=p)
+        ax.scatter(session, currents, alpha=0.8, edgecolors='none', s=30, marker=marker, label=p.upper())
 
     ax.set_xlabel('Session Number')
     ax.set_ylabel('Current (mA)')
 
     title = "Extensors" if extensors_or_flexors else "Flexors"
-    plt.title("All Patients " + title + " Currents")
+    plt.title("All Patients Currents - " + title)
     plt.legend(loc=5)
     plt.show()
 
 
 def plot_all_patients_extensors_currents():
+    """
+    TODO: Markers of P2, P7 and P9 to get bigger
+    :return:
+    """
     patients_currents(True)
 
 
 def plot_all_patients_flexors_currents():
+    """
+    TODO: Markers of P2, P7 and P9 to get bigger
+    :return:
+    """
     patients_currents(False)
 
 
 def plot_threshold_across_sessions():
+    """
+    TODO: Markers of P2, P7 and P9 to get bigger
+    :return:
+    """
+
     # Make scatter plot of threshold values vs session for
     # each patient and all patients on one plot
     pids = {'p2': [], 'p3': [], 'p4': [], 'p5': [], 'p6': [], 'p7': [], 'p8': [], 'p9': []}
@@ -68,13 +81,13 @@ def plot_threshold_across_sessions():
     for p, data in pids.items():
         session, currents = zip(*data)
         marker = markers[p]
-        ax.scatter(session, currents, alpha=0.8, edgecolors='none', s=60, marker=marker, label=p)
+        ax.scatter(session, currents, alpha=0.8, edgecolors='none', s=60, marker=marker, label=p.upper())
 
     ax.set_xlabel('Session Number')
-    ax.set_ylabel('Current (mA)')
+    ax.set_ylabel('Power (V^2/Hz)')
 
-    title = "Threasholds"
-    plt.title("All Patients " + title + " Currents")
+    title = "Thresholds"
+    plt.title("All Patients " + title)
     plt.legend(loc=5)
     plt.show()
 

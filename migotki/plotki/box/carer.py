@@ -7,32 +7,44 @@ from dao import CARERS
 TYPE = BOXPLOT
 
 
-def plot_carer_nasa_first_last_training():
+def _first_last_training(title, ylabel, indicator, key, ticks=None):
     firsts = []
     lasts = []
     for c in CARERS:
-        patients_trainings = c.get_training_sessions('NASA_TLX')
+        patients_trainings = c.get_training_sessions(indicator)
         first = patients_trainings[0]
-        first_total = first['total']
+        first_total = first[key]
         if not np.isnan(first_total):
             firsts.append(first_total)
         last = patients_trainings[-1]
-        last_total = last['total']
+        last_total = last[key]
         if not np.isnan(last_total):
             lasts.append(last_total)
     fig, ax = plt.subplots()
     ax.boxplot([firsts, lasts], labels=['First Training', 'Last Training'])
-    ax.set_title("NASA TLX Total Workload")
-    ticks = np.arange(0, 140, 20)
-    ax.set_yticks(ticks[1:])
+    ax.set_title(title)
+    if ticks is not None:
+        ax.set_yticks(ticks)
     ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
     ax.set_axisbelow(True)
     ax.set_xlabel('Session')
-    ax.set_ylabel('Workload')
+    ax.set_ylabel(ylabel)
     plt.show()
 
 
-def plot_carer_nasa_first_last_training_and_independent():
+def plot_carer_nasa_first_last_training():
+    _first_last_training('All Carers - Workload', 'Workload', 'NASA_TLX', 'total', np.arange(0, 140, 20))
+
+
+def plot_carer_stress_first_last_training():
+    _first_last_training('All Carers - Stress', 'Stress', 'SAndS', 'stress', np.arange(0, 11, 1))
+
+
+def plot_carer_satisfaction_first_last_training():
+    _first_last_training('All Carers - Satisfaction', 'Satisfaction', 'SAndS', 'satisfaction', np.arange(0, 11, 1))
+
+
+def _first_last_training_and_independent(title, ylabel, indicator, key, ticks=None):
     training_firsts = []
     independent_firsts = []
     training_lasts = []
@@ -41,39 +53,51 @@ def plot_carer_nasa_first_last_training_and_independent():
     carers = [p for p in CARERS if p.name in carer_ids]
     for c in carers:
         # training
-        carer_trainings = c.get_training_sessions('NASA_TLX')
+        carer_trainings = c.get_training_sessions(indicator)
         first = carer_trainings[0]
-        first_total = first['total']
+        first_total = first[key]
         if not np.isnan(first_total):
             training_firsts.append(first_total)
         last = carer_trainings[-1]
-        last_total = last['total']
+        last_total = last[key]
         if not np.isnan(last_total):
             training_lasts.append(last_total)
         # independent
-        nasa = c.data['NASA_TLX']
+        nasa = c.data[indicator]
         s_ix = c.data['Training_sessions']
         independent = nasa[s_ix:]
         first_independent = independent[0]
-        first_independent_total = first_independent['total']
+        first_independent_total = first_independent[key]
         if not np.isnan(first_independent_total):
             independent_firsts.append(first_independent_total)
         last_independent = independent[-1]
-        last_independent_total = last_independent['total']
+        last_independent_total = last_independent[key]
         if not np.isnan(last_independent_total):
             independent_lasts.append(last_independent_total)
 
     fig, ax = plt.subplots()
     ax.boxplot([training_firsts, training_lasts, independent_firsts, independent_lasts],
                labels=['First Training', 'Last Training', 'First Independent', 'Last Independent'])
-    ax.set_title("NASA TLX Total Workload " + ",".join(carer_ids))
-    ticks = np.arange(0, 140, 20)
-    ax.set_yticks(ticks[1:])
+    ax.set_title(title)
+    if ticks is not None:
+        ax.set_yticks(ticks)
     ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
     ax.set_axisbelow(True)
     ax.set_xlabel('Session')
-    ax.set_ylabel('Workload')
+    ax.set_ylabel(ylabel)
     plt.show()
+
+
+def plot_carer_nasa_first_last_training_and_independent():
+    _first_last_training_and_independent('C2 C5 C8 - Workload', 'Workload', 'NASA_TLX', 'total', np.arange(0, 130, 10))
+
+
+def plot_carer_stress_first_last_training_and_independent():
+    _first_last_training_and_independent('C2 C5 C8 - Stress', 'Stress', 'SAndS', 'stress', np.arange(0, 11, 1))
+
+
+def plot_carer_satisfaction_first_last_training_and_independent():
+    _first_last_training_and_independent('C2 C5 C8 - Satisfaction', 'Satisfaction', 'SAndS', 'satisfaction')
 
 
 def plot_carer_nasa_last_training_and_independent():
@@ -100,7 +124,7 @@ def plot_carer_nasa_last_training_and_independent():
     labels = ['Last Training'] + [str(k) for k in list(carer_session.keys())]
     fig, ax = plt.subplots()
     ax.boxplot(data, labels=labels)
-    ax.set_title("NASA TLX Total Workload " + ",".join(carer_ids))
+    ax.set_title("C2 C5 C8 - Workload")
     ticks = np.arange(0, 140, 20)
     ax.set_yticks(ticks[1:])
     ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)

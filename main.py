@@ -34,6 +34,7 @@ class App:
             elif plot_type == SCATTERPLOT:
                 self.listbox.itemconfig(ix, bg='grey')
         self.listbox.bind("<Double-Button-1>", self.call_back)
+        self.listbox.bind("<Return>", self.call_back)
         self.listbox.pack(expand=1, fill=tk.BOTH)
 
     def call_back(self, event):

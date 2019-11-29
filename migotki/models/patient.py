@@ -45,19 +45,6 @@ class Patient(MatModel):
             'Perceived_usefulness': None
         }
 
-    def __repr__(self):
-        msg = "Person " + self.name + "{\n"
-        for k, v in self.data.items():
-            msg += "\t" + k + ": "
-            if isinstance(v, list):
-                for e in v:
-                    msg += "\n\t\t" + str(e)
-                msg += "\n"
-            else:
-                msg += str(v) + "\n"
-        msg += "}\n"
-        return msg
-
     def from_mat(self, path=None):
         if not path:
             path = "data/patients/{}.mat".format(self.name)

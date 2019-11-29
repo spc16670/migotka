@@ -4,6 +4,7 @@ from tkinter import Tk, Frame, Listbox
 
 import dao
 from contants import BARCHART, BOXPLOT, SCATTERPLOT
+import migotki.plotki.box.ot as boxplots_ots
 import migotki.plotki.box.carer as boxplots_carers
 import migotki.plotki.box.patient as boxplots_patients
 import migotki.plotki.bar.patient as barchart_patients
@@ -59,9 +60,10 @@ def get_plotting_functions(modules):
 
 
 def main():
-    dao.print_patients()
+    dao.print_ots()
     root = Tk()
     funcs = get_plotting_functions([
+        boxplots_ots,
         boxplots_carers,
         boxplots_patients,
         barchart_patients,

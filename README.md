@@ -33,4 +33,3 @@ TO DO 28/12/2019
     being a positive bar. Make initial and final assessment values for one patient 
     be clearly grouped together next to each other and other patients' values be further
     off on the same plot.
-git p

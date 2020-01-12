@@ -60,7 +60,8 @@ def get_plotting_functions(modules):
 
 
 def main():
-    dao.print_ots()
+    #dao.print_ots()
+    dao.print_patients()
     root = Tk()
     funcs = get_plotting_functions([
         boxplots_ots,

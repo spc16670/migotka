@@ -1,5 +1,4 @@
 import numpy as np
-import scipy
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 
@@ -9,7 +8,7 @@ from dao import PATIENTS
 TYPE = BOXPLOT
 
 
-def _donnings(patients: list, sessions: list, title: str):
+def _donnings(patients: list, sessions: list, title: str, linears: None):
     patient_donnings = [p.data['Donning'] for p in PATIENTS if p.name in patients]
     session_dict = {}
     for s in sessions:
@@ -18,21 +17,8 @@ def _donnings(patients: list, sessions: list, title: str):
         for donnings in patient_donnings:
             session_dict[s].extend([d['total'] for d in donnings if d['session'] == s])
     data = list(session_dict.values())
-    print(session_dict)
     fig, ax = plt.subplots()
     session_str = [str(k) for k in session_dict.keys()]
-
-
-    #x = list(session_dict.keys())
-    #x = np.linspace(0, max(sessions))
-    #f = lambda x: 6 * np.exp(-x / 50.)
-    # medians = [np.median(t) for t in data]
-    # print(medians)
-    # coef = np.polyfit(x, medians, 1)
-    # poly1d_fn = np.poly1d(coef)
-    # plt.plot(x, poly1d_fn(x))
-    # plt.xlim(0, max(sessions)+1)
-
 
     ax.boxplot(data, labels=session_str, positions=sessions, widths=2)
     ax.set_title(title)
@@ -43,6 +29,67 @@ def _donnings(patients: list, sessions: list, title: str):
     ax.set_axisbelow(True)
     ax.set_xlabel('Session Number')
     ax.set_ylabel('Donning Time (min)')
+
+    if linears:
+        """
+        on r^2: https://uk.mathworks.com/help/matlab/data_analysis/linear-regression.html
+        :param patients:
+        :param sessions:
+        :param title:
+        :return:
+        """
+        y = [np.median(t) for t in data]
+        x = sessions
+        # linear regression
+        coeffs = np.polyfit(x, y, 1)
+        lin_a = coeffs[1]
+        lin_a_round = round(lin_a, 3)
+        lin_b = coeffs[0]
+        lin_b_round = round(lin_b, 3)
+        p = np.poly1d(coeffs)
+
+        # r2
+        # https://stackoverflow.com/questions/893657/how-do-i-calculate-r-squared-using-python-and-numpy
+        yhat = p(x)  # or [p(z) for z in x]
+        ybar = np.sum(y) / len(y)  # or sum(y)/len(y)
+        ssreg = np.sum((yhat - ybar) ** 2)  # or sum([ (yihat - ybar)**2 for yihat in yhat])
+        sstot = np.sum((y - ybar) ** 2)  # or sum([ (yi - ybar)**2 for yi in y])
+        lin_r_squared = ssreg / sstot
+        lin_r_squared_round = round(lin_r_squared, 3)
+
+        plt.plot(x, y, 'yo', x, p(x), '--k')
+        # yo is yellow dot, --k is dashed black line (see https://www.mathworks.com/help/matlab/ref/linespec.html)
+        plt.xlim(-1, max(x) + 2)
+        plt.ylim(5)
+
+        # logarithmic regression
+        def func(t, a, b):
+            return a + b * np.log(t)
+
+        import scipy.optimize
+        popt, pcov = scipy.optimize.curve_fit(func, x, y)
+        log_a = popt[0]
+        log_a_round = round(log_a, 3)
+        log_b = popt[1]
+        log_b_round = round(log_b, 3)
+        trialX = np.linspace(x[0], x[-1], 20)
+        ylog = func(trialX, *popt)
+
+        # r2
+        # https://stackoverflow.com/questions/19189362/getting-the-r-squared-value-using-curve-fit
+        residuals = y - func(x, *popt)
+        ss_res = np.sum(residuals ** 2)
+        ss_tot = np.sum((y - np.mean(y)) ** 2)
+        log_r_squared = 1 - (ss_res / ss_tot)
+        log_r_squared_round = round(log_r_squared, 3)
+
+        plt.plot(trialX, ylog, 'r-', ls='--')
+
+        # legend
+        lin = mpatches.Patch(color='black', label="y=a+bx\na={}, b={}\n$r^2={}$".format(lin_a_round, lin_b_round, lin_r_squared_round))
+        log = mpatches.Patch(color='red', label="y=a+bln(x)\na={}, b={}\n$r^2={}$".format(log_a_round, log_b_round, log_r_squared_round))
+        plt.legend(handles=[lin, log])
+
     plt.show()
 
 
@@ -51,85 +98,10 @@ def plot_patient_donning_all_s_1_5_10_14():
     _donnings(patients, [1, 5, 10, 14], "All Patients - Donning At Select Sessions")
 
 
-def _donnings_regression(patients: list, sessions: list, title: str):
-    """
-    on r^2: https://uk.mathworks.com/help/matlab/data_analysis/linear-regression.html
-    :param patients:
-    :param sessions:
-    :param title:
-    :return:
-    """
-    patient_donnings = [p.data['Donning'] for p in PATIENTS if p.name in patients]
-    session_dict = {}
-    for s in sessions:
-        session_dict[s] = []
-    for s in session_dict:
-        for donnings in patient_donnings:
-            session_dict[s].extend([d['total'] for d in donnings if d['session'] == s])
-    data = list(session_dict.values())
-    fig, ax = plt.subplots()
-    session_str = [str(k) for k in session_dict.keys()]
-    ax.boxplot(data, labels=session_str, positions=sessions, widths=2)
-    ax.set_title(title)
-    ax.set_xticks(sessions)
-    ticks = np.arange(0, 65, 5)
-    ax.set_yticks(ticks[1:])
-    ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
-    ax.set_axisbelow(True)
-    ax.set_xlabel('Session Number')
-    ax.set_ylabel('Donning Time (min)')
-
-    # regressions
-    y = [np.median(t) for t in data]
-    x = sessions
-    # linear regression
-    coeffs = np.polyfit(x, y, 1)
-    p = np.poly1d(coeffs)
-
-    # r2
-    # https://stackoverflow.com/questions/893657/how-do-i-calculate-r-squared-using-python-and-numpy
-    yhat = p(x)  # or [p(z) for z in x]
-    ybar = np.sum(y) / len(y)  # or sum(y)/len(y)
-    ssreg = np.sum((yhat - ybar) ** 2)  # or sum([ (yihat - ybar)**2 for yihat in yhat])
-    sstot = np.sum((y - ybar) ** 2)  # or sum([ (yi - ybar)**2 for yi in y])
-    lin_r_squared = ssreg / sstot
-    lin_r_squared_round = round(lin_r_squared, 3)
-
-    plt.plot(x, y, 'yo', x, p(x), '--k')
-    # yo is yellow dot, --k is dashed black line (see https://www.mathworks.com/help/matlab/ref/linespec.html)
-    plt.xlim(-1, max(x) + 2)
-    plt.ylim(5)
-
-    # logarithmic regression
-    def func(t, a, b):
-        return a+b*np.log(t)
-    import scipy.optimize
-    popt, pcov = scipy.optimize.curve_fit(func,  x,  y)
-    trialX = np.linspace(x[0], x[-1], 20)
-    ylog = func(trialX, *popt)
-
-    # r2
-    # https://stackoverflow.com/questions/19189362/getting-the-r-squared-value-using-curve-fit
-    residuals = y - func(x, *popt)
-    ss_res = np.sum(residuals ** 2)
-    ss_tot = np.sum((y - np.mean(y)) ** 2)
-    log_r_squared = 1 - (ss_res / ss_tot)
-    log_r_squared_round = round(log_r_squared, 3)
-
-    plt.plot(trialX, ylog, 'r-', ls='--')
-
-    # legend
-    lin = mpatches.Patch(color='black', label="y=a+bx $r^2={}$".format(lin_r_squared_round))
-    log = mpatches.Patch(color='red', label="y=a+bln(x) $r^2={}$".format(log_r_squared_round))
-    plt.legend(handles=[lin, log])
-
-    plt.show()
-
-
 def plot_patient_donning_all_s_1_5_10_14_linear_regression():
     # add linear regression
     patients = [p.name for p in PATIENTS]
-    _donnings_regression(patients, [1, 5, 10, 14], "All Patients - Donning At Select Sessions")
+    _donnings(patients, [1, 5, 10, 14], "All Patients - Donning At Select Sessions", True)
 
 
 def plot_patient_donning_p2_p5_p8_s_all():
@@ -137,9 +109,10 @@ def plot_patient_donning_p2_p5_p8_s_all():
     _donnings(patients, range(1, 16), "P2 P5 P8 - Donning Time")
 
 
-def _first_and_last(title, y_label, key, indicator, ticks=None):
+def _first_and_last(title, y_label, key, indicator, ticks=None, with_wilcoxon=False):
     firsts = []
     lasts = []
+    common = []
     for p in PATIENTS:
         patients_trainings = p.get_training_sessions(key)
         # firsts
@@ -152,6 +125,8 @@ def _first_and_last(title, y_label, key, indicator, ticks=None):
         last_total = last[indicator]
         if not np.isnan(last_total):
             lasts.append(last_total)
+        if not np.isnan(first_total) and not np.isnan(last_total):
+            common.append([first_total, last_total])
     fig, ax = plt.subplots()
     ax.boxplot([firsts, lasts], labels=['First Training', 'Last Training'])
     ax.set_title(title)
@@ -161,19 +136,30 @@ def _first_and_last(title, y_label, key, indicator, ticks=None):
     ax.set_ylabel(y_label)
     if ticks is not None:
         ax.set_yticks(ticks)
+
+    if with_wilcoxon:
+        common_a = [c[0] for c in common]
+        common_b = [c[1] for c in common]
+        from scipy.stats import wilcoxon
+        print(common)
+        stat, p = wilcoxon(common_a, common_b)
+        p_round = round(p, 3)
+        wx = mpatches.Patch(color='red', label="Wilcoxon p-value={}".format(p_round))
+        plt.legend(handles=[wx])
+
     plt.show()
 
 
 def plot_patient_nasa_first_last_training():
-    _first_and_last('All Patients - Workload', 'Workload', 'NASA_TLX', 'total', np.arange(0, 130, 10))
+    _first_and_last('All Patients - Workload', 'Workload', 'NASA_TLX', 'total', np.arange(0, 130, 10), True)
 
 
 def plot_patient_stress_first_last_training():
-    _first_and_last('All Patients - Stress', 'Stress', 'SAndS', 'stress', np.arange(0, 11, 1))
+    _first_and_last('All Patients - Stress', 'Stress', 'SAndS', 'stress', np.arange(0, 11, 1), True)
 
 
 def plot_patient_satisfaction_first_last_training():
-    _first_and_last('All Patients - Satisfaction', 'Satisfaction', 'SAndS', 'satisfaction', np.arange(0, 11, 1))
+    _first_and_last('All Patients - Satisfaction', 'Satisfaction', 'SAndS', 'satisfaction', np.arange(0, 11, 1), True)
 
 
 def _first_and_last_training_and_independent_bla_bla(title, ylabel, indicator, key, ticks=None):

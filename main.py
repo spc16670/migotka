@@ -3,12 +3,13 @@ import tkinter as tk
 from tkinter import Tk, Frame, Listbox
 
 import dao
-from contants import BARCHART, BOXPLOT, SCATTERPLOT
+from contants import BARCHART, BOXPLOT, SCATTERPLOT, HISTOGRAM
 import migotki.plotki.box.ot as boxplots_ots
 import migotki.plotki.box.carer as boxplots_carers
 import migotki.plotki.box.patient as boxplots_patients
 import migotki.plotki.bar.patient as barchart_patients
 import migotki.plotki.scatter.patient as scatterplots_patients
+import migotki.plotki.hist.patient as histogram_patients
 
 
 class App:
@@ -34,6 +35,8 @@ class App:
                 self.listbox.itemconfig(ix, bg='yellow')
             elif plot_type == SCATTERPLOT:
                 self.listbox.itemconfig(ix, bg='grey')
+            elif plot_type == HISTOGRAM:
+                self.listbox.itemconfig(ix, bg='magenta')
         self.listbox.bind("<Double-Button-1>", self.call_back)
         self.listbox.bind("<Return>", self.call_back)
         self.listbox.pack(expand=1, fill=tk.BOTH)
@@ -68,7 +71,8 @@ def main():
         boxplots_carers,
         boxplots_patients,
         barchart_patients,
-        scatterplots_patients
+        scatterplots_patients,
+        histogram_patients
     ])
     App(root, funcs)
     root.bind("<Escape>", lambda q: root.destroy())

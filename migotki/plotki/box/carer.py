@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
 
 from contants import BOXPLOT
 from dao import CARERS
@@ -7,9 +8,10 @@ from dao import CARERS
 TYPE = BOXPLOT
 
 
-def _first_last_training(title, ylabel, indicator, key, ticks=None):
+def _first_last_training(title, ylabel, indicator, key, ticks=None, with_wilcoxon=False):
     firsts = []
     lasts = []
+    common = []
     for c in CARERS:
         patients_trainings = c.get_training_sessions(indicator)
         first = patients_trainings[0]
@@ -20,6 +22,8 @@ def _first_last_training(title, ylabel, indicator, key, ticks=None):
         last_total = last[key]
         if not np.isnan(last_total):
             lasts.append(last_total)
+        if not np.isnan(first_total) and not np.isnan(last_total):
+            common.append([first_total, last_total])
     fig, ax = plt.subplots()
     ax.boxplot([firsts, lasts], labels=['First Training', 'Last Training'])
     ax.set_title(title)
@@ -29,19 +33,30 @@ def _first_last_training(title, ylabel, indicator, key, ticks=None):
     ax.set_axisbelow(True)
     ax.set_xlabel('Session')
     ax.set_ylabel(ylabel)
+
+    if with_wilcoxon:
+        common_a = [c[0] for c in common]
+        common_b = [c[1] for c in common]
+        from scipy.stats import wilcoxon
+        print(common)
+        stat, p = wilcoxon(common_a, common_b)
+        p_round = round(p, 3)
+        wx = mpatches.Patch(color='red', label="Wilcoxon p-value={}".format(p_round))
+        plt.legend(handles=[wx])
+
     plt.show()
 
 
 def plot_carer_nasa_first_last_training():
-    _first_last_training('All Carers - Workload', 'Workload', 'NASA_TLX', 'total', np.arange(0, 140, 20))
+    _first_last_training('All Carers - Workload', 'Workload', 'NASA_TLX', 'total', np.arange(0, 140, 20), True)
 
 
 def plot_carer_stress_first_last_training():
-    _first_last_training('All Carers - Stress', 'Stress', 'SAndS', 'stress', np.arange(0, 11, 1))
+    _first_last_training('All Carers - Stress', 'Stress', 'SAndS', 'stress', np.arange(0, 11, 1), True)
 
 
 def plot_carer_satisfaction_first_last_training():
-    _first_last_training('All Carers - Satisfaction', 'Satisfaction', 'SAndS', 'satisfaction', np.arange(0, 11, 1))
+    _first_last_training('All Carers - Satisfaction', 'Satisfaction', 'SAndS', 'satisfaction', np.arange(0, 11, 1), True)
 
 
 def _first_last_training_and_independent(title, ylabel, indicator, key, ticks=None):

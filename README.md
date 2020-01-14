@@ -33,3 +33,10 @@ TO DO 28/12/2019
     being a positive bar. Make initial and final assessment values for one patient 
     be clearly grouped together next to each other and other patients' values be further
     off on the same plot.
+    
+TO DO 14/01/2020
+- add linear and log regression for plot_patient_donning_p2_p5_p8_s_all
+- Make boxplot of patient donning for first session and last training session for all 
+    patients except P9. 
+- Perform Wilcoxon signed rank test on the above plot
+

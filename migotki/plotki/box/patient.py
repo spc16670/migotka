@@ -8,7 +8,7 @@ from dao import PATIENTS
 TYPE = BOXPLOT
 
 
-def _donnings(patients: list, sessions: list, title: str, linears: None):
+def _donnings(patients: list, sessions: list, title: str, linears=False):
     patient_donnings = [p.data['Donning'] for p in PATIENTS if p.name in patients]
     session_dict = {}
     for s in sessions:
@@ -20,9 +20,10 @@ def _donnings(patients: list, sessions: list, title: str, linears: None):
     fig, ax = plt.subplots()
     session_str = [str(k) for k in session_dict.keys()]
 
-    ax.boxplot(data, labels=session_str, positions=sessions, widths=2)
+    width = 0.7 if len(sessions) > 6 else 2
+    ax.boxplot(data, labels=session_str, positions=sessions, widths=width)
     ax.set_title(title)
-    #ax.set_xticks(sessions)
+    ax.set_xticks(sessions)
     ticks = np.arange(0, 65, 5)
     ax.set_yticks(ticks[1:])
     ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
@@ -93,6 +94,12 @@ def _donnings(patients: list, sessions: list, title: str, linears: None):
     plt.show()
 
 
+def plot_patient_donning_first_last_training():
+    patients = [p for p in PATIENTS if p.name != 'p9']
+    title = [p.name.upper() for p in patients]
+    _first_and_last('Patients ' + ", ".join(title), 'Donning', 'Donning', 'total', np.arange(0, 80, 10), True, patients)
+
+
 def plot_patient_donning_all_s_1_5_10_14():
     patients = [p.name for p in PATIENTS]
     _donnings(patients, [1, 5, 10, 14], "All Patients - Donning At Select Sessions")
@@ -106,14 +113,16 @@ def plot_patient_donning_all_s_1_5_10_14_linear_regression():
 
 def plot_patient_donning_p2_p5_p8_s_all():
     patients = [p.name for p in PATIENTS if p.name in ['p2', 'p5', 'p8']]
-    _donnings(patients, range(1, 16), "P2 P5 P8 - Donning Time")
+    _donnings(patients, range(1, 16), "P2 P5 P8 - Donning Time", True)
 
 
-def _first_and_last(title, y_label, key, indicator, ticks=None, with_wilcoxon=False):
+def _first_and_last(title, y_label, key, indicator, ticks=None, with_wilcoxon=False, patients=None):
+    if not patients:
+        patients = PATIENTS
     firsts = []
     lasts = []
     common = []
-    for p in PATIENTS:
+    for p in patients:
         patients_trainings = p.get_training_sessions(key)
         # firsts
         first = patients_trainings[0]

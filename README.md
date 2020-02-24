@@ -37,3 +37,6 @@ TO DO 28/12/2019
 TO DO 24/02/2020
 - Edit boxplot of plot_patient_donning_all_s_1_5_10_14 to have sessions 1, last training, 10 and 14, 
     show only log regression, and to have Wilcoxon shown 
+- In OTs Donning boxplot, combine sessions 2 and 3 into one box and label it 'Last Training Session' and change 
+    session '1' label to 'First Training Session'
+    

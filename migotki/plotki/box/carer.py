@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 
+from migotki.common import last_and_sessions
 from contants import BOXPLOT
 from dao import CARERS
 
@@ -117,24 +118,8 @@ def plot_carer_satisfaction_first_last_training_and_independent():
 
 def plot_carer_nasa_last_training_and_independent():
     carer_ids = ['c2', 'c5', 'c8']
-    training_lasts = []
-    carer_session = {}
-    for sid in range(1, 11):
-        carer_session[sid] = []
     carers = [p for p in CARERS if p.name in carer_ids]
-    for p in carers:
-        nasa = p.data['NASA_TLX']
-        s_ix = p.data['Training_sessions']
-        last_training_session = nasa[s_ix-1]
-        last_total = last_training_session['total']
-        if not np.isnan(last_total):
-            training_lasts.append(last_total)
-        independent_sessions = nasa[s_ix:]
-        for ix, s in enumerate(independent_sessions):
-            s_independent_total = s['total']
-            if not np.isnan(s_independent_total):
-                carer_session[ix+1].append(s_independent_total)
-
+    training_lasts, carer_session = last_and_sessions(carers, 'NASA_TLX', 'total', 'Training_sessions')
     data = [training_lasts] + list(carer_session.values())
     labels = ['Last Training'] + [str(k) for k in list(carer_session.keys())]
     fig, ax = plt.subplots()

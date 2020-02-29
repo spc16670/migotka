@@ -1,0 +1,211 @@
+c2 {
+	Age: 48
+	Gender: Female
+	Education: Secondary
+	Distance_travelled: 40
+	NASA_TLX:
+		{'session': 1, 'mental_demand': 18, 'physical_demand': 12, 'temporal_demand': 14, 'performance': 10, 'effort': 13, 'frustration': 7, 'total': 74}
+		{'session': 2, 'mental_demand': 16, 'physical_demand': 11, 'temporal_demand': 16, 'performance': 5, 'effort': 16, 'frustration': 14, 'total': 78}
+		{'session': 3, 'mental_demand': 14, 'physical_demand': 12, 'temporal_demand': 12, 'performance': 8, 'effort': 14, 'frustration': 14, 'total': 74}
+		{'session': 4, 'mental_demand': 18, 'physical_demand': 12, 'temporal_demand': 14, 'performance': 4, 'effort': 17, 'frustration': 19, 'total': 84}
+		{'session': 5, 'mental_demand': 17, 'physical_demand': 12, 'temporal_demand': 15, 'performance': 4, 'effort': 16, 'frustration': 10, 'total': 74}
+		{'session': 6, 'mental_demand': 15, 'physical_demand': 12, 'temporal_demand': 13, 'performance': 4, 'effort': 12, 'frustration': 8, 'total': 64}
+		{'session': 7, 'mental_demand': 14, 'physical_demand': 10, 'temporal_demand': 10, 'performance': 6, 'effort': 17, 'frustration': 10, 'total': 67}
+		{'session': 8, 'mental_demand': 13, 'physical_demand': 10, 'temporal_demand': 10, 'performance': 6, 'effort': 16, 'frustration': 4, 'total': 59}
+		{'session': 9, 'mental_demand': 10, 'physical_demand': 6, 'temporal_demand': 10, 'performance': 2, 'effort': 17, 'frustration': 2, 'total': 47}
+		{'session': 10, 'mental_demand': 10, 'physical_demand': 6, 'temporal_demand': 10, 'performance': 2, 'effort': 12, 'frustration': 2, 'total': 42}
+		{'session': 11, 'mental_demand': 6, 'physical_demand': 6, 'temporal_demand': 10, 'performance': 2, 'effort': 10, 'frustration': 1, 'total': 35}
+		{'session': 12, 'mental_demand': 4, 'physical_demand': 6, 'temporal_demand': 10, 'performance': 3, 'effort': 10, 'frustration': 1, 'total': 34}
+		{'session': 13, 'mental_demand': 6, 'physical_demand': 8, 'temporal_demand': 10, 'performance': 4, 'effort': 14, 'frustration': 3, 'total': 45}
+		{'session': 14, 'mental_demand': 4, 'physical_demand': 3, 'temporal_demand': 10, 'performance': 1, 'effort': 8, 'frustration': 1, 'total': 27}
+	SAndS:
+		{'session': 1, 'stress': nan, 'satisfaction': nan}
+		{'session': 2, 'stress': 7, 'satisfaction': 8}
+		{'session': 3, 'stress': 7, 'satisfaction': 7}
+		{'session': 4, 'stress': 8, 'satisfaction': 0}
+		{'session': 5, 'stress': 6, 'satisfaction': 8}
+		{'session': 6, 'stress': 5, 'satisfaction': 8}
+		{'session': 7, 'stress': 5, 'satisfaction': 10}
+		{'session': 8, 'stress': 3, 'satisfaction': 10}
+		{'session': 9, 'stress': 1, 'satisfaction': 10}
+		{'session': 10, 'stress': 1, 'satisfaction': 10}
+		{'session': 11, 'stress': 1, 'satisfaction': 10}
+		{'session': 12, 'stress': 0, 'satisfaction': 9}
+		{'session': 13, 'stress': 3, 'satisfaction': 10}
+		{'session': 14, 'stress': 0, 'satisfaction': 10}
+	PIADS:
+	Training_sessions: 4
+}
+
+c3 {
+	Age: 30
+	Gender: Male
+	Education: Secondary
+	Distance_travelled: 20
+	NASA_TLX:
+		{'session': 1, 'mental_demand': nan, 'physical_demand': nan, 'temporal_demand': nan, 'performance': nan, 'effort': nan, 'frustration': nan, 'total': nan}
+		{'session': 2, 'mental_demand': 3, 'physical_demand': 1, 'temporal_demand': 5, 'performance': 4, 'effort': 3, 'frustration': 1, 'total': 17}
+		{'session': 3, 'mental_demand': 4, 'physical_demand': 1, 'temporal_demand': 5, 'performance': 5, 'effort': 4, 'frustration': 1, 'total': 20}
+		{'session': 4, 'mental_demand': 4, 'physical_demand': 1, 'temporal_demand': 2, 'performance': 4, 'effort': 3, 'frustration': 3, 'total': 17}
+		{'session': 5, 'mental_demand': nan, 'physical_demand': nan, 'temporal_demand': nan, 'performance': nan, 'effort': nan, 'frustration': nan, 'total': nan}
+		{'session': 6, 'mental_demand': 3, 'physical_demand': 3, 'temporal_demand': 2, 'performance': 4, 'effort': 4, 'frustration': 2, 'total': 18}
+		{'session': 7, 'mental_demand': 5, 'physical_demand': 1, 'temporal_demand': 10, 'performance': 4, 'effort': 5, 'frustration': 3, 'total': 28}
+		{'session': 8, 'mental_demand': 3, 'physical_demand': 3, 'temporal_demand': 4, 'performance': 5, 'effort': 3, 'frustration': 2, 'total': 20}
+	SAndS:
+		{'session': 1, 'stress': nan, 'satisfaction': nan}
+		{'session': 2, 'stress': nan, 'satisfaction': nan}
+		{'session': 3, 'stress': nan, 'satisfaction': nan}
+		{'session': 4, 'stress': nan, 'satisfaction': nan}
+		{'session': 5, 'stress': 2, 'satisfaction': 7}
+		{'session': 6, 'stress': 2, 'satisfaction': 8}
+		{'session': 7, 'stress': 1, 'satisfaction': 7}
+		{'session': 8, 'stress': 1, 'satisfaction': 7}
+	PIADS:
+	Training_sessions: 4
+}
+
+c4 {
+	Age: 42
+	Gender: Male
+	Education: Post-Secondary
+	Distance_travelled: 4
+	NASA_TLX:
+		{'session': 1, 'mental_demand': 2, 'physical_demand': 1, 'temporal_demand': 1, 'performance': 4, 'effort': 1, 'frustration': 1, 'total': 10}
+		{'session': 2, 'mental_demand': 2, 'physical_demand': 2, 'temporal_demand': 2, 'performance': 2, 'effort': 2, 'frustration': 0, 'total': 10}
+		{'session': 3, 'mental_demand': 3, 'physical_demand': 0, 'temporal_demand': 4, 'performance': 10, 'effort': 4, 'frustration': 1, 'total': 22}
+		{'session': 4, 'mental_demand': 12, 'physical_demand': 1, 'temporal_demand': 3, 'performance': 13, 'effort': 4, 'frustration': 1, 'total': 34}
+		{'session': 5, 'mental_demand': 6, 'physical_demand': 2, 'temporal_demand': 3, 'performance': 6, 'effort': 6, 'frustration': 0, 'total': 23}
+	SAndS:
+		{'session': 1, 'stress': 0, 'satisfaction': 9}
+		{'session': 2, 'stress': 0, 'satisfaction': 10}
+		{'session': 3, 'stress': 0, 'satisfaction': 10}
+		{'session': 4, 'stress': 0, 'satisfaction': 10}
+		{'session': 5, 'stress': 1, 'satisfaction': 9}
+	PIADS:
+	Training_sessions: 5
+}
+
+c5 {
+	Age: 63
+	Gender: Female
+	Education: Post-Secondary
+	Distance_travelled: 40
+	NASA_TLX:
+		{'session': 1, 'mental_demand': 14, 'physical_demand': 4, 'temporal_demand': 6, 'performance': 3, 'effort': 4, 'frustration': 10, 'total': 41}
+		{'session': 2, 'mental_demand': 20, 'physical_demand': 14, 'temporal_demand': 14, 'performance': 10, 'effort': 20, 'frustration': 16, 'total': 94}
+		{'session': 3, 'mental_demand': 14, 'physical_demand': 6, 'temporal_demand': 10, 'performance': 6, 'effort': 10, 'frustration': 6, 'total': 52}
+		{'session': 4, 'mental_demand': 7, 'physical_demand': 4, 'temporal_demand': 9, 'performance': 7, 'effort': 7, 'frustration': 5, 'total': 39}
+		{'session': 5, 'mental_demand': 16, 'physical_demand': 3, 'temporal_demand': 15, 'performance': 10, 'effort': 16, 'frustration': 16, 'total': 76}
+		{'session': 6, 'mental_demand': 18, 'physical_demand': 8, 'temporal_demand': 18, 'performance': 16, 'effort': 16, 'frustration': 16, 'total': 92}
+		{'session': 7, 'mental_demand': 8, 'physical_demand': 6, 'temporal_demand': 6, 'performance': 4, 'effort': 6, 'frustration': 6, 'total': 36}
+		{'session': 8, 'mental_demand': 2, 'physical_demand': 2, 'temporal_demand': 6, 'performance': 2, 'effort': 6, 'frustration': 2, 'total': 20}
+		{'session': 9, 'mental_demand': 4, 'physical_demand': 4, 'temporal_demand': 8, 'performance': 6, 'effort': 6, 'frustration': 5, 'total': 33}
+		{'session': 10, 'mental_demand': 4, 'physical_demand': 4, 'temporal_demand': 5, 'performance': 4, 'effort': 5, 'frustration': 4, 'total': 26}
+		{'session': 11, 'mental_demand': 3, 'physical_demand': 3, 'temporal_demand': 4, 'performance': 3, 'effort': 2, 'frustration': 2, 'total': 17}
+		{'session': 12, 'mental_demand': 2, 'physical_demand': 2, 'temporal_demand': 2, 'performance': 1, 'effort': 2, 'frustration': 1, 'total': 10}
+		{'session': 13, 'mental_demand': 14, 'physical_demand': 9, 'temporal_demand': 9, 'performance': 5, 'effort': 14, 'frustration': 14, 'total': 65}
+		{'session': 14, 'mental_demand': 3, 'physical_demand': 3, 'temporal_demand': 4, 'performance': 2, 'effort': 3, 'frustration': 3, 'total': 18}
+		{'session': 15, 'mental_demand': 1, 'physical_demand': 2, 'temporal_demand': 2, 'performance': 1, 'effort': 2, 'frustration': 1, 'total': 9}
+	SAndS:
+		{'session': 1, 'stress': nan, 'satisfaction': nan}
+		{'session': 2, 'stress': 8, 'satisfaction': 5}
+		{'session': 3, 'stress': 3, 'satisfaction': 8}
+		{'session': 4, 'stress': 3, 'satisfaction': 7}
+		{'session': 5, 'stress': 8, 'satisfaction': 5}
+		{'session': 6, 'stress': 5, 'satisfaction': 4}
+		{'session': 7, 'stress': 3, 'satisfaction': 8}
+		{'session': 8, 'stress': 1, 'satisfaction': 9}
+		{'session': 9, 'stress': 2, 'satisfaction': 8}
+		{'session': 10, 'stress': 1, 'satisfaction': 8}
+		{'session': 11, 'stress': 1, 'satisfaction': 8}
+		{'session': 12, 'stress': 0, 'satisfaction': 9}
+		{'session': 13, 'stress': 4, 'satisfaction': 5}
+		{'session': 14, 'stress': 1, 'satisfaction': 8}
+		{'session': 15, 'stress': 1, 'satisfaction': 10}
+	PIADS:
+	Training_sessions: 5
+}
+
+c6 {
+	Age: 46
+	Gender: Female
+	Education: Post-Secondary
+	Distance_travelled: 33
+	NASA_TLX:
+		{'session': 1, 'mental_demand': 12, 'physical_demand': 1, 'temporal_demand': 10, 'performance': 10, 'effort': 1, 'frustration': 1, 'total': 35}
+		{'session': 2, 'mental_demand': 10, 'physical_demand': 3, 'temporal_demand': 6, 'performance': 10, 'effort': 2, 'frustration': 2, 'total': 33}
+		{'session': 3, 'mental_demand': 2, 'physical_demand': 2, 'temporal_demand': 2, 'performance': 1, 'effort': 1, 'frustration': 1, 'total': 9}
+		{'session': 4, 'mental_demand': 1, 'physical_demand': 0, 'temporal_demand': 1, 'performance': 0, 'effort': 0, 'frustration': 0, 'total': 2}
+	SAndS:
+		{'session': 1, 'stress': 2, 'satisfaction': 8}
+		{'session': 2, 'stress': 3, 'satisfaction': 10}
+		{'session': 3, 'stress': 0, 'satisfaction': 10}
+		{'session': 4, 'stress': 0, 'satisfaction': 10}
+	PIADS:
+	Training_sessions: 4
+}
+
+c7 {
+	Age: 70
+	Gender: Female
+	Education: Secondary
+	Distance_travelled: 11
+	NASA_TLX:
+		{'session': 1, 'mental_demand': 7, 'physical_demand': 7, 'temporal_demand': 4, 'performance': 5, 'effort': 20, 'frustration': 1, 'total': 44}
+		{'session': 2, 'mental_demand': 2, 'physical_demand': 19, 'temporal_demand': 1, 'performance': 2, 'effort': 9, 'frustration': 3, 'total': 36}
+		{'session': 3, 'mental_demand': 20, 'physical_demand': 6, 'temporal_demand': 6, 'performance': 6, 'effort': 12, 'frustration': 19, 'total': 69}
+		{'session': 4, 'mental_demand': 20, 'physical_demand': 19, 'temporal_demand': 19, 'performance': 20, 'effort': 20, 'frustration': 20, 'total': 118}
+		{'session': 5, 'mental_demand': 8, 'physical_demand': 7, 'temporal_demand': 7, 'performance': 10, 'effort': 8, 'frustration': 8, 'total': 48}
+	SAndS:
+		{'session': 1, 'stress': 0, 'satisfaction': 6}
+		{'session': 2, 'stress': 3, 'satisfaction': 3}
+		{'session': 3, 'stress': 10, 'satisfaction': 6}
+		{'session': 4, 'stress': 10, 'satisfaction': 0}
+		{'session': 5, 'stress': 4, 'satisfaction': 5}
+	PIADS:
+	Training_sessions: 5
+}
+
+c8 {
+	Age: 25
+	Gender: Female
+	Education: Secondary
+	Distance_travelled: 2
+	NASA_TLX:
+		{'session': 1, 'mental_demand': 8, 'physical_demand': 4, 'temporal_demand': 5, 'performance': 6, 'effort': 7, 'frustration': 5, 'total': 35}
+		{'session': 2, 'mental_demand': 5, 'physical_demand': 5, 'temporal_demand': 2, 'performance': 3, 'effort': 6, 'frustration': 2, 'total': 23}
+		{'session': 3, 'mental_demand': 7, 'physical_demand': 7, 'temporal_demand': 5, 'performance': 10, 'effort': 10, 'frustration': 1, 'total': 40}
+		{'session': 4, 'mental_demand': 3, 'physical_demand': 3, 'temporal_demand': 3, 'performance': 7, 'effort': 3, 'frustration': 1, 'total': 20}
+		{'session': 5, 'mental_demand': 4, 'physical_demand': 1, 'temporal_demand': 2, 'performance': 6, 'effort': 5, 'frustration': 1, 'total': 19}
+		{'session': 6, 'mental_demand': 3, 'physical_demand': 3, 'temporal_demand': 3, 'performance': 4, 'effort': 2, 'frustration': 1, 'total': 16}
+		{'session': 7, 'mental_demand': 2, 'physical_demand': 2, 'temporal_demand': 2, 'performance': 4, 'effort': 2, 'frustration': 1, 'total': 13}
+		{'session': 8, 'mental_demand': 3, 'physical_demand': 3, 'temporal_demand': 1, 'performance': 4, 'effort': 2, 'frustration': 1, 'total': 14}
+		{'session': 9, 'mental_demand': 7, 'physical_demand': 4, 'temporal_demand': 1, 'performance': 6, 'effort': 6, 'frustration': 2, 'total': 26}
+		{'session': 10, 'mental_demand': 4, 'physical_demand': 1, 'temporal_demand': 1, 'performance': 6, 'effort': 4, 'frustration': 1, 'total': 17}
+	SAndS:
+		{'session': 1, 'stress': 0, 'satisfaction': 10}
+		{'session': 2, 'stress': 0, 'satisfaction': 8}
+		{'session': 3, 'stress': 0, 'satisfaction': 9}
+		{'session': 4, 'stress': 0, 'satisfaction': 8}
+		{'session': 5, 'stress': 0, 'satisfaction': 8}
+		{'session': 6, 'stress': 0, 'satisfaction': 9}
+		{'session': 7, 'stress': 0, 'satisfaction': 9}
+		{'session': 8, 'stress': 0, 'satisfaction': 9}
+		{'session': 9, 'stress': 0, 'satisfaction': 9}
+		{'session': 10, 'stress': 0, 'satisfaction': 10}
+	PIADS:
+	Training_sessions: 4
+}
+
+c9 {
+	Age: 38
+	Gender: Male
+	Education: Post-Secondary
+	Distance_travelled: 36
+	NASA_TLX:
+		{'session': 1, 'mental_demand': 20, 'physical_demand': 0, 'temporal_demand': 10, 'performance': 0, 'effort': 10, 'frustration': 2, 'total': 42}
+	SAndS:
+		{'session': 1, 'stress': 1, 'satisfaction': 10}
+	PIADS:
+	Training_sessions: 1
+}

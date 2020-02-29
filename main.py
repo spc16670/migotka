@@ -2,11 +2,13 @@ import inspect
 import tkinter as tk
 from tkinter import Tk, Frame, Listbox
 
-import dao
 from contants import BARCHART, BOXPLOT, SCATTERPLOT, HISTOGRAM
+
+import dao
 import migotki.plotki.box.ot as boxplots_ots
 import migotki.plotki.box.carer as boxplots_carers
 import migotki.plotki.box.patient as boxplots_patients
+import migotki.plotki.box.combined as boxplot_combined
 import migotki.plotki.bar.patient as barchart_patients
 import migotki.plotki.scatter.patient as scatterplots_patients
 import migotki.plotki.hist.patient as histogram_patients
@@ -15,7 +17,7 @@ import migotki.plotki.hist.patient as histogram_patients
 class App:
 
     WIDTH = 600
-    HEIGHT = 600
+    HEIGHT = 800
 
     def __init__(self, root, funcs):
         self.root = root
@@ -63,14 +65,16 @@ def get_plotting_functions(modules):
 
 
 def main():
-    #dao.print_ots()
+    # dao.print_ots()
     dao.print_patients()
+    # dao.print_carers()
     root = Tk()
     funcs = get_plotting_functions([
         boxplots_ots,
         boxplots_carers,
         boxplots_patients,
         barchart_patients,
+        boxplot_combined,
         scatterplots_patients,
         histogram_patients
     ])

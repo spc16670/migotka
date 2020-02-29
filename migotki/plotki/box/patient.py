@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 
+from migotki.common import first_and_last_data, first_last_and_independent_data
 from contants import BOXPLOT
 from dao import PATIENTS
 
@@ -117,25 +118,7 @@ def plot_patient_donning_p2_p5_p8_s_all():
 
 
 def _first_and_last(title, y_label, key, indicator, ticks=None, with_wilcoxon=False, patients=None):
-    if not patients:
-        patients = PATIENTS
-    firsts = []
-    lasts = []
-    common = []
-    for p in patients:
-        patients_trainings = p.get_training_sessions(key)
-        # firsts
-        first = patients_trainings[0]
-        first_total = first[indicator]
-        if not np.isnan(first_total):
-            firsts.append(first_total)
-        # lasts
-        last = patients_trainings[-1]
-        last_total = last[indicator]
-        if not np.isnan(last_total):
-            lasts.append(last_total)
-        if not np.isnan(first_total) and not np.isnan(last_total):
-            common.append([first_total, last_total])
+    firsts, lasts, common, p = first_and_last_data(key, indicator, patients)
     fig, ax = plt.subplots()
     ax.boxplot([firsts, lasts], labels=['First Training', 'Last Training'])
     ax.set_title(title)
@@ -145,16 +128,79 @@ def _first_and_last(title, y_label, key, indicator, ticks=None, with_wilcoxon=Fa
     ax.set_ylabel(y_label)
     if ticks is not None:
         ax.set_yticks(ticks)
-
     if with_wilcoxon:
-        common_a = [c[0] for c in common]
-        common_b = [c[1] for c in common]
-        from scipy.stats import wilcoxon
-        print(common)
-        stat, p = wilcoxon(common_a, common_b)
-        p_round = round(p, 3)
-        wx = mpatches.Patch(color='red', label="Wilcoxon p-value={}".format(p_round))
+        wx = mpatches.Patch(color='red', label="Wilcoxon p-value={}".format(p))
         plt.legend(handles=[wx])
+    plt.show()
+
+
+def plot_patient_donning_all_s_first_last_10_14_log_regression():
+    title = 'Patient Donning'
+    key = 'Donning'
+    indicator = 'total'
+    sessions = [10, 14]
+    firsts, lasts, common, p = first_and_last_data(key, indicator)
+
+    patient_donnings = [p.data[key] for p in PATIENTS]
+    session_dict = {}
+    for s in sessions:
+        session_dict[s] = []
+    for s in session_dict:
+        for donnings in patient_donnings:
+            session_dict[s].extend([d['total'] for d in donnings if d['session'] == s])
+    data = [firsts, lasts, session_dict[10], session_dict[14]]
+
+    fig, ax = plt.subplots()
+
+    x = [2, 6, 10, 14]
+    ax.set_xticks(x)
+
+    ax.boxplot(data, positions=x, labels=['First Training', 'Last Training', '10', '14'])
+    ax.set_title(title)
+    ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
+    ax.set_axisbelow(True)
+    ax.set_xlabel('Session')
+    ax.set_ylabel('Bla bla')
+    y_ticks = np.arange(0, 65, 5)
+    ax.set_yticks(y_ticks[1:])
+
+    # logarithmic regression
+    y = [np.median(t) for t in data]
+
+    print("x", x)
+    print("y", y)
+    def func(t, a, b):
+        return a + b * np.log(t)
+
+    import scipy.optimize
+    popt, pcov = scipy.optimize.curve_fit(func, x, y)
+    log_a = popt[0]
+    log_a_round = round(log_a, 3)
+    log_b = popt[1]
+    log_b_round = round(log_b, 3)
+    trialX = np.linspace(x[0], x[-1], 20)
+    ylog = func(trialX, *popt)
+
+    # r2
+    # https://stackoverflow.com/questions/19189362/getting-the-r-squared-value-using-curve-fit
+    residuals = y - func(x, *popt)
+    ss_res = np.sum(residuals ** 2)
+    ss_tot = np.sum((y - np.mean(y)) ** 2)
+    log_r_squared = 1 - (ss_res / ss_tot)
+    log_r_squared_round = round(log_r_squared, 3)
+
+    plt.plot(trialX, ylog, 'r-', ls='--')
+
+    # legend
+    wilcoxson_text = "Wilcoxon p-value={}".format(p)
+    # wx = mpatches.Patch(color='blue', label=wilcoxson_text)
+    log = mpatches.Patch(color='red', label="y=a+bln(x)\na={}, b={}\n$r^2={}$".format(log_a_round, log_b_round, log_r_squared_round))
+    plt.legend(handles=[log])
+
+    ax.annotate(wilcoxson_text, xy=(0.2, 0.75), xytext=(0.2, 0.85), xycoords='axes fraction',
+                fontsize=10, ha='center', va='bottom',
+                bbox=dict(boxstyle='square', fc='white'),
+                arrowprops=dict(arrowstyle='-[, widthB=5.5, lengthB=1', lw=1.0))
 
     plt.show()
 
@@ -172,36 +218,10 @@ def plot_patient_satisfaction_first_last_training():
 
 
 def _first_and_last_training_and_independent_bla_bla(title, ylabel, indicator, key, ticks=None):
-    training_firsts = []
-    independent_firsts = []
-    training_lasts = []
-    independent_lasts = []
     patient_ids = ['p2', 'p5', 'p8']
     patients = [p for p in PATIENTS if p.name in patient_ids]
-    for p in patients:
-        # training
-        patients_trainings = p.get_training_sessions(indicator)
-        first = patients_trainings[0]
-        first_total = first[key]
-        if not np.isnan(first_total):
-            training_firsts.append(first_total)
-        last = patients_trainings[-1]
-        last_total = last[key]
-        if not np.isnan(last_total):
-            training_lasts.append(last_total)
-        # independent
-        nasa = p.data[indicator]
-        s_ix = p.data['Training_sessions']
-        independent = nasa[s_ix:]
-        first_independent = independent[0]
-        first_independent_total = first_independent[key]
-        if not np.isnan(first_independent_total):
-            independent_firsts.append(first_independent_total)
-        last_independent = independent[-1]
-        last_independent_total = last_independent[key]
-        if not np.isnan(last_independent_total):
-            independent_lasts.append(last_independent_total)
-
+    training_firsts, training_lasts, independent_firsts, independent_lasts = first_last_and_independent_data(
+        key, indicator, patients)
     fig, ax = plt.subplots()
     ax.boxplot([training_firsts, training_lasts, independent_firsts, independent_lasts],
                labels=['First Training', 'Last Training', 'First Independent', 'Last Independent'])
@@ -231,11 +251,11 @@ def plot_patient_satisfaction_first_last_training_and_independent():
 
 
 def plot_patient_nasa_last_training_and_independent():
-    patient_ids = ['p2', 'p5', 'p8']
     training_lasts = []
     patient_session = {}
     for sid in range(1, 11):
         patient_session[sid] = []
+    patient_ids = ['p2', 'p5', 'p8']
     patients = [p for p in PATIENTS if p.name in patient_ids]
     for p in patients:
         nasa = p.data['NASA_TLX']

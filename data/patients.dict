@@ -1,0 +1,801 @@
+p2 {
+	Age: 20
+	Gender: Female
+	Education: Secondary
+	Injury_level: C4
+	ASIA_score: D
+	Time_after_injury: 9
+	Training_sessions: 4
+	Donning:
+		{'session': 1, 'all_green': 9, 'final_thresh': 10, 'final_FES': 18, 'total': 37}
+		{'session': 2, 'all_green': 10, 'final_thresh': 11, 'final_FES': 14, 'total': 35}
+		{'session': 3, 'all_green': 14, 'final_thresh': 23, 'final_FES': 3, 'total': 40}
+		{'session': 4, 'all_green': 11, 'final_thresh': 11, 'final_FES': 19, 'total': 41}
+		{'session': 5, 'all_green': nan, 'final_thresh': nan, 'final_FES': nan, 'total': 36}
+		{'session': 6, 'all_green': nan, 'final_thresh': nan, 'final_FES': nan, 'total': 39}
+		{'session': 7, 'all_green': nan, 'final_thresh': nan, 'final_FES': nan, 'total': 23}
+		{'session': 8, 'all_green': nan, 'final_thresh': nan, 'final_FES': nan, 'total': 42}
+		{'session': 9, 'all_green': nan, 'final_thresh': nan, 'final_FES': nan, 'total': 14}
+		{'session': 10, 'all_green': nan, 'final_thresh': nan, 'final_FES': nan, 'total': 14}
+		{'session': 11, 'all_green': nan, 'final_thresh': nan, 'final_FES': nan, 'total': 12}
+		{'session': 12, 'all_green': nan, 'final_thresh': nan, 'final_FES': nan, 'total': 21}
+		{'session': 13, 'all_green': nan, 'final_thresh': nan, 'final_FES': nan, 'total': 23}
+		{'session': 14, 'all_green': nan, 'final_thresh': nan, 'final_FES': nan, 'total': 14}
+	NASA_TLX:
+		{'session': 1, 'mental_demand': 15, 'physical_demand': 15, 'temporal_demand': 11, 'performance': 2, 'effort': 17, 'frustration': 4, 'total': 64}
+		{'session': 2, 'mental_demand': 16, 'physical_demand': 16, 'temporal_demand': 12, 'performance': 1, 'effort': 16, 'frustration': 4, 'total': 65}
+		{'session': 3, 'mental_demand': 18, 'physical_demand': 18, 'temporal_demand': 17, 'performance': 6, 'effort': 16, 'frustration': 2, 'total': 77}
+		{'session': 4, 'mental_demand': 17, 'physical_demand': 16, 'temporal_demand': 17, 'performance': 13, 'effort': 17, 'frustration': 12, 'total': 92}
+		{'session': 5, 'mental_demand': 19, 'physical_demand': 16, 'temporal_demand': 11, 'performance': 1, 'effort': 17, 'frustration': 4, 'total': 68}
+		{'session': 6, 'mental_demand': 19, 'physical_demand': 18, 'temporal_demand': 12, 'performance': 1, 'effort': 18, 'frustration': 5, 'total': 73}
+		{'session': 7, 'mental_demand': 18, 'physical_demand': 17, 'temporal_demand': 5, 'performance': 1, 'effort': 17, 'frustration': 1, 'total': 59}
+		{'session': 8, 'mental_demand': 18, 'physical_demand': 18, 'temporal_demand': 3, 'performance': 1, 'effort': 18, 'frustration': 1, 'total': 59}
+		{'session': 9, 'mental_demand': 19, 'physical_demand': 17, 'temporal_demand': 2, 'performance': 0, 'effort': 18, 'frustration': 1, 'total': 57}
+		{'session': 10, 'mental_demand': 18, 'physical_demand': 18, 'temporal_demand': 1, 'performance': 2, 'effort': 17, 'frustration': 1, 'total': 57}
+		{'session': 11, 'mental_demand': 19, 'physical_demand': 18, 'temporal_demand': 1, 'performance': 1, 'effort': 18, 'frustration': 1, 'total': 58}
+		{'session': 12, 'mental_demand': 19, 'physical_demand': 17, 'temporal_demand': 1, 'performance': 3, 'effort': 18, 'frustration': 1, 'total': 59}
+		{'session': 13, 'mental_demand': 18, 'physical_demand': 13, 'temporal_demand': 4, 'performance': 1, 'effort': 18, 'frustration': 1, 'total': 55}
+		{'session': 14, 'mental_demand': 17, 'physical_demand': 18, 'temporal_demand': 1, 'performance': 1, 'effort': 18, 'frustration': 1, 'total': 56}
+	SAndS:
+		{'session': 1, 'stress': nan, 'satisfaction': nan}
+		{'session': 2, 'stress': 2, 'satisfaction': 8}
+		{'session': 3, 'stress': 2, 'satisfaction': 7}
+		{'session': 4, 'stress': 0, 'satisfaction': 4}
+		{'session': 5, 'stress': 4, 'satisfaction': 9}
+		{'session': 6, 'stress': 3, 'satisfaction': 9}
+		{'session': 7, 'stress': 0, 'satisfaction': 9}
+		{'session': 8, 'stress': 0, 'satisfaction': 8}
+		{'session': 9, 'stress': 0, 'satisfaction': 10}
+		{'session': 10, 'stress': 0, 'satisfaction': 8}
+		{'session': 11, 'stress': 0, 'satisfaction': 9}
+		{'session': 12, 'stress': 0, 'satisfaction': 8}
+		{'session': 13, 'stress': 0, 'satisfaction': 9}
+		{'session': 14, 'stress': 0, 'satisfaction': 10}
+	BCIFES_Trials:
+		{'session': 1, 'TP': 8, 'FP': 0, 'TN': 2}
+		{'session': 2, 'TP': 16, 'FP': 0, 'TN': 4}
+		{'session': 3, 'TP': 8, 'FP': 0, 'TN': 2}
+		{'session': 4, 'TP': nan, 'FP': nan, 'TN': nan}
+		{'session': 5, 'TP': 9, 'FP': 0, 'TN': 1}
+		{'session': 6, 'TP': 10, 'FP': 0, 'TN': 0}
+		{'session': 7, 'TP': 17, 'FP': 1, 'TN': 2}
+		{'session': 8, 'TP': 10, 'FP': 0, 'TN': 0}
+		{'session': 9, 'TP': 28, 'FP': 1, 'TN': 1}
+		{'session': 10, 'TP': 16, 'FP': 2, 'TN': 2}
+		{'session': 11, 'TP': 17, 'FP': 3, 'TN': 0}
+		{'session': 12, 'TP': 19, 'FP': 1, 'TN': 0}
+		{'session': 13, 'TP': 9, 'FP': 0, 'TN': 1}
+		{'session': 14, 'TP': 17, 'FP': 1, 'TN': 2}
+	MMT_initial:
+		{'muscle': 'biceps/bracialis', 'L': '5', 'R': '5'}
+		{'muscle': 'triceps', 'L': '2', 'R': '4'}
+		{'muscle': 'FCR', 'L': '0', 'R': '4'}
+		{'muscle': 'ECRL', 'L': '4', 'R': '4'}
+		{'muscle': 'FDP', 'L': '1', 'R': '4'}
+		{'muscle': 'EDC', 'L': '0', 'R': '4'}
+		{'muscle': 'FPL', 'L': '0', 'R': '4+'}
+		{'muscle': 'EPL', 'L': '1+', 'R': '4'}
+		{'muscle': 'ADM', 'L': '2-', 'R': '4-'}
+	MMT_final:
+		{'muscle': 'biceps/bracialis', 'L': '5', 'R': '5'}
+		{'muscle': 'triceps', 'L': '2-', 'R': '5'}
+		{'muscle': 'FCR', 'L': '1', 'R': '4'}
+		{'muscle': 'ECRL', 'L': '4', 'R': '4'}
+		{'muscle': 'FDP', 'L': '3-', 'R': '4'}
+		{'muscle': 'EDC', 'L': '2+', 'R': '4'}
+		{'muscle': 'FPL', 'L': '0', 'R': '4+'}
+		{'muscle': 'EPL', 'L': '4', 'R': '4'}
+		{'muscle': 'ADM', 'L': '2+', 'R': '4'}
+	PIADS:
+		{'confident': 3, 'secure': 5, 'fit_with_routine': 5, 'fit_in_environments': 5, 'comfortable': 5}
+	ROM_initial:
+		{'trial': 1, 'type': 'L', 'flexion': 74, 'extension': -62}
+		{'trial': 2, 'type': 'L', 'flexion': 78, 'extension': -64}
+		{'trial': 3, 'type': 'L', 'flexion': 78, 'extension': -61}
+		{'trial': 4, 'type': 'L', 'flexion': 79, 'extension': -63}
+		{'trial': 5, 'type': 'L', 'flexion': 80, 'extension': -63}
+		{'trial': 1, 'type': 'R', 'flexion': 66, 'extension': -84}
+		{'trial': 2, 'type': 'R', 'flexion': 70, 'extension': -83}
+		{'trial': 3, 'type': 'R', 'flexion': 64, 'extension': -75}
+		{'trial': 4, 'type': 'R', 'flexion': 62, 'extension': -78}
+		{'trial': 5, 'type': 'R', 'flexion': 61, 'extension': -74}
+	ROM_final:
+		{'trial': 1, 'type': 'L', 'flexion': 71, 'extension': -66}
+		{'trial': 2, 'type': 'L', 'flexion': 64, 'extension': -65}
+		{'trial': 3, 'type': 'L', 'flexion': 67, 'extension': -63}
+		{'trial': 4, 'type': 'L', 'flexion': 67, 'extension': -61}
+		{'trial': 5, 'type': 'L', 'flexion': 58, 'extension': -63}
+		{'trial': 1, 'type': 'R', 'flexion': 70, 'extension': -65}
+		{'trial': 2, 'type': 'R', 'flexion': 68, 'extension': -73}
+		{'trial': 3, 'type': 'R', 'flexion': 68, 'extension': -71}
+		{'trial': 4, 'type': 'R', 'flexion': 78, 'extension': -67}
+		{'trial': 5, 'type': 'R', 'flexion': 76, 'extension': -73}
+	Threshold:
+		{'session': 1, 'threshold': [nan]}
+		{'session': 2, 'threshold': [1.3, 2.0]}
+		{'session': 3, 'threshold': [2.241, 1.904]}
+		{'session': 4, 'threshold': [19.1, 1.94, 8.0, 5.0, nan]}
+		{'session': 5, 'threshold': [6, 3, 6]}
+		{'session': 6, 'threshold': [9.6]}
+		{'session': 7, 'threshold': [7, 4]}
+		{'session': 8, 'threshold': [3.168]}
+		{'session': 9, 'threshold': [2.1]}
+		{'session': 10, 'threshold': [2.3]}
+		{'session': 11, 'threshold': [2.34]}
+		{'session': 12, 'threshold': [1.8]}
+		{'session': 13, 'threshold': [4.3, 1.5]}
+		{'session': 14, 'threshold': [4.7, 1.5]}
+	FES_parameters:
+		{'session': 1, 'current': [18, 16], 'pulse_width': [250, 250], 'start_time': [0, 5000], 'duration': [4000, 4000]}
+		{'session': 2, 'current': [18, 16], 'pulse_width': [200, 200], 'start_time': [0, 5000], 'duration': [4000, 4000]}
+		{'session': 3, 'current': [18, 16], 'pulse_width': [200, 200], 'start_time': [0, 5000], 'duration': [4000, 4000]}
+		{'session': 4, 'current': [18, 14], 'pulse_width': [200, 200], 'start_time': [0, 5000], 'duration': [4000, 4000]}
+		{'session': 5, 'current': [18, 14], 'pulse_width': [200, 200], 'start_time': [0, 5000], 'duration': [4000, 4000]}
+		{'session': 6, 'current': [18, 14], 'pulse_width': [200, 200], 'start_time': [0, 5000], 'duration': [4000, 3000]}
+		{'session': 7, 'current': [18, 14], 'pulse_width': [200, 200], 'start_time': [0, 5000], 'duration': [4000, 3000]}
+		{'session': 8, 'current': [18, 14], 'pulse_width': [200, 200], 'start_time': [0, 5000], 'duration': [4000, 3000]}
+		{'session': 9, 'current': [18, 14], 'pulse_width': [200, 200], 'start_time': [0, 5000], 'duration': [4000, 3000]}
+		{'session': 10, 'current': [18, 14], 'pulse_width': [200, 200], 'start_time': [0, 5000], 'duration': [4000, 3000]}
+		{'session': 11, 'current': [18, 14], 'pulse_width': [200, 200], 'start_time': [0, 5000], 'duration': [4000, 3000]}
+		{'session': 12, 'current': [18, 14], 'pulse_width': [200, 200], 'start_time': [0, 5000], 'duration': [4000, 3000]}
+		{'session': 13, 'current': [18, 14], 'pulse_width': [200, 200], 'start_time': [0, 5000], 'duration': [4000, 3000]}
+		{'session': 14, 'current': [18, 14], 'pulse_width': [200, 200], 'start_time': [0, 5000], 'duration': [4000, 3000]}
+	FES_times:
+		{'session': 1, 'times_for_activation': [2.2100000000000364, 1.0900000000001455, 4.259999999999991, 2.630000000000109, 5.230000000000018, 9.910000000000082, 3.9699999999998, 5.329999999999927]}
+		{'session': 2, 'times_for_activation': [1.9199999999998454, 10.589999999999918, 2.4400000000000546, 4.029999999999973, 4.630000000000109, 4.100000000000136, 2.7799999999999727, 1.040000000000191, 4.350000000000136, 1.3399999999999181, 3.25, 1.0700000000001637, 1.050000000000182, 1.0199999999999818, 1.050000000000182, 2.019999999999982]}
+		{'session': 3, 'times_for_activation': [3.8099999999999454, 1.7100000000000364, 2.520000000000209, 1.3799999999998818, 3.5299999999999727, 1.0200000000002092, 2.599999999999909]}
+		{'session': 4, 'times_for_activation': [nan]}
+		{'session': 5, 'times_for_activation': [1.2800000000002, 3.009999999999991, 4.649999999999864, 2.9600000000000364, 1.2000000000000455, 4.259999999999991, 4.480000000000018, 2.4099999999998545, 2.4600000000000364]}
+		{'session': 6, 'times_for_activation': [2.2480000000000473, 1.0229999999999109, 2.089999999999918, 6.119999999999891, 2.369999999999891, 8.819999999999936, 8.259999999999991, 8.5, 7.470000000000027, 1.3899999999998727]}
+		{'session': 7, 'times_for_activation': [1.9300000000000637, 1.5300000000002, 2.7000000000000455, 1.0, 1.0299999999999727, 2.519999999999982, 3.5799999999999272, 1.0199999999999818, 1.3200000000001637, 1.0199999999999818, 5.360000000000127, 2.9200000000000728, 2.349999999999909, 2.6799999999998363, 2.2000000000000455, 6.970000000000027, 1.0, 5.509999999999991]}
+		{'session': 8, 'times_for_activation': [2.147000000000048, 5.476999999999975, 4.339999999999918, 3.3190000000000737, 3.657000000000039, 1.5439999999999827, 4.963999999999942, 4.897999999999911, 10.394000000000005, 4.401000000000067]}
+		{'session': 9, 'times_for_activation': [nan]}
+		{'session': 10, 'times_for_activation': [4.379000000000019, 2.27800000000002, 3.3090000000000828, 5.437999999999988, 3.3220000000000027, 1.4979999999999336, 3.5399999999999636, 5.789999999999964, 2.3600000000001273, 7.480000000000018, 2.9699999999998, 6.0, 10.269999999999982, 2.1900000000000546, 1.0300000000002, 2.480000000000018, 2.689999999999827, 6.779999999999973]}
+		{'session': 11, 'times_for_activation': [1.0360000000000582, 3.1119999999999663, 4.139999999999986, 5.097999999999956, 4.565000000000055, 8.023000000000025, 1.3139999999999645, 2.4010000000000673, 3.106999999999971, 1.8900000000001, 1.0100000000002183, 2.3799999999998818, 1.0499999999999545, 1.4400000000000546, 1.7300000000000182, 2.490000000000009, 1.8800000000001091, 3.509999999999991, 3.3300000000001546, 2.410000000000082]}
+		{'session': 12, 'times_for_activation': [4.024999999999977, 11.711000000000013, 8.01600000000002, 4.825999999999965, 6.642999999999972, 2.312999999999988, 3.123999999999967, 4.979000000000042, 4.981999999999971, 4.293999999999983, 4.974000000000046, 2.6849999999999454, 3.6100000000000136, 8.798999999999978, 5.807999999999993, 1.766999999999939, 1.6549999999999727, 14.37600000000009, 2.1660000000000537]}
+		{'session': 13, 'times_for_activation': [4.7000000000000455, 3.8599999999999, 2.6599999999998545, 13.210000000000036, 6.230000000000018, 9.75, 7.7999999999999545, 2.8099999999999454, 2.339999999999918]}
+		{'session': 14, 'times_for_activation': [4.2169999999999845, 1.5350000000000819, 12.08299999999997, 3.4289999999999736, 5.884999999999991, 2.2930000000000064, 5.599000000000046, 6.591000000000008, 8.269999999999982, 4.339999999999918, 10.240000000000009, 3.880000000000109, 1.5700000000001637, 3.910000000000082, 3.0700000000001637, 1.8700000000001182, 6.9500000000000455, 8.129999999999882, 11.269999999999982]}
+	Perceived_usefulness: None
+}
+
+p3 {
+	Age: 63
+	Gender: Male
+	Education: Post-Secondary
+	Injury_level: C2
+	ASIA_score: C
+	Time_after_injury: 10
+	Training_sessions: 4
+	Donning:
+		{'session': 1, 'all_green': 10, 'final_thresh': 15, 'final_FES': 33, 'total': 58}
+		{'session': 2, 'all_green': 7, 'final_thresh': 14, 'final_FES': 29, 'total': 50}
+		{'session': 3, 'all_green': 7, 'final_thresh': 15, 'final_FES': 11, 'total': 33}
+		{'session': 4, 'all_green': 4, 'final_thresh': 19, 'final_FES': 3, 'total': 26}
+		{'session': 5, 'all_green': 10, 'final_thresh': 0, 'final_FES': 12, 'total': 22}
+		{'session': 6, 'all_green': 18, 'final_thresh': 0, 'final_FES': 10, 'total': 28}
+		{'session': 7, 'all_green': 8, 'final_thresh': 0, 'final_FES': 10, 'total': 18}
+		{'session': 8, 'all_green': nan, 'final_thresh': nan, 'final_FES': nan, 'total': 20}
+	NASA_TLX:
+		{'session': 1, 'mental_demand': nan, 'physical_demand': nan, 'temporal_demand': nan, 'performance': nan, 'effort': nan, 'frustration': nan, 'total': nan}
+		{'session': 2, 'mental_demand': 5, 'physical_demand': 10, 'temporal_demand': 15, 'performance': 10, 'effort': 15, 'frustration': 10, 'total': 65}
+		{'session': 3, 'mental_demand': 17, 'physical_demand': 11, 'temporal_demand': 10, 'performance': 3, 'effort': 16, 'frustration': 4, 'total': 61}
+		{'session': 4, 'mental_demand': 14, 'physical_demand': 10, 'temporal_demand': 2, 'performance': 4, 'effort': 13, 'frustration': 2, 'total': 45}
+		{'session': 5, 'mental_demand': nan, 'physical_demand': nan, 'temporal_demand': nan, 'performance': nan, 'effort': nan, 'frustration': nan, 'total': nan}
+		{'session': 6, 'mental_demand': 3, 'physical_demand': 11, 'temporal_demand': 5, 'performance': 4, 'effort': 11, 'frustration': 8, 'total': 42}
+		{'session': 7, 'mental_demand': 10, 'physical_demand': 5, 'temporal_demand': 3, 'performance': 5, 'effort': 15, 'frustration': 7, 'total': 45}
+		{'session': 8, 'mental_demand': 15, 'physical_demand': 11, 'temporal_demand': 5, 'performance': 8, 'effort': 9, 'frustration': 11, 'total': 59}
+	SAndS:
+		{'session': 1, 'stress': nan, 'satisfaction': nan}
+		{'session': 2, 'stress': nan, 'satisfaction': nan}
+		{'session': 3, 'stress': nan, 'satisfaction': nan}
+		{'session': 4, 'stress': nan, 'satisfaction': nan}
+		{'session': 5, 'stress': 2, 'satisfaction': 8}
+		{'session': 6, 'stress': 1, 'satisfaction': 8}
+		{'session': 7, 'stress': 6, 'satisfaction': 7}
+		{'session': 8, 'stress': 3, 'satisfaction': 7}
+	BCIFES_Trials:
+		{'session': 1, 'TP': nan, 'FP': nan, 'TN': nan}
+		{'session': 2, 'TP': nan, 'FP': nan, 'TN': nan}
+		{'session': 3, 'TP': 18, 'FP': 8, 'TN': 4}
+		{'session': 4, 'TP': 14, 'FP': 0, 'TN': 6}
+		{'session': 5, 'TP': 18, 'FP': 0, 'TN': 2}
+		{'session': 6, 'TP': 41, 'FP': 0, 'TN': 8}
+		{'session': 7, 'TP': 26, 'FP': 1, 'TN': 13}
+		{'session': 8, 'TP': 20, 'FP': 0, 'TN': 17}
+	MMT_initial:
+		{'muscle': 'biceps/bracialis', 'L': '2+', 'R': '4+'}
+		{'muscle': 'triceps', 'L': '2+', 'R': '4'}
+		{'muscle': 'FCR', 'L': '2', 'R': '4'}
+		{'muscle': 'ECRL', 'L': '1+', 'R': '4-'}
+		{'muscle': 'FDP', 'L': '4-', 'R': '4'}
+		{'muscle': 'EDC', 'L': '2-', 'R': '4'}
+		{'muscle': 'FPL', 'L': '4', 'R': '4'}
+		{'muscle': 'EPL', 'L': '1+', 'R': '4-'}
+		{'muscle': 'ADM', 'L': '1+', 'R': '0'}
+	MMT_final:
+	PIADS:
+		{'confident': 4, 'secure': 5, 'fit_with_routine': 5, 'fit_in_environments': 5, 'comfortable': 3}
+	ROM_initial:
+	ROM_final:
+	Threshold:
+		{'session': 1, 'threshold': [0.611, nan]}
+		{'session': 2, 'threshold': [2]}
+		{'session': 3, 'threshold': [2]}
+		{'session': 4, 'threshold': [nan]}
+		{'session': 5, 'threshold': [1.2]}
+		{'session': 6, 'threshold': [1.2]}
+		{'session': 7, 'threshold': [1.4]}
+		{'session': 8, 'threshold': [1.4, 2.0, 3.0, 4.0]}
+	FES_parameters:
+		{'session': 1, 'current': [20, 20], 'pulse_width': [250, 250], 'start_time': [0, 4000], 'duration': [4000, 4000]}
+		{'session': 2, 'current': [20, 20], 'pulse_width': [250, 250], 'start_time': [0, 4000], 'duration': [4000, 4000]}
+		{'session': 3, 'current': [20, 18], 'pulse_width': [250, 250], 'start_time': [0, 4000], 'duration': [4000, 4000]}
+		{'session': 4, 'current': [20, 18], 'pulse_width': [250, 250], 'start_time': [0, 4000], 'duration': [4000, 4000]}
+		{'session': 5, 'current': [24, 20], 'pulse_width': [250, 250], 'start_time': [0, 4000], 'duration': [4000, 3000]}
+		{'session': 6, 'current': [24, 16], 'pulse_width': [250, 250], 'start_time': [0, 4000], 'duration': [4000, 3000]}
+		{'session': 7, 'current': [24, 20], 'pulse_width': [250, 250], 'start_time': [0, 4000], 'duration': [4000, 3000]}
+		{'session': 8, 'current': [24, 20], 'pulse_width': [250, 250], 'start_time': [0, 4000], 'duration': [4000, 3000]}
+	FES_times:
+		{'session': 1, 'times_for_activation': [nan]}
+		{'session': 2, 'times_for_activation': [nan]}
+		{'session': 3, 'times_for_activation': [4.9500000000000455, 5.830000000000155, 2.4300000000000637, 5.389999999999873, 9.599999999999909, 11.349999999999909, 3.699999999999818, 8.019999999999982]}
+		{'session': 4, 'times_for_activation': [9.5, 2.0, 3.740000000000009, 7.199999999999818, 6.130000000000109, 10.75, 5.970000000000027, 8.269999999999982, 4.1099999999999, 1.7300000000000182, 1.0299999999999727, 2.1000000000001364, 12.8599999999999, 6.169999999999845, 4.269999999999982]}
+		{'session': 5, 'times_for_activation': [1.5669999999999504, 5.958999999999946, 2.8910000000000196, 3.144999999999982, 4.2590000000000146, 7.4950000000000045, 6.176000000000045, 7.249000000000024, 10.476999999999975, 13.146999999999935, 2.7169999999999845, 3.519999999999982, 5.765999999999963, 2.866999999999962, 5.758000000000038, 2.937000000000012, 1.97199999999998, 1.6620000000000346]}
+		{'session': 6, 'times_for_activation': [9.087999999999965, 2.923999999999978, 2.3740000000000236, 4.375, 8.937000000000012, 1.2060000000000173, 11.918000000000006, 14.740000000000009, 1.0599999999999454, 1.3399999999999181, 5.389999999999873, 5.289999999999964, 7.900000000000091, 6.880000000000109, 2.4200000000000728, 7.6400000000001, 12.170000000000073, 8.019999999999982, 6.119999999999891, 8.730000000000018, 9.1400000000001, 2.900000000000091, 2.7100000000000364, 9.0, 10.919999999999845, 7.220000000000027, 11.239999999999782, 1.6399999999998727, 5.460000000000036, 8.409999999999854, 14.179999999999836, 8.489999999999782, 9.36999999999989, 14.889999999999873]}
+		{'session': 7, 'times_for_activation': [14.302000000000021, 7.447000000000003, 9.692999999999984, 12.75100000000009, 5.118000000000052, 4.7450000000000045, 4.343999999999937, 1.8659999999999854, 14.759999999999991, 10.110000000000127, 7.119999999999891, 8.990000000000009, 10.950000000000045, 7.789999999999964, 9.289999999999964, 2.3700000000001182, 12.230000000000018, 11.239999999999782, 14.240000000000236, 6.630000000000109, 1.1899999999995998, 1.3800000000001091, 9.920000000000073]}
+		{'session': 8, 'times_for_activation': [12.289999999999964, 10.789999999999964, 12.490000000000009, 4.569999999999936, 7.259999999999991, 5.029999999999973, 7.580000000000155, 1.8600000000001273, 12.590000000000146, 6.130000000000109, 4.569999999999709, 7.039999999999964, 1.9699999999998, 1.7899999999999636]}
+	Perceived_usefulness: None
+}
+
+p4 {
+	Age: 67
+	Gender: Female
+	Education: Post-Secondary
+	Injury_level: C4
+	ASIA_score: C
+	Time_after_injury: 10
+	Training_sessions: 5
+	Donning:
+		{'session': 1, 'all_green': 7, 'final_thresh': 12, 'final_FES': 10, 'total': 29}
+		{'session': 2, 'all_green': 7, 'final_thresh': 12, 'final_FES': 30, 'total': 49}
+		{'session': 3, 'all_green': 4, 'final_thresh': 0, 'final_FES': 21, 'total': 25}
+		{'session': 4, 'all_green': 13, 'final_thresh': 27, 'final_FES': 2, 'total': 42}
+		{'session': 5, 'all_green': 11, 'final_thresh': 10, 'final_FES': 6, 'total': 27}
+	NASA_TLX:
+		{'session': 1, 'mental_demand': 10, 'physical_demand': 12, 'temporal_demand': 8, 'performance': 7, 'effort': 10, 'frustration': 2, 'total': 49}
+		{'session': 2, 'mental_demand': 11, 'physical_demand': 13, 'temporal_demand': 1, 'performance': 10, 'effort': 10, 'frustration': 1, 'total': 46}
+		{'session': 3, 'mental_demand': 16, 'physical_demand': 17, 'temporal_demand': 4, 'performance': 6, 'effort': 12, 'frustration': 2, 'total': 57}
+		{'session': 4, 'mental_demand': 4, 'physical_demand': 10, 'temporal_demand': 4, 'performance': 11, 'effort': 12, 'frustration': 13, 'total': 54}
+		{'session': 5, 'mental_demand': 4, 'physical_demand': 4, 'temporal_demand': 4, 'performance': 14, 'effort': 4, 'frustration': 4, 'total': 34}
+	SAndS:
+		{'session': 1, 'stress': 0, 'satisfaction': 7}
+		{'session': 2, 'stress': 1, 'satisfaction': 5}
+		{'session': 3, 'stress': 0, 'satisfaction': 7}
+		{'session': 4, 'stress': 5, 'satisfaction': 5}
+		{'session': 5, 'stress': 0, 'satisfaction': 3}
+	BCIFES_Trials:
+		{'session': 1, 'TP': nan, 'FP': nan, 'TN': nan}
+		{'session': 2, 'TP': nan, 'FP': nan, 'TN': nan}
+		{'session': 3, 'TP': 2, 'FP': 0, 'TN': 8}
+		{'session': 4, 'TP': 8, 'FP': 0, 'TN': 2}
+		{'session': 5, 'TP': 10, 'FP': 10, 'TN': 0}
+	MMT_initial:
+		{'muscle': 'biceps/bracialis', 'L': '5', 'R': '5'}
+		{'muscle': 'triceps', 'L': '5', 'R': '5'}
+		{'muscle': 'FCR', 'L': '4+', 'R': '4+'}
+		{'muscle': 'ECRL', 'L': '5', 'R': '5'}
+		{'muscle': 'FDP', 'L': '4', 'R': '4'}
+		{'muscle': 'EDC', 'L': '2-', 'R': '2-'}
+		{'muscle': 'FPL', 'L': '4+', 'R': '4+'}
+		{'muscle': 'EPL', 'L': '2-', 'R': '4'}
+		{'muscle': 'ADM', 'L': '3+', 'R': '3+'}
+	MMT_final:
+	PIADS:
+		{'confident': 3, 'secure': 5, 'fit_with_routine': 5, 'fit_in_environments': 5, 'comfortable': 5}
+	ROM_initial:
+		{'trial': 1, 'type': 'L', 'flexion': 61, 'extension': -49}
+		{'trial': 2, 'type': 'L', 'flexion': 74, 'extension': -49}
+		{'trial': 3, 'type': 'L', 'flexion': 77, 'extension': -55}
+		{'trial': 4, 'type': 'L', 'flexion': 74, 'extension': -51}
+		{'trial': 1, 'type': 'R', 'flexion': 77, 'extension': -48}
+		{'trial': 2, 'type': 'R', 'flexion': 80, 'extension': -49}
+		{'trial': 3, 'type': 'R', 'flexion': 81, 'extension': -47}
+		{'trial': 4, 'type': 'R', 'flexion': 81, 'extension': -51}
+	ROM_final:
+	Threshold:
+		{'session': 1, 'threshold': [nan]}
+		{'session': 2, 'threshold': [0.75]}
+		{'session': 3, 'threshold': [0.75, 0.5, 0.4]}
+		{'session': 4, 'threshold': [0.7, 1.5]}
+		{'session': 5, 'threshold': [1.0, 0.5, 1.0]}
+	FES_parameters:
+		{'session': 1, 'current': [nan, nan], 'pulse_width': [nan, nan], 'start_time': [nan, nan], 'duration': [nan, nan]}
+		{'session': 2, 'current': [nan, nan], 'pulse_width': [nan, nan], 'start_time': [nan, nan], 'duration': [nan, nan]}
+		{'session': 3, 'current': [14, 16], 'pulse_width': [250, 250], 'start_time': [0, 5000], 'duration': [4000, 4000]}
+		{'session': 4, 'current': [14, 12], 'pulse_width': [250, 250], 'start_time': [0, 5000], 'duration': [4000, 4000]}
+		{'session': 5, 'current': [18, 14], 'pulse_width': [250, 250], 'start_time': [0, 5000], 'duration': [4000, 4000]}
+	FES_times:
+		{'session': 1, 'times_for_activation': [nan]}
+		{'session': 2, 'times_for_activation': [nan]}
+		{'session': 3, 'times_for_activation': [5.649999999999864, 2.8299999999999272, 2.230000000000018, 1.4199999999998454, 5.210000000000036, 3.800000000000182, 4.9500000000000455, 12.970000000000027]}
+		{'session': 4, 'times_for_activation': [1.6100000000001273, 3.519999999999982, 2.5299999999999727, 6.230000000000018, 9.800000000000182, 2.4600000000000364, 1.2999999999999545, 1.3500000000001364, 6.230000000000018, 5.059999999999945]}
+		{'session': 5, 'times_for_activation': [1.2899999999999636, 2.0599999999999454, 10.239999999999782, 1.8299999999999272, 5.369999999999891, 1.9699999999998, 3.4600000000000364, 1.6399999999998727, 1.9800000000000182, 4.329999999999927, 1.0499999999997272, 2.8299999999999272, 1.0299999999997453, 2.400000000000091, 1.5399999999999636, 1.4600000000000364, 3.650000000000091, 2.5100000000002183, 3.199999999999818, 2.0299999999997453]}
+	Perceived_usefulness: None
+}
+
+p5 {
+	Age: 65
+	Gender: Male
+	Education: Secondary
+	Injury_level: C5
+	ASIA_score: D
+	Time_after_injury: 26
+	Training_sessions: 5
+	Donning:
+		{'session': 1, 'all_green': 7, 'final_thresh': 13, 'final_FES': 22, 'total': 42}
+		{'session': 2, 'all_green': 6, 'final_thresh': 16, 'final_FES': 16, 'total': 38}
+		{'session': 3, 'all_green': 1, 'final_thresh': 17, 'final_FES': 10, 'total': 28}
+		{'session': 4, 'all_green': 1, 'final_thresh': 12, 'final_FES': 8, 'total': 21}
+		{'session': 5, 'all_green': 7, 'final_thresh': 6, 'final_FES': 13, 'total': 26}
+		{'session': 6, 'all_green': 7, 'final_thresh': 21, 'final_FES': 3, 'total': 31}
+		{'session': 7, 'all_green': 4, 'final_thresh': 11, 'final_FES': 6, 'total': 21}
+		{'session': 8, 'all_green': 2, 'final_thresh': 11, 'final_FES': 3, 'total': 16}
+		{'session': 9, 'all_green': 4, 'final_thresh': 11, 'final_FES': 5, 'total': 20}
+		{'session': 10, 'all_green': 10, 'final_thresh': 8, 'final_FES': 5, 'total': 23}
+		{'session': 11, 'all_green': 2, 'final_thresh': 14, 'final_FES': 2, 'total': 18}
+		{'session': 12, 'all_green': 5, 'final_thresh': 9, 'final_FES': 6, 'total': 20}
+		{'session': 13, 'all_green': 4, 'final_thresh': 16, 'final_FES': 4, 'total': 24}
+		{'session': 14, 'all_green': 4, 'final_thresh': 13, 'final_FES': 5, 'total': 22}
+		{'session': 15, 'all_green': 2, 'final_thresh': 8, 'final_FES': 5, 'total': 15}
+	NASA_TLX:
+		{'session': 1, 'mental_demand': 10, 'physical_demand': 10, 'temporal_demand': 1, 'performance': 0, 'effort': 20, 'frustration': 1, 'total': 42}
+		{'session': 2, 'mental_demand': 10, 'physical_demand': 1, 'temporal_demand': 4, 'performance': 7, 'effort': 4, 'frustration': 1, 'total': 27}
+		{'session': 3, 'mental_demand': 6, 'physical_demand': 6, 'temporal_demand': 10, 'performance': 2, 'effort': 10, 'frustration': 2, 'total': 36}
+		{'session': 4, 'mental_demand': 6, 'physical_demand': 6, 'temporal_demand': 6, 'performance': 6, 'effort': 6, 'frustration': 6, 'total': 36}
+		{'session': 5, 'mental_demand': 6, 'physical_demand': 6, 'temporal_demand': 6, 'performance': 6, 'effort': 6, 'frustration': 6, 'total': 36}
+		{'session': 6, 'mental_demand': 6, 'physical_demand': 6, 'temporal_demand': 6, 'performance': 6, 'effort': 6, 'frustration': 6, 'total': 36}
+		{'session': 7, 'mental_demand': 6, 'physical_demand': 6, 'temporal_demand': 6, 'performance': 6, 'effort': 6, 'frustration': 6, 'total': 36}
+		{'session': 8, 'mental_demand': 10, 'physical_demand': 6, 'temporal_demand': 6, 'performance': 10, 'effort': 6, 'frustration': 10, 'total': 48}
+		{'session': 9, 'mental_demand': 10, 'physical_demand': 8, 'temporal_demand': 8, 'performance': 8, 'effort': 8, 'frustration': 16, 'total': 58}
+		{'session': 10, 'mental_demand': 10, 'physical_demand': 10, 'temporal_demand': 10, 'performance': 6, 'effort': 10, 'frustration': 6, 'total': 52}
+		{'session': 11, 'mental_demand': 10, 'physical_demand': 6, 'temporal_demand': 6, 'performance': 6, 'effort': 6, 'frustration': 2, 'total': 36}
+		{'session': 12, 'mental_demand': 14, 'physical_demand': 10, 'temporal_demand': 10, 'performance': 14, 'effort': 10, 'frustration': 2, 'total': 60}
+		{'session': 13, 'mental_demand': 10, 'physical_demand': 6, 'temporal_demand': 6, 'performance': 10, 'effort': 6, 'frustration': 10, 'total': 48}
+		{'session': 14, 'mental_demand': 6, 'physical_demand': 6, 'temporal_demand': 6, 'performance': 6, 'effort': 6, 'frustration': 6, 'total': 36}
+		{'session': 15, 'mental_demand': 6, 'physical_demand': 6, 'temporal_demand': 6, 'performance': 10, 'effort': 6, 'frustration': 1, 'total': 35}
+	SAndS:
+		{'session': 1, 'stress': nan, 'satisfaction': nan}
+		{'session': 2, 'stress': 0, 'satisfaction': 8}
+		{'session': 3, 'stress': 0, 'satisfaction': 10}
+		{'session': 4, 'stress': 0, 'satisfaction': 9}
+		{'session': 5, 'stress': 3, 'satisfaction': 5}
+		{'session': 6, 'stress': 3, 'satisfaction': 5}
+		{'session': 7, 'stress': 0, 'satisfaction': 10}
+		{'session': 8, 'stress': 3, 'satisfaction': 9}
+		{'session': 9, 'stress': 5, 'satisfaction': 5}
+		{'session': 10, 'stress': 0, 'satisfaction': 10}
+		{'session': 11, 'stress': 0, 'satisfaction': 10}
+		{'session': 12, 'stress': 3, 'satisfaction': 10}
+		{'session': 13, 'stress': 5, 'satisfaction': 10}
+		{'session': 14, 'stress': 3, 'satisfaction': 10}
+		{'session': 15, 'stress': 2, 'satisfaction': 10}
+	BCIFES_Trials:
+		{'session': 1, 'TP': 10, 'FP': 0, 'TN': 0}
+		{'session': 2, 'TP': 8, 'FP': 0, 'TN': 2}
+		{'session': 3, 'TP': 7, 'FP': 3, 'TN': 0}
+		{'session': 4, 'TP': 7, 'FP': 3, 'TN': 0}
+		{'session': 5, 'TP': 10, 'FP': 0, 'TN': 0}
+		{'session': 6, 'TP': 9, 'FP': 0, 'TN': 1}
+		{'session': 7, 'TP': 18, 'FP': 0, 'TN': 2}
+		{'session': 8, 'TP': 8, 'FP': 0, 'TN': 2}
+		{'session': 9, 'TP': 19, 'FP': 1, 'TN': 0}
+		{'session': 10, 'TP': 7, 'FP': 3, 'TN': 0}
+		{'session': 11, 'TP': 8, 'FP': 2, 'TN': 0}
+		{'session': 12, 'TP': 10, 'FP': 0, 'TN': 0}
+		{'session': 13, 'TP': 9, 'FP': 1, 'TN': 0}
+		{'session': 14, 'TP': 9, 'FP': 1, 'TN': 0}
+		{'session': 15, 'TP': 8, 'FP': 2, 'TN': 0}
+	MMT_initial:
+		{'muscle': 'biceps/bracialis', 'L': '5', 'R': '5'}
+		{'muscle': 'triceps', 'L': '4', 'R': '4'}
+		{'muscle': 'FCR', 'L': '4-', 'R': '4'}
+		{'muscle': 'ECRL', 'L': '4+', 'R': '5'}
+		{'muscle': 'FDP', 'L': '2', 'R': '4+'}
+		{'muscle': 'EDC', 'L': '0', 'R': '2-'}
+		{'muscle': 'FPL', 'L': '4-', 'R': '4'}
+		{'muscle': 'EPL', 'L': '0', 'R': '0'}
+		{'muscle': 'ADM', 'L': '4-', 'R': '4-'}
+	MMT_final:
+		{'muscle': 'biceps/bracialis', 'L': '5', 'R': '5'}
+		{'muscle': 'triceps', 'L': '3+', 'R': '4'}
+		{'muscle': 'FCR', 'L': '4-', 'R': '4+'}
+		{'muscle': 'ECRL', 'L': '4', 'R': '5'}
+		{'muscle': 'FDP', 'L': '4-', 'R': '4+'}
+		{'muscle': 'EDC', 'L': '2-', 'R': '4-'}
+		{'muscle': 'FPL', 'L': '3+', 'R': '4+'}
+		{'muscle': 'EPL', 'L': '0', 'R': '4-'}
+		{'muscle': 'ADM', 'L': '3-', 'R': '4-'}
+	PIADS:
+		{'confident': 3, 'secure': 5, 'fit_with_routine': 3, 'fit_in_environments': 5, 'comfortable': 5}
+	ROM_initial:
+		{'trial': 1, 'type': 'L', 'flexion': nan, 'extension': nan}
+		{'trial': 2, 'type': 'L', 'flexion': nan, 'extension': nan}
+		{'trial': 3, 'type': 'L', 'flexion': nan, 'extension': nan}
+		{'trial': 4, 'type': 'L', 'flexion': nan, 'extension': nan}
+		{'trial': 5, 'type': 'L', 'flexion': nan, 'extension': nan}
+		{'trial': 1, 'type': 'R', 'flexion': 47, 'extension': -56}
+		{'trial': 2, 'type': 'R', 'flexion': 50, 'extension': -54}
+		{'trial': 3, 'type': 'R', 'flexion': 46, 'extension': -53}
+		{'trial': 4, 'type': 'R', 'flexion': 48, 'extension': -52}
+		{'trial': 5, 'type': 'R', 'flexion': 51, 'extension': -50}
+	ROM_final:
+		{'trial': 1, 'type': 'L', 'flexion': 61, 'extension': -7}
+		{'trial': 2, 'type': 'L', 'flexion': 61, 'extension': -7}
+		{'trial': 3, 'type': 'L', 'flexion': 64, 'extension': -5}
+		{'trial': 4, 'type': 'L', 'flexion': 61, 'extension': -7}
+		{'trial': 5, 'type': 'L', 'flexion': 64, 'extension': -5}
+		{'trial': 1, 'type': 'R', 'flexion': 66, 'extension': -50}
+		{'trial': 2, 'type': 'R', 'flexion': 66, 'extension': -51}
+		{'trial': 3, 'type': 'R', 'flexion': 67, 'extension': -55}
+		{'trial': 4, 'type': 'R', 'flexion': 76, 'extension': -54}
+		{'trial': 5, 'type': 'R', 'flexion': 69, 'extension': -57}
+	Threshold:
+		{'session': 1, 'threshold': [2.725]}
+		{'session': 2, 'threshold': [1]}
+		{'session': 3, 'threshold': [2.4]}
+		{'session': 4, 'threshold': [2.3]}
+		{'session': 5, 'threshold': [1.8, 0.1]}
+		{'session': 6, 'threshold': [1.5, 3.0, 4.0]}
+		{'session': 7, 'threshold': [2.8]}
+		{'session': 8, 'threshold': [1.7]}
+		{'session': 9, 'threshold': [3.4]}
+		{'session': 10, 'threshold': [1.4]}
+		{'session': 11, 'threshold': [7.4, 2.0]}
+		{'session': 12, 'threshold': [1.45]}
+		{'session': 13, 'threshold': [4.08, 1.0]}
+		{'session': 14, 'threshold': [2.3, 1.0, 1.5]}
+		{'session': 15, 'threshold': [2, 1]}
+	FES_parameters:
+		{'session': 1, 'current': [50, 40], 'pulse_width': [250, 250], 'start_time': [0, 5000], 'duration': [4000, 3000]}
+		{'session': 2, 'current': [50, 40], 'pulse_width': [250, 250], 'start_time': [0, 5000], 'duration': [4000, 3000]}
+		{'session': 3, 'current': [50, 40], 'pulse_width': [250, 250], 'start_time': [0, 5000], 'duration': [4000, 3000]}
+		{'session': 4, 'current': [50, 40], 'pulse_width': [250, 250], 'start_time': [0, 5000], 'duration': [4000, 3000]}
+		{'session': 5, 'current': [50, 40], 'pulse_width': [250, 250], 'start_time': [0, 5000], 'duration': [4000, 3000]}
+		{'session': 6, 'current': [50, 40], 'pulse_width': [250, 250], 'start_time': [0, 5000], 'duration': [4000, 3000]}
+		{'session': 7, 'current': [50, 40], 'pulse_width': [250, 250], 'start_time': [0, 5000], 'duration': [4000, 3000]}
+		{'session': 8, 'current': [50, 40], 'pulse_width': [250, 250], 'start_time': [0, 5000], 'duration': [4000, 3000]}
+		{'session': 9, 'current': [50, 40], 'pulse_width': [250, 250], 'start_time': [0, 5000], 'duration': [4000, 3000]}
+		{'session': 10, 'current': [50, 40], 'pulse_width': [250, 250], 'start_time': [0, 5000], 'duration': [4000, 3000]}
+		{'session': 11, 'current': [50, 40], 'pulse_width': [250, 250], 'start_time': [0, 5000], 'duration': [4000, 3000]}
+		{'session': 12, 'current': [46, 40], 'pulse_width': [250, 250], 'start_time': [0, 5000], 'duration': [4000, 3000]}
+		{'session': 13, 'current': [50, 40], 'pulse_width': [250, 250], 'start_time': [0, 5000], 'duration': [4000, 3000]}
+		{'session': 14, 'current': [50, 40], 'pulse_width': [250, 250], 'start_time': [0, 5000], 'duration': [4000, 3000]}
+		{'session': 15, 'current': [50, 40], 'pulse_width': [250, 250], 'start_time': [0, 5000], 'duration': [4000, 3000]}
+	FES_times:
+		{'session': 1, 'times_for_activation': [1.0399999999999636, 1.5, 2.180000000000291, 2.5399999999999636, 4.510000000000218, 5.199999999999818, 1.0299999999997453, 1.0399999999999636, 1.0300000000002, 2.2899999999999636]}
+		{'session': 2, 'times_for_activation': [8.909999999999854, 6.820000000000164, 11.730000000000018, 6.980000000000018, 4.279999999999745, 13.099999999999909, 14.349999999999909, 1.7600000000002183]}
+		{'session': 3, 'times_for_activation': [1.0199999999999818, 9.210000000000036, 3.5299999999999727, 1.7200000000000273, 2.8700000000001182, 1.3099999999999454, 7.959999999999809, 14.759999999999991, 3.199999999999818, 1.009999999999991]}
+		{'session': 4, 'times_for_activation': [4.269999999999982, 1.0299999999999727, 2.0399999999999636, 4.230000000000018, 1.0199999999999818, 7.319999999999936, 1.009999999999991, 2.0699999999999363, 5.329999999999927, 1.6199999999998909]}
+		{'session': 5, 'times_for_activation': [nan]}
+		{'session': 6, 'times_for_activation': [1.627999999999929, 1.80499999999995, 2.0090000000000146, 6.460000000000036, 1.7409999999999854, 9.991999999999962, 1.5349999999999682, 1.9700000000000273, 2.1370000000000573]}
+		{'session': 7, 'times_for_activation': [1.62600000000009, 1.8000000000000682, 3.119999999999891, 4.079999999999927, 1.3400000000001455, 4.160000000000082, 1.2200000000000273, 1.3699999999998909, 2.230000000000018, 2.619999999999891, 1.0699999999999363, 2.880000000000109, 1.6700000000000728, 2.6800000000000637, 1.259999999999991, 2.2899999999999636, 2.009999999999991, 1.0399999999999636]}
+		{'session': 8, 'times_for_activation': [4.222000000000094, 9.448999999999955, 10.816000000000031, 6.533999999999992, 9.449999999999932, 10.029999999999973, 5.809999999999945, 1.0300000000002]}
+		{'session': 9, 'times_for_activation': [8.669999999999959, 2.849999999999909, 3.0399999999999636, 3.9600000000000364, 1.1900000000000546, 5.730000000000018, 3.119999999999891, 4.9500000000000455, 2.8099999999999454, 1.7699999999999818, 2.300000000000182, 6.069999999999936, 1.8799999999998818, 5.439999999999827, 2.4200000000000728, 2.4200000000000728, 7.920000000000073, 4.2000000000000455, 5.900000000000091, 3.269999999999982]}
+		{'session': 10, 'times_for_activation': [6.480000000000018, 1.3300000000001546, 1.0399999999999636, 8.189999999999827, 1.0299999999999727, 1.540000000000191, 3.5599999999999454, 2.990000000000009, 1.4400000000000546, 3.6099999999999]}
+		{'session': 11, 'times_for_activation': [0.029999999999972715, 9.13000000000011, 1.0399999999999636, 9.36999999999989, 1.3899999999998727, 1.0299999999999727, 1.0299999999999727, 6.120000000000118, 2.599999999999909, 1.7999999999999545]}
+		{'session': 12, 'times_for_activation': [3.6000000000000227, 12.013999999999896, 2.2200000000000273, 4.259999999999991, 1.3699999999998909, 6.069999999999936, 2.6799999999998363, 8.75, 3.339999999999918]}
+		{'session': 13, 'times_for_activation': [2.6699999999998454, 13.539999999999964, 1.4300000000000637, 5.100000000000136, 8.450000000000045, 8.430000000000064, 12.389999999999873, 3.1100000000001273, 6.620000000000118, 1.0399999999999636]}
+		{'session': 14, 'times_for_activation': [3.2999999999999545, 10.200000000000045, 5.860000000000127, 6.940000000000055, 0.01999999999998181, 6.120000000000118, 7.059999999999945, 13.079999999999927, 1.2999999999999545, 14.310000000000173]}
+		{'session': 15, 'times_for_activation': [6.451000000000022, 2.9760000000001128, 5.201000000000022, 4.265999999999963, 5.471000000000004, 5.095000000000027, 2.810000000000059, 1.22199999999998, 1.7450000000000045, 1.0299999999999727]}
+	Perceived_usefulness: None
+}
+
+p6 {
+	Age: 46
+	Gender: Male
+	Education: Post-Secondary
+	Injury_level: C4
+	ASIA_score: C
+	Time_after_injury: 6
+	Training_sessions: 4
+	Donning:
+		{'session': 1, 'all_green': 12, 'final_thresh': 17, 'final_FES': 10, 'total': 39}
+		{'session': 2, 'all_green': 14, 'final_thresh': 12, 'final_FES': 4, 'total': 30}
+		{'session': 3, 'all_green': 3, 'final_thresh': 13, 'final_FES': 7, 'total': 23}
+		{'session': 4, 'all_green': 5, 'final_thresh': 8, 'final_FES': 7, 'total': 20}
+	NASA_TLX:
+		{'session': 1, 'mental_demand': 14, 'physical_demand': 14, 'temporal_demand': 2, 'performance': 1, 'effort': 20, 'frustration': 2, 'total': 53}
+		{'session': 2, 'mental_demand': 15, 'physical_demand': 10, 'temporal_demand': 10, 'performance': 2, 'effort': 20, 'frustration': 1, 'total': 58}
+		{'session': 3, 'mental_demand': 3, 'physical_demand': 3, 'temporal_demand': 3, 'performance': 0, 'effort': 17, 'frustration': 1, 'total': 27}
+		{'session': 4, 'mental_demand': 0, 'physical_demand': 0, 'temporal_demand': 2, 'performance': 0, 'effort': 0, 'frustration': 0, 'total': 2}
+	SAndS:
+		{'session': 1, 'stress': 0, 'satisfaction': 10}
+		{'session': 2, 'stress': 3, 'satisfaction': 10}
+		{'session': 3, 'stress': 0, 'satisfaction': 10}
+		{'session': 4, 'stress': 0, 'satisfaction': 10}
+	BCIFES_Trials:
+		{'session': 1, 'TP': 6, 'FP': 0, 'TN': 4}
+		{'session': 2, 'TP': 8, 'FP': 1, 'TN': 1}
+		{'session': 3, 'TP': 20, 'FP': 0, 'TN': 0}
+		{'session': 4, 'TP': 17, 'FP': 0, 'TN': 2}
+	MMT_initial:
+		{'muscle': 'biceps/bracialis', 'L': '5', 'R': '5'}
+		{'muscle': 'triceps', 'L': '4', 'R': '4+'}
+		{'muscle': 'FCR', 'L': '4', 'R': '4+'}
+		{'muscle': 'ECRL', 'L': '4+', 'R': '5'}
+		{'muscle': 'FDP', 'L': '3', 'R': '0'}
+		{'muscle': 'EDC', 'L': '4-', 'R': '2+'}
+		{'muscle': 'FPL', 'L': '3+', 'R': '1'}
+		{'muscle': 'EPL', 'L': '3+', 'R': '2-'}
+		{'muscle': 'ADM', 'L': '3+', 'R': '2-'}
+	MMT_final:
+	PIADS:
+		{'confident': 4, 'secure': 5, 'fit_with_routine': 5, 'fit_in_environments': 5, 'comfortable': 5}
+	ROM_initial:
+	ROM_final:
+	Threshold:
+		{'session': 1, 'threshold': [1.5]}
+		{'session': 2, 'threshold': [1.5]}
+		{'session': 3, 'threshold': [9.9, 4.0, 1.5]}
+		{'session': 4, 'threshold': [1.5]}
+	FES_parameters:
+		{'session': 1, 'current': [18, 24], 'pulse_width': [250, 250], 'start_time': [0, 5000], 'duration': [4000, 3000]}
+		{'session': 2, 'current': [18, 24], 'pulse_width': [250, 250], 'start_time': [0, 5000], 'duration': [4000, 3000]}
+		{'session': 3, 'current': [18, 24], 'pulse_width': [250, 250], 'start_time': [0, 5000], 'duration': [4000, 3000]}
+		{'session': 4, 'current': [18, 24], 'pulse_width': [250, 250], 'start_time': [0, 5000], 'duration': [4000, 4000]}
+	FES_times:
+		{'session': 1, 'times_for_activation': [11.0, 3.5700000000001637, 8.150000000000091, 10.0, 4.349999999999909, 6.940000000000055]}
+		{'session': 2, 'times_for_activation': [3.3200000000001637, 9.730000000000018, 1.5499999999999545, 10.039999999999964, 1.7100000000000364, 4.389999999999873, 4.029999999999973, 1.5699999999999363, 8.2199999999998]}
+		{'session': 3, 'times_for_activation': [1.0399999999999636, 2.4300000000000637, 1.6300000000001091, 2.1000000000001364, 2.1100000000001273, 1.9100000000000819, 1.509999999999991, 14.509999999999991, 5.819999999999936, 2.619999999999891, 2.759999999999991, 1.0299999999999727, 5.690000000000055, 1.0199999999999818, 2.0499999999999545, 1.8199999999999363, 5.230000000000018, 1.0399999999999636, 1.4200000000000728, 0.42000000000007276]}
+		{'session': 4, 'times_for_activation': [10.271999999999935, 4.444999999999936, 1.8799999999999955, 1.7569999999999482, 5.349000000000046, 6.539999999999964, 3.1200000000001182, 3.4700000000000273, 2.540000000000191, 1.1800000000000637, 1.0599999999999454, 2.509999999999991, 1.0299999999999727, 9.900000000000091, 12.289999999999964, 2.8900000000001, 3.740000000000009]}
+	Perceived_usefulness: None
+}
+
+p7 {
+	Age: 73
+	Gender: Male
+	Education: Secondary
+	Injury_level: C2
+	ASIA_score: D
+	Time_after_injury: 7
+	Training_sessions: 5
+	Donning:
+		{'session': 1, 'all_green': 6, 'final_thresh': 24, 'final_FES': 14, 'total': 44}
+		{'session': 2, 'all_green': 6, 'final_thresh': 16, 'final_FES': 14, 'total': 36}
+		{'session': 3, 'all_green': 5, 'final_thresh': 27, 'final_FES': 7, 'total': 39}
+		{'session': 4, 'all_green': 5, 'final_thresh': 20, 'final_FES': 7, 'total': 32}
+		{'session': 5, 'all_green': 8, 'final_thresh': 12, 'final_FES': 14, 'total': 34}
+	NASA_TLX:
+		{'session': 1, 'mental_demand': 9, 'physical_demand': 9, 'temporal_demand': 4, 'performance': 8, 'effort': 2, 'frustration': 2, 'total': 34}
+		{'session': 2, 'mental_demand': 3, 'physical_demand': 4, 'temporal_demand': 4, 'performance': 12, 'effort': 10, 'frustration': 10, 'total': 43}
+		{'session': 3, 'mental_demand': 20, 'physical_demand': 10, 'temporal_demand': 10, 'performance': 1, 'effort': 10, 'frustration': 11, 'total': 62}
+		{'session': 4, 'mental_demand': 4, 'physical_demand': 15, 'temporal_demand': 4, 'performance': 3, 'effort': 17, 'frustration': 2, 'total': 45}
+		{'session': 5, 'mental_demand': 15, 'physical_demand': 4, 'temporal_demand': 6, 'performance': 1, 'effort': 14, 'frustration': 4, 'total': 44}
+	SAndS:
+		{'session': 1, 'stress': 0, 'satisfaction': 10}
+		{'session': 2, 'stress': 5, 'satisfaction': 5}
+		{'session': 3, 'stress': 8, 'satisfaction': 10}
+		{'session': 4, 'stress': 2, 'satisfaction': 7}
+		{'session': 5, 'stress': 7, 'satisfaction': 7}
+	BCIFES_Trials:
+		{'session': 1, 'TP': 6, 'FP': 4, 'TN': 0}
+		{'session': 2, 'TP': 10, 'FP': 0, 'TN': 0}
+		{'session': 3, 'TP': 9, 'FP': 1, 'TN': 0}
+		{'session': 4, 'TP': 7, 'FP': 3, 'TN': 0}
+		{'session': 5, 'TP': 17, 'FP': 0, 'TN': 3}
+	MMT_initial:
+		{'muscle': 'biceps/bracialis', 'L': '4', 'R': '4'}
+		{'muscle': 'triceps', 'L': '4', 'R': '2'}
+		{'muscle': 'FCR', 'L': '4', 'R': '2-'}
+		{'muscle': 'ECRL', 'L': '4', 'R': '4'}
+		{'muscle': 'FDP', 'L': '4-', 'R': '2-'}
+		{'muscle': 'EDC', 'L': '3+', 'R': '2-'}
+		{'muscle': 'FPL', 'L': '4', 'R': '0'}
+		{'muscle': 'EPL', 'L': '4', 'R': '0'}
+		{'muscle': 'ADM', 'L': '4', 'R': '4'}
+	MMT_final:
+	PIADS:
+		{'confident': 3, 'secure': 5, 'fit_with_routine': 2, 'fit_in_environments': 1, 'comfortable': 3}
+	ROM_initial:
+	ROM_final:
+	Threshold:
+		{'session': 1, 'threshold': [2.86]}
+		{'session': 2, 'threshold': [0.58, 1.0]}
+		{'session': 3, 'threshold': [1, 2]}
+		{'session': 4, 'threshold': [1.86]}
+		{'session': 5, 'threshold': [1.1]}
+	FES_parameters:
+		{'session': 1, 'current': [18, 24], 'pulse_width': [250, 250], 'start_time': [0, 4000], 'duration': [4000, 4000]}
+		{'session': 2, 'current': [18, 32], 'pulse_width': [250, 250], 'start_time': [0, 4000], 'duration': [4000, 4000]}
+		{'session': 3, 'current': [18, 30], 'pulse_width': [250, 250], 'start_time': [0, 5000], 'duration': [4000, 4000]}
+		{'session': 4, 'current': [18, 30], 'pulse_width': [250, 250], 'start_time': [0, 5000], 'duration': [4000, 4000]}
+		{'session': 5, 'current': [18, 32], 'pulse_width': [250, 250], 'start_time': [0, 5000], 'duration': [4000, 4000]}
+	FES_times:
+		{'session': 1, 'times_for_activation': [4.789999999999964, 2.4299999999998363, 2.2100000000000364, 1.0399999999999636, 1.0699999999999363, 1.400000000000091, 1.0299999999997453, 2.300000000000182, 3.5300000000002, 1.0599999999999454]}
+		{'session': 2, 'times_for_activation': [1.6600000000000819, 2.3900000000001, 2.4200000000000728, 1.540000000000191, 2.269999999999982, 3.4099999999998545, 9.379999999999882, 4.1599999999998545, 10.309999999999945, 12.639999999999873]}
+		{'session': 3, 'times_for_activation': [12.429999999999836, 2.0099999999997635, 1.8900000000003274, 2.400000000000091, 4.370000000000346, 2.0100000000002183, 1.0399999999999636, 1.4600000000000364, 1.6599999999998545, 4.319999999999709]}
+		{'session': 4, 'times_for_activation': [0.03999999999996362, 1.0299999999999727, 1.0399999999999636, 2.6400000000001, 2.7999999999999545, 1.0399999999999636, 1.0199999999999818, 1.009999999999991, 2.339999999999918, 2.8200000000001637]}
+		{'session': 5, 'times_for_activation': [2.6800000000000637, 1.2699999999999818, 3.1599999999998545, 2.689999999999827, 8.919999999999845, 6.279999999999973, 3.240000000000009, 8.599999999999909, 2.5, 3.519999999999982, 2.4600000000000364, 9.5, 2.269999999999982, 2.0599999999999454, 2.4500000000000455, 1.1100000000001273, 11.370000000000118]}
+	Perceived_usefulness: None
+}
+
+p8 {
+	Age: 53
+	Gender: Male
+	Education: Secondary
+	Injury_level: C4
+	ASIA_score: D
+	Time_after_injury: 18
+	Training_sessions: 4
+	Donning:
+		{'session': 1, 'all_green': 7, 'final_thresh': 20, 'final_FES': 17, 'total': 44}
+		{'session': 2, 'all_green': 5, 'final_thresh': 14, 'final_FES': 8, 'total': 27}
+		{'session': 3, 'all_green': 2, 'final_thresh': 10, 'final_FES': 4, 'total': 16}
+		{'session': 4, 'all_green': 6, 'final_thresh': 24, 'final_FES': 0, 'total': 30}
+		{'session': 5, 'all_green': 4, 'final_thresh': 9, 'final_FES': 6, 'total': 19}
+		{'session': 6, 'all_green': 2, 'final_thresh': 10, 'final_FES': 7, 'total': 19}
+		{'session': 7, 'all_green': 4, 'final_thresh': 6, 'final_FES': 21, 'total': 31}
+		{'session': 8, 'all_green': 3, 'final_thresh': 9, 'final_FES': 4, 'total': 16}
+		{'session': 9, 'all_green': 6, 'final_thresh': 7, 'final_FES': 8, 'total': 21}
+		{'session': 10, 'all_green': 5, 'final_thresh': 20, 'final_FES': 6, 'total': 31}
+	NASA_TLX:
+		{'session': 1, 'mental_demand': 10, 'physical_demand': 14, 'temporal_demand': 7, 'performance': 10, 'effort': 17, 'frustration': 10, 'total': 68}
+		{'session': 2, 'mental_demand': 14, 'physical_demand': 14, 'temporal_demand': 4, 'performance': 10, 'effort': 10, 'frustration': 14, 'total': 66}
+		{'session': 3, 'mental_demand': 5, 'physical_demand': 8, 'temporal_demand': 5, 'performance': 5, 'effort': 8, 'frustration': 5, 'total': 36}
+		{'session': 4, 'mental_demand': 6, 'physical_demand': 10, 'temporal_demand': 4, 'performance': 9, 'effort': 9, 'frustration': 2, 'total': 40}
+		{'session': 5, 'mental_demand': 5, 'physical_demand': 7, 'temporal_demand': 2, 'performance': 3, 'effort': 5, 'frustration': 2, 'total': 24}
+		{'session': 6, 'mental_demand': 2, 'physical_demand': 3, 'temporal_demand': 2, 'performance': 3, 'effort': 3, 'frustration': 1, 'total': 14}
+		{'session': 7, 'mental_demand': 10, 'physical_demand': 3, 'temporal_demand': 1, 'performance': 4, 'effort': 4, 'frustration': 8, 'total': 30}
+		{'session': 8, 'mental_demand': 3, 'physical_demand': 3, 'temporal_demand': 1, 'performance': 3, 'effort': 5, 'frustration': 1, 'total': 16}
+		{'session': 9, 'mental_demand': 2, 'physical_demand': 6, 'temporal_demand': 2, 'performance': 5, 'effort': 4, 'frustration': 4, 'total': 23}
+		{'session': 10, 'mental_demand': 1, 'physical_demand': 1, 'temporal_demand': 3, 'performance': 2, 'effort': 1, 'frustration': 1, 'total': 9}
+	SAndS:
+		{'session': 1, 'stress': 0, 'satisfaction': 8}
+		{'session': 2, 'stress': 0, 'satisfaction': 8}
+		{'session': 3, 'stress': 0, 'satisfaction': 9}
+		{'session': 4, 'stress': 0, 'satisfaction': 8}
+		{'session': 5, 'stress': 0, 'satisfaction': 9}
+		{'session': 6, 'stress': 0, 'satisfaction': 9}
+		{'session': 7, 'stress': 0, 'satisfaction': 9}
+		{'session': 8, 'stress': 0, 'satisfaction': 9}
+		{'session': 9, 'stress': 0, 'satisfaction': 9}
+		{'session': 10, 'stress': 0, 'satisfaction': 10}
+	BCIFES_Trials:
+		{'session': 1, 'TP': 8, 'FP': 1, 'TN': 1}
+		{'session': 2, 'TP': 10, 'FP': 0, 'TN': 0}
+		{'session': 3, 'TP': 9, 'FP': 0, 'TN': 1}
+		{'session': 4, 'TP': 9, 'FP': 0, 'TN': 1}
+		{'session': 5, 'TP': 18, 'FP': 0, 'TN': 1}
+		{'session': 6, 'TP': 19, 'FP': 0, 'TN': 1}
+		{'session': 7, 'TP': 20, 'FP': 0, 'TN': 0}
+		{'session': 8, 'TP': 24, 'FP': 2, 'TN': 4}
+		{'session': 9, 'TP': 18, 'FP': 1, 'TN': 1}
+		{'session': 10, 'TP': 11, 'FP': 9, 'TN': 0}
+	MMT_initial:
+		{'muscle': 'biceps/bracialis', 'L': '2+', 'R': '3+'}
+		{'muscle': 'triceps', 'L': '3', 'R': '3'}
+		{'muscle': 'FCR', 'L': '2', 'R': '3-'}
+		{'muscle': 'ECRL', 'L': '2-', 'R': '4'}
+		{'muscle': 'FDP', 'L': '2', 'R': '3+'}
+		{'muscle': 'EDC', 'L': '2-', 'R': '3+'}
+		{'muscle': 'FPL', 'L': '2-', 'R': '3+'}
+		{'muscle': 'EPL', 'L': '2-', 'R': '3+'}
+		{'muscle': 'ADM', 'L': '2-', 'R': '2'}
+	MMT_final:
+		{'muscle': 'biceps/bracialis', 'L': '3+', 'R': '4'}
+		{'muscle': 'triceps', 'L': '3', 'R': '4'}
+		{'muscle': 'FCR', 'L': '4-', 'R': '3+'}
+		{'muscle': 'ECRL', 'L': '3+', 'R': '3+'}
+		{'muscle': 'FDP', 'L': '3+', 'R': '4-'}
+		{'muscle': 'EDC', 'L': '3', 'R': '2'}
+		{'muscle': 'FPL', 'L': '0', 'R': '3'}
+		{'muscle': 'EPL', 'L': '1', 'R': '3+'}
+		{'muscle': 'ADM', 'L': '3', 'R': '3'}
+	PIADS:
+		{'confident': 3, 'secure': 4, 'fit_with_routine': 4, 'fit_in_environments': 5, 'comfortable': 5}
+	ROM_initial:
+		{'trial': 1, 'type': 'L', 'flexion': 41, 'extension': -13}
+		{'trial': 2, 'type': 'L', 'flexion': 40, 'extension': -13}
+		{'trial': 3, 'type': 'L', 'flexion': 40, 'extension': -9}
+		{'trial': 4, 'type': 'L', 'flexion': 39, 'extension': -9}
+		{'trial': 5, 'type': 'L', 'flexion': 38, 'extension': -11}
+		{'trial': 1, 'type': 'R', 'flexion': 18, 'extension': -25}
+		{'trial': 2, 'type': 'R', 'flexion': 17, 'extension': -21}
+		{'trial': 3, 'type': 'R', 'flexion': 13, 'extension': -26}
+		{'trial': 4, 'type': 'R', 'flexion': 4, 'extension': -28}
+		{'trial': 5, 'type': 'R', 'flexion': 8, 'extension': -23}
+	ROM_final:
+		{'trial': 1, 'type': 'L', 'flexion': 41, 'extension': -25}
+		{'trial': 2, 'type': 'L', 'flexion': 42, 'extension': -24}
+		{'trial': 3, 'type': 'L', 'flexion': 41, 'extension': -23}
+		{'trial': 4, 'type': 'L', 'flexion': 42, 'extension': -26}
+		{'trial': 5, 'type': 'L', 'flexion': 43, 'extension': -27}
+		{'trial': 1, 'type': 'R', 'flexion': 32, 'extension': -2}
+		{'trial': 2, 'type': 'R', 'flexion': 29, 'extension': -4}
+		{'trial': 3, 'type': 'R', 'flexion': 25, 'extension': -11}
+		{'trial': 4, 'type': 'R', 'flexion': 17, 'extension': -23}
+		{'trial': 5, 'type': 'R', 'flexion': 14, 'extension': -18}
+	Threshold:
+		{'session': 1, 'threshold': [0.9, 1.5, 2.0]}
+		{'session': 2, 'threshold': [1.3, 2.0]}
+		{'session': 3, 'threshold': [2.2]}
+		{'session': 4, 'threshold': [1.1, 2.0]}
+		{'session': 5, 'threshold': [2]}
+		{'session': 6, 'threshold': [2, 3]}
+		{'session': 7, 'threshold': [1, 2]}
+		{'session': 8, 'threshold': [2]}
+		{'session': 9, 'threshold': [2]}
+		{'session': 10, 'threshold': [2, 3, 1, 2]}
+	FES_parameters:
+		{'session': 1, 'current': [36, 42], 'pulse_width': [250, 250], 'start_time': [0, 5000], 'duration': [5000, 4000]}
+		{'session': 2, 'current': [36, 42], 'pulse_width': [250, 250], 'start_time': [0, 5000], 'duration': [5000, 4000]}
+		{'session': 3, 'current': [36, 42], 'pulse_width': [250, 250], 'start_time': [0, 5000], 'duration': [5000, 4000]}
+		{'session': 4, 'current': [36, 42], 'pulse_width': [250, 250], 'start_time': [0, 5000], 'duration': [5000, 4000]}
+		{'session': 5, 'current': [36, 42], 'pulse_width': [250, 300], 'start_time': [0, 5000], 'duration': [5000, 4000]}
+		{'session': 6, 'current': [36, 42], 'pulse_width': [250, 250], 'start_time': [0, 5000], 'duration': [5000, 4000]}
+		{'session': 7, 'current': [42, 48], 'pulse_width': [250, 300], 'start_time': [0, 5000], 'duration': [5000, 4000]}
+		{'session': 8, 'current': [42, 48], 'pulse_width': [250, 250], 'start_time': [0, 5000], 'duration': [5000, 4000]}
+		{'session': 9, 'current': [42, 48], 'pulse_width': [250, 250], 'start_time': [0, 5000], 'duration': [5000, 4000]}
+		{'session': 10, 'current': [42, 48], 'pulse_width': [250, 250], 'start_time': [0, 5000], 'duration': [5000, 4000]}
+	FES_times:
+		{'session': 1, 'times_for_activation': [1.0799999999999272, 3.1599999999998545, 4.550000000000182, 6.769999999999982, 1.6700000000000728, 6.110000000000127, 2.730000000000018, 3.1599999999998545, 1.0399999999999636]}
+		{'session': 2, 'times_for_activation': [3.0, 7.8400000000001455, 1.0499999999999545, 3.269999999999982, 10.970000000000027, 6.329999999999927, 4.3900000000001, 1.7799999999999727, 4.710000000000036, 1.0900000000001455]}
+		{'session': 3, 'times_for_activation': [2.197999999999979, 9.441000000000031, 1.030999999999949, 4.545999999999935, 13.322000000000003, 1.2699999999999818, 6.130000000000109, 10.100000000000136, 8.5]}
+		{'session': 4, 'times_for_activation': [3.730000000000018, 2.5499999999999545, 2.1200000000001182, 1.2200000000000273, 1.1900000000000546, 11.319999999999936, 4.829999999999927, 1.0299999999999727, 2.019999999999982]}
+		{'session': 5, 'times_for_activation': [1.8400000000000318, 4.398000000000025, 12.750999999999976, 7.189999999999941, 4.769999999999982, 6.269999999999982, 4.410000000000082, 3.4300000000000637, 6.820000000000164, 3.7000000000000455, 9.279999999999973, 2.650000000000091, 6.070000000000164, 8.849999999999909, 12.430000000000064, 9.170000000000073, 3.8400000000001455, 2.8199999999999363]}
+		{'session': 6, 'times_for_activation': [1.0199999999999818, 1.8900000000001, 9.860000000000127, 1.0299999999999727, 2.310000000000173, 2.019999999999982, 2.119999999999891, 5.430000000000064, 3.6000000000001364, 4.910000000000082, 1.0800000000001546, 1.1800000000000637, 6.410000000000082, 1.9600000000000364, 5.279999999999973, 2.25, 11.430000000000064, 2.589999999999918, 8.790000000000191]}
+		{'session': 7, 'times_for_activation': [3.2899999999999636, 1.75, 3.5799999999999272, 2.5499999999999545, 3.0499999999999545, 3.369999999999891, 1.2300000000000182, 1.1200000000001182, 3.0599999999999454, 1.0399999999999636, 1.740000000000009, 4.039999999999964, 1.0299999999999727, 4.720000000000027, 3.5299999999999727, 3.9600000000000364, 9.129999999999882, 7.990000000000009, 13.539999999999964, 1.3399999999999181]}
+		{'session': 8, 'times_for_activation': [2.38900000000001, 1.6059999999999945, 4.831000000000017, 8.793999999999983, 2.7409999999999854, 2.97199999999998, 8.061000000000035, 1.2899999999999636, 1.7559999999999718, 7.1099999999999, 1.9700000000000273, 6.220000000000027, 6.2000000000000455, 6.579999999999927, 4.2999999999999545, 1.0299999999999727, 1.259999999999991, 1.9700000000000273, 2.130000000000109, 5.529999999999973, 3.790000000000191, 2.130000000000109, 2.259999999999991, 6.009999999999991, 14.440000000000055, 1.9800000000000182, 3.1799999999998363]}
+		{'session': 9, 'times_for_activation': [11.693000000000097, 5.43100000000004, 1.0529999999999973, 3.796000000000049, 4.504000000000019, 4.42999999999995, 4.769999999999982, 9.050000000000182, 12.230000000000018, 1.8800000000001091, 3.599999999999909, 7.680000000000064, 2.5399999999999636, 4.470000000000027, 2.759999999999991, 8.200000000000045, 2.240000000000009, 11.740000000000009, 2.160000000000082]}
+		{'session': 10, 'times_for_activation': [1.9800000000000182, 1.2100000000000364, 6.819999999999936, 1.0299999999999727, 6.240000000000009, 1.5599999999999454, 1.009999999999991, 1.5299999999999727, 2.4400000000000546, 3.0, 2.509999999999991, 1.8100000000001728, 5.399999999999864, 2.3600000000001273, 1.009999999999991, 1.0800000000001546, 5.210000000000036, 1.0, 9.86999999999989, 3.5599999999999454]}
+	Perceived_usefulness: None
+}
+
+p9 {
+	Age: 56
+	Gender: Male
+	Education: Post-Secondary
+	Injury_level: C5
+	ASIA_score: C
+	Time_after_injury: 13
+	Training_sessions: 1
+	Donning:
+		{'session': 1, 'all_green': 5, 'final_thresh': 15, 'final_FES': 10, 'total': 30}
+	NASA_TLX:
+		{'session': 1, 'mental_demand': 10, 'physical_demand': 2, 'temporal_demand': 10, 'performance': 14, 'effort': 13, 'frustration': 13, 'total': 62}
+	SAndS:
+		{'session': 1, 'stress': 0, 'satisfaction': 9}
+	BCIFES_Trials:
+		{'session': 1, 'TP': 7, 'FP': 3, 'TN': 0}
+	MMT_initial:
+		{'muscle': 'biceps/bracialis', 'L': '3+', 'R': '2+'}
+		{'muscle': 'triceps', 'L': '2+', 'R': '2+'}
+		{'muscle': 'FCR', 'L': '3', 'R': '2-'}
+		{'muscle': 'ECRL', 'L': '2-', 'R': '2-'}
+		{'muscle': 'FDP', 'L': '0', 'R': '0'}
+		{'muscle': 'EDC', 'L': '0', 'R': '0'}
+		{'muscle': 'FPL', 'L': '2-', 'R': '3'}
+		{'muscle': 'EPL', 'L': '3+', 'R': '3+'}
+		{'muscle': 'ADM', 'L': '3', 'R': '3'}
+	MMT_final:
+	PIADS:
+	ROM_initial:
+		{'trial': 1, 'type': 'L', 'flexion': 63, 'extension': -5}
+		{'trial': 2, 'type': 'L', 'flexion': 58, 'extension': -6}
+		{'trial': 3, 'type': 'L', 'flexion': 61, 'extension': 0}
+		{'trial': 4, 'type': 'L', 'flexion': 59, 'extension': -4}
+		{'trial': 5, 'type': 'L', 'flexion': 59, 'extension': -1}
+		{'trial': 1, 'type': 'R', 'flexion': 43, 'extension': 1}
+		{'trial': 2, 'type': 'R', 'flexion': 42, 'extension': -4}
+		{'trial': 3, 'type': 'R', 'flexion': 43, 'extension': 4}
+		{'trial': 4, 'type': 'R', 'flexion': 43, 'extension': 0}
+		{'trial': 5, 'type': 'R', 'flexion': 42, 'extension': 2}
+	ROM_final:
+	Threshold:
+		{'session': 1, 'threshold': [1.24, 3.0]}
+	FES_parameters:
+		{'session': 1, 'current': [32, 26], 'pulse_width': [250, 250], 'start_time': [0, 4000], 'duration': [4000, 3000]}
+	FES_times:
+		{'session': 1, 'times_for_activation': [1.25, 3.869999999999891, 7.9900000000002365, 1.2799999999997453, 3.1600000000003092, 4.25, 1.0299999999997453, 1.0199999999999818, 1.0700000000001637, 2.380000000000109]}
+	Perceived_usefulness: None
+}

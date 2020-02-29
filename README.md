@@ -34,9 +34,9 @@ TO DO 28/12/2019
     be clearly grouped together next to each other and other patients' values be further
     off on the same plot.
     
-TO DO 14/01/2020
-- add linear and log regression for plot_patient_donning_p2_p5_p8_s_all
-- Make boxplot of patient donning for first session and last training session for all 
-    patients except P9. 
-- Perform Wilcoxon signed rank test on the above plot
-
+TO DO 24/02/2020
+- Edit boxplot of plot_patient_donning_all_s_1_5_10_14 to have sessions 1, last training, 10 and 14, 
+    show only log regression, and to have Wilcoxon shown 
+- In OTs Donning boxplot, combine sessions 2 and 3 into one box and label it 'Last Training Session' and change 
+    session '1' label to 'First Training Session'
+    

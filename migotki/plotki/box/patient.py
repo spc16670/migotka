@@ -160,15 +160,13 @@ def plot_patient_donning_all_s_first_last_10_14_log_regression():
     ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
     ax.set_axisbelow(True)
     ax.set_xlabel('Session')
-    ax.set_ylabel('Bla bla')
+    ax.set_ylabel('Time (minutes)')
     y_ticks = np.arange(0, 65, 5)
     ax.set_yticks(y_ticks[1:])
 
     # logarithmic regression
     y = [np.median(t) for t in data]
 
-    print("x", x)
-    print("y", y)
     def func(t, a, b):
         return a + b * np.log(t)
 

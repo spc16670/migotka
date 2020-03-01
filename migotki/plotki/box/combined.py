@@ -11,22 +11,35 @@ TYPE = BOXPLOT
 
 
 def plot_carer_patient_stress_and_satisfaction_first_last_and_independent():
-    title = 'Patients and Carers Stress and Satisfaction C2, C5, C8, P2, P5, P8'
+    title = 'Patients and Carers Stress and Satisfaction'
     ylabel = 'Level'
     key_stress = 'stress'
     key_satisfaction = 'satisfaction'
     indicator = 'SAndS'
+
+    # Harvest first adn last training session data for all carers/patients
+    c_stress_t_firsts, c_stress_t_lasts, _, _ = first_last_and_independent_data(
+        key_stress, indicator, CARERS)
+    p_stress_t_firsts, p_stress_t_lasts, _, _ = first_last_and_independent_data(
+        key_stress, indicator, PATIENTS)
+    c_satisfaction_t_firsts, c_satisfaction_t_lasts, _, _ = first_last_and_independent_data(
+        key_satisfaction, indicator, CARERS)
+    p_satisfaction_t_firsts, p_satisfaction_t_lasts, _, _ = first_last_and_independent_data(
+        key_satisfaction, indicator, PATIENTS)
+
+    # Harvest independent session data for selected carers/patients
     carer_ids = ['c2', 'c5', 'c8']
     carers = [p for p in CARERS if p.name in carer_ids]
     patient_ids = ['p2', 'p5', 'p8']
     patients = [p for p in PATIENTS if p.name in patient_ids]
-    c_stress_t_firsts, c_stress_t_lasts, c_stress_i_firsts, c_stress_i_lasts = first_last_and_independent_data(
+
+    _, _, c_stress_i_firsts, c_stress_i_lasts = first_last_and_independent_data(
         key_stress, indicator, carers)
-    p_stress_t_firsts, p_stress_t_lasts, p_stress_i_firsts, p_stress_i_lasts = first_last_and_independent_data(
+    _, _, p_stress_i_firsts, p_stress_i_lasts = first_last_and_independent_data(
         key_stress, indicator, patients)
-    c_satisfaction_t_firsts, c_satisfaction_t_lasts, c_satisfaction_i_firsts, c_satisfaction_i_lasts = first_last_and_independent_data(
+    _, _, c_satisfaction_i_firsts, c_satisfaction_i_lasts = first_last_and_independent_data(
         key_satisfaction, indicator, carers)
-    p_satisfaction_t_firsts, p_satisfaction_t_lasts, p_satisfaction_i_firsts, p_satisfaction_i_lasts = first_last_and_independent_data(
+    _, _, p_satisfaction_i_firsts, p_satisfaction_i_lasts = first_last_and_independent_data(
         key_satisfaction, indicator, patients)
 
     data = [
@@ -72,18 +85,23 @@ def plot_carer_patient_stress_and_satisfaction_first_last_and_independent():
 
 
 def plot_carer_patient_workload_first_last_and_independent():
-    title = 'Workload - Patients and Carers C2, C5, C8, P2, P5, P8'
+    title = 'Workload - Patients and Carers'
     ylabel = 'Workload'
     indicator = 'NASA_TLX'
     key = 'total'
 
+    c_training_firsts, c_training_lasts, _, _ = first_last_and_independent_data(
+        key, indicator, CARERS)
+    p_training_firsts, p_training_lasts, _, _ = first_last_and_independent_data(
+        key, indicator, PATIENTS)
+
     carer_ids = ['c2', 'c5', 'c8']
     carers = [p for p in CARERS if p.name in carer_ids]
-    c_training_firsts, c_training_lasts, c_independent_firsts, c_independent_lasts = first_last_and_independent_data(
+    _, _, c_independent_firsts, c_independent_lasts = first_last_and_independent_data(
         key, indicator, carers)
     patient_ids = ['p2', 'p5', 'p8']
     patients = [p for p in PATIENTS if p.name in patient_ids]
-    p_training_firsts, p_training_lasts, p_independent_firsts, p_independent_lasts = first_last_and_independent_data(
+    _, _, p_independent_firsts, p_independent_lasts = first_last_and_independent_data(
         key, indicator, patients)
 
     data = [

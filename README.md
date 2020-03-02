@@ -34,7 +34,7 @@ TO DO 28/12/2019
     be clearly grouped together next to each other and other patients' values be further
     off on the same plot.
     
-TO DO 03/03/2020
+TO DO 02/03/2020
 - Edit boxplot of plot_patient_donning_all_s_1_5_10_14 with log reg and wilcoxon to add OT 
     donning onto the same plot. Use colour coding and add legend to differentiate between 
     OT and patient

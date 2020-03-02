@@ -34,9 +34,13 @@ TO DO 28/12/2019
     be clearly grouped together next to each other and other patients' values be further
     off on the same plot.
     
-TO DO 24/02/2020
-- Edit boxplot of plot_patient_donning_all_s_1_5_10_14 to have sessions 1, last training, 10 and 14, 
-    show only log regression, and to have Wilcoxon shown 
-- In OTs Donning boxplot, combine sessions 2 and 3 into one box and label it 'Last Training Session' and change 
-    session '1' label to 'First Training Session'
-    
+TO DO 03/03/2020
+- Edit boxplot of plot_patient_donning_all_s_1_5_10_14 with log reg and wilcoxon to add OT 
+    donning onto the same plot. Use colour coding and add legend to differentiate between 
+    OT and patient
+- Plot bar graph of average (error bars = +/- 1 standard deviation) 
+    of FES times across all patients for first five sessions.
+- When plotting the above print number of data points which were used and from how many 
+    patients for each bar.
+- Also plot FES times across all patients for first 5 sessions as boxplot
+

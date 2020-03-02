@@ -60,8 +60,8 @@ def _rom(side):
     #         ha='center',  # Horizontally center label
     #         va='top')  # Vertically align label differently  positive
 
-    ax.set_ylabel('Scores')
-    ax.set_title('Roms')
+    ax.set_ylabel('Degrees')
+    ax.set_title('Range Of Movement of Wrist')
 
     ax.set_xticks(x)
     ax.set_xticklabels(labels)

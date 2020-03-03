@@ -38,9 +38,8 @@ TO DO 02/03/2020
 - Edit boxplot of plot_patient_donning_all_s_1_5_10_14 with log reg and wilcoxon to add OT 
     donning onto the same plot. Use colour coding and add legend to differentiate between 
     OT and patient
-- Plot bar graph of average (error bars = +/- 1 standard deviation) 
-    of FES times across all patients for first five sessions.
-- When plotting the above print number of data points which were used and from how many 
-    patients for each bar.
-- Also plot FES times across all patients for first 5 sessions as boxplot
+- Plot FES times across all patients for first 5 sessions as boxplot, i.e. first box =
+    all trials from first session from all patients for whom the data is available
+- When plotting the above print (not on plot) the number of data points which were used and from how many 
+    patients for each box.
 

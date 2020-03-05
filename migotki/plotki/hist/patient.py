@@ -7,7 +7,7 @@ from dao import PATIENTS
 TYPE = HISTOGRAM
 
 
-def _rom(side):
+def _rom(side, title):
     max_roms = dict()
     for p in PATIENTS:
         initial_side_flexion = max([t['flexion'] for t in p.data['ROM_initial'] if t['type'] == side], default=None)
@@ -36,8 +36,8 @@ def _rom(side):
             ax.bar(i-0.3, initial[0], width=width/2, align='edge', color='b')
         final = data['final'] if 'final' in data else []
         if final:
-            ax.bar(i+0.05, final[1], width=width/2, align='edge', color='g', alpha=0.5)
-            ax.bar(i+0.05, final[0], width=width/2, align='edge', color='y', alpha=0.5)
+            ax.bar(i+0.05, final[1], width=width/2, align='edge', color='m', alpha=0.5)
+            ax.bar(i+0.05, final[0], width=width/2, align='edge', color='c', alpha=0.5)
     print(max_roms)
 
     # for ix, rect in enumerate(ax.patches):
@@ -61,7 +61,7 @@ def _rom(side):
     #         va='top')  # Vertically align label differently  positive
 
     ax.set_ylabel('Degrees')
-    ax.set_title('Range Of Movement of Wrist')
+    ax.set_title(title)
 
     ax.set_xticks(x)
     ax.set_xticklabels(labels)
@@ -71,8 +71,8 @@ def _rom(side):
 
 
 def plot_rom_l():
-    _rom('L')
+    _rom('L', 'Initial and Final ROM of Left Wrist')
 
 
 def plot_rom_r():
-    _rom('R')
+    _rom('R', 'Initial and Final ROM of Right Wrist')

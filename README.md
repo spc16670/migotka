@@ -42,4 +42,13 @@ TO DO 02/03/2020
     all trials from first session from all patients for whom the data is available
 - When plotting the above print (not on plot) the number of data points which were used and from how many 
     patients for each box.
-
+- Check that all data in FES times in all patients is >1s. If not, give details about 
+    in which patient and which session there is a value <1s. 
+- Plot OT NASA TLX workload as boxplot like this:
+    x axis labels FES, BCI, BCIFES1, BCIFES2
+    in general session 1=FES, session 2=BCI, session 3= BCIFES1, sess 4= BCIFES2
+    BUT since OT1 and OT3 have 5 sessions total.. 
+    For OT1 use session 3 as BCIFES1 and session 4 as BCIFES2 
+    For OT3 use session 4 as BCIFES1 and session 5 as BCIFES2
+    AND
+    For OT4 use session 2 as FES, and session 1 as BCI. 

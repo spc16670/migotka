@@ -52,3 +52,4 @@ TO DO 02/03/2020
     For OT3 use session 4 as BCIFES1 and session 5 as BCIFES2
     AND
     For OT4 use session 2 as FES, and session 1 as BCI. 
+- plot boxplot of final threshold values from all sessions for each patient

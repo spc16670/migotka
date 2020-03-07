@@ -66,7 +66,8 @@ def get_plotting_functions(modules):
 
 def main():
     # dao.print_ots()
-    dao.print_patients()
+    # dao.print_patients()
+    dao.print_patients_with_fes_sm_1s()
     # dao.print_carers()
     root = Tk()
     funcs = get_plotting_functions([

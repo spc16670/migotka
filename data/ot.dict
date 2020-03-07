@@ -1,0 +1,65 @@
+ot1 {
+	age: 28
+	gender: Female
+	years_as_ot: 6
+	years_with_fes: 3
+	NASA_TLX:
+		{'session': 1, 'mental_demand': 3, 'physical_demand': 2, 'temporal_demand': 10, 'performance': 5, 'effort': 18, 'frustration': 8, 'total': 46}
+		{'session': 2, 'mental_demand': 15, 'physical_demand': 15, 'temporal_demand': 11, 'performance': 7, 'effort': 14, 'frustration': 11, 'total': 73}
+		{'session': 3, 'mental_demand': 10, 'physical_demand': 10, 'temporal_demand': 10, 'performance': 8, 'effort': 7, 'frustration': 1, 'total': 46}
+		{'session': 4, 'mental_demand': 10, 'physical_demand': 4, 'temporal_demand': 8, 'performance': 5, 'effort': 7, 'frustration': 1, 'total': 35}
+		{'session': 5, 'mental_demand': 18, 'physical_demand': 4, 'temporal_demand': 15, 'performance': 14, 'effort': 17, 'frustration': 12, 'total': 80}
+	donning:
+		{'session': 1, 'minutes': 64.8}
+		{'session': 2, 'minutes': nan}
+		{'session': 3, 'minutes': 33.0}
+}
+
+ot2 {
+	age: 41
+	gender: Female
+	years_as_ot: 13
+	years_with_fes: 8
+	NASA_TLX:
+		{'session': 1, 'mental_demand': 15, 'physical_demand': 10, 'temporal_demand': 10, 'performance': 4, 'effort': 10, 'frustration': 1, 'total': 50}
+		{'session': 2, 'mental_demand': 6, 'physical_demand': 2, 'temporal_demand': 4, 'performance': 4, 'effort': 10, 'frustration': 2, 'total': 28}
+		{'session': 3, 'mental_demand': 16, 'physical_demand': 9, 'temporal_demand': 3, 'performance': 8, 'effort': 14, 'frustration': 6, 'total': 56}
+		{'session': 4, 'mental_demand': 4, 'physical_demand': 2, 'temporal_demand': 4, 'performance': 5, 'effort': 5, 'frustration': 2, 'total': 22}
+	donning:
+		{'session': 1, 'minutes': 48.5}
+		{'session': 2, 'minutes': nan}
+		{'session': 3, 'minutes': nan}
+}
+
+ot3 {
+	age: 55
+	gender: Female
+	years_as_ot: 33
+	years_with_fes: 12
+	NASA_TLX:
+		{'session': 1, 'mental_demand': 12, 'physical_demand': 2, 'temporal_demand': 12, 'performance': 7, 'effort': 11, 'frustration': 4, 'total': 48}
+		{'session': 2, 'mental_demand': 10, 'physical_demand': 3, 'temporal_demand': 3, 'performance': 6, 'effort': 6, 'frustration': 2, 'total': 30}
+		{'session': 3, 'mental_demand': 15, 'physical_demand': 3, 'temporal_demand': 3, 'performance': 4, 'effort': 6, 'frustration': 3, 'total': 34}
+		{'session': 4, 'mental_demand': 5, 'physical_demand': 2, 'temporal_demand': 4, 'performance': 2, 'effort': 5, 'frustration': 4, 'total': 22}
+		{'session': 5, 'mental_demand': 4, 'physical_demand': 2, 'temporal_demand': 3, 'performance': 2, 'effort': 4, 'frustration': 3, 'total': 18}
+	donning:
+		{'session': 1, 'minutes': nan}
+		{'session': 2, 'minutes': nan}
+		{'session': 3, 'minutes': 34.0}
+}
+
+ot4 {
+	age: 45
+	gender: Female
+	years_as_ot: 21
+	years_with_fes: 15
+	NASA_TLX:
+		{'session': 1, 'mental_demand': 18, 'physical_demand': 10, 'temporal_demand': 18, 'performance': 1, 'effort': 18, 'frustration': 1, 'total': 66}
+		{'session': 2, 'mental_demand': 16, 'physical_demand': 1, 'temporal_demand': 18, 'performance': 2, 'effort': 16, 'frustration': 10, 'total': 63}
+		{'session': 3, 'mental_demand': 20, 'physical_demand': 3, 'temporal_demand': 20, 'performance': 1, 'effort': 20, 'frustration': 17, 'total': 81}
+		{'session': 4, 'mental_demand': 18, 'physical_demand': 1, 'temporal_demand': 18, 'performance': 12, 'effort': 18, 'frustration': 18, 'total': 85}
+	donning:
+		{'session': 1, 'minutes': 47.0}
+		{'session': 2, 'minutes': 33.0}
+		{'session': 3, 'minutes': nan}
+}

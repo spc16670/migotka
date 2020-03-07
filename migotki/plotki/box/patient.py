@@ -370,6 +370,50 @@ def _fes(predicate, names, sort_sessions, arrangement=None):
     plt.show()
 
 
+def plot_fes_all_s1_5():
+    patients = [p.name for p in PATIENTS]
+    sessions = np.arange(1, 6)
+    stats = {}
+
+    for session in sessions:
+        data = []
+        for p in PATIENTS:
+            if p.name in patients:
+                p_data = {}
+                pf_data = [f['times_for_activation'] for f in p.data['FES_times'] if f['session'] == session]
+                pf_data = np.array(pf_data).flatten().tolist()
+                pf_data = [t for t in pf_data if not np.isnan(t)]
+                p_data[p.name] = pf_data
+                data.append(p_data)
+        stats[str(session)] = data
+    for session, v in stats.items():
+        print(session + '\n')
+        for pdata in v:
+            for patient, data in pdata.items():
+                print('  ', patient, len(data))
+
+    fes = [p.data['FES_times'] for p in PATIENTS if p.name in patients]
+    fes = np.concatenate(fes).ravel().tolist()
+    feses = {}
+    for session in sessions:
+        tfa = [f['times_for_activation'] for f in fes if f['session'] == session]
+        flat = np.concatenate(tfa).ravel().tolist()
+        filtered = [t for t in flat if not np.isnan(t)]
+        feses[str(session)] = filtered
+        print(session, 'plotting', len(filtered), 'values')
+
+    data = list(feses.values())
+    labels = [k for k in list(feses.keys())]
+    fig, ax = plt.subplots()
+    ax.boxplot(data, labels=labels)
+    ax.set_title('FES Times')
+    ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
+    ax.set_axisbelow(True)
+    ax.set_xlabel('Sessions')
+    ax.set_ylabel('Time(s)')
+    plt.show()
+
+
 def plot_fes_all_p2_p3():
     _fes(lambda a: True, ['p2', 'p3'], False, {'nrows': 1, 'ncols': 2})
 

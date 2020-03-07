@@ -13,10 +13,9 @@ def plot_ots_workload():
             x axis labels FES, BCI, BCIFES1, BCIFES2
             in general session 1=FES, session 2=BCI, session 3= BCIFES1, sess 4= BCIFES2
             BUT since OT1 and OT3 have 5 sessions total..
-            For OT1 use session 3 as BCIFES1 and session 4 as BCIFES2
-            For OT3 use session 4 as BCIFES1 and session 5 as BCIFES2
+                For OT3 use session 4 as BCIFES1 and session 5 as BCIFES2
             AND
-            For OT4 use session 2 as FES, and session 1 as BCI.
+                For OT4 use session 2 as FES, and session 1 as BCI.
     """
     FES = []
     BCI = []
@@ -24,29 +23,31 @@ def plot_ots_workload():
     BCIFES2 = []
 
     for ot in OTS:
-        nasa = ot.datap['NASA_TLX']
-        if ot.name == 'ot1':
-            pass
-        elif ot.name == 'ot3':
-            pass
+        nasa = ot.data['NASA_TLX']
+        fes = next(n for n in nasa if n['session'] == 1)['total']
+        bci = next(n for n in nasa if n['session'] == 2)['total']
+        bcifes1 = next(n for n in nasa if n['session'] == 3)['total']
+        bcifes2 = next(n for n in nasa if n['session'] == 4)['total']
+        if ot.name == 'ot3':
+            bcifes1 = next(n for n in nasa if n['session'] == 4)['total']
+            bcifes2 = next(n for n in nasa if n['session'] == 5)['total']
         elif ot.name == 'ot4':
-            pass
+            fes = next(n for n in nasa if n['session'] == 2)['total']
+        FES.append(fes)
+        BCI.append(bci)
+        BCIFES1.append(bcifes1)
+        BCIFES2.append(bcifes2)
 
-    # session_dict[2].extend(session_dict[3])
-    # del session_dict[3]
-    # print(session_dict)
-    # data = list(session_dict.values())
-    # fig, ax = plt.subplots()
-    # session_str = ['FES', 'BCI', 'BCIFES1', 'BCIFES2']
-    # ax.boxplot(data, labels=session_str)
-    # ax.set_title("All OTs - Donning")
-    # ticks = np.arange(25, 65, 5)
-    # ax.set_yticks(ticks[1:])
-    # ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
-    # ax.set_axisbelow(True)
-    # ax.set_xlabel('Sessions')
-    # ax.set_ylabel('Donning Time (min)')
-    # plt.show()
+    data = [FES, BCI, BCIFES1, BCIFES2]
+    fig, ax = plt.subplots()
+    session_str = ['FES', 'BCI', 'BCIFES1', 'BCIFES2']
+    ax.boxplot(data, labels=session_str)
+    ax.set_title("OT Workload")
+    ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
+    ax.set_axisbelow(True)
+    ax.set_ylabel('Workload')
+    plt.show()
+
 
 def plot_ots_donnings_first_last():
     ots = [p.name for p in OTS]

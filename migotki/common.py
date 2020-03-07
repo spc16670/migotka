@@ -36,13 +36,13 @@ def first_last_and_independent_data(key, indicator, data, s_label='Training_sess
     return training_firsts, training_lasts, independent_firsts, independent_lasts
 
 
-def first_and_last_data(key, indicator, patients=None):
-    if not patients:
-        patients = PATIENTS
+def first_and_last_data(key, indicator, data=None):
+    if not data:
+        data = PATIENTS
     firsts = []
     lasts = []
     common = []
-    for p in patients:
+    for p in data:
         patients_trainings = p.get_training_sessions(key)
         # firsts
         first = patients_trainings[0]

@@ -21,8 +21,13 @@ class MatModel:
         return msg
 
     def get_training_sessions(self, prop):
-        no_of_sessions = self.data['Training_sessions']
+        # in case the model stores the number of training sessions
+        # PATIENT do while OT do not
+        no_of_sessions = self.data.get('Training_sessions', -1)
         sessions = self.data[prop]
+        # otherwise infer from available data
+        if no_of_sessions == -1:
+            no_of_sessions = len(sessions)
         training_sessions = sessions[:no_of_sessions]
         return training_sessions
 

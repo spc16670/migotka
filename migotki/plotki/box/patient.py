@@ -9,6 +9,8 @@ from dao import PATIENTS
 TYPE = BOXPLOT
 
 
+
+
 def _donnings(patients: list, sessions: list, title: str, linears=False):
     patient_donnings = [p.data['Donning'] for p in PATIENTS if p.name in patients]
     session_dict = {}
@@ -502,3 +504,24 @@ def plot_average_fdr_for_each_patient():
     plt.show()
 
 
+def plot_final_threshold_all_patients():
+    data = {}
+    for p in PATIENTS:
+        thresholds = p.data['Threshold']
+        tdata = []
+        for t in thresholds:
+            last = t['threshold'][-1]
+            if not np.isnan(last):
+                tdata.append(last)
+        data[p.name] = tdata
+
+    y = list(data.values())
+    labels = [k for k in list(data.keys())]
+    fig, ax = plt.subplots()
+    ax.boxplot(y, labels=labels)
+    ax.set_title('Final Threshold')
+    ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
+    ax.set_axisbelow(True)
+    ax.set_xlabel('Patients')
+    ax.set_ylabel('Threshold')
+    plt.show()

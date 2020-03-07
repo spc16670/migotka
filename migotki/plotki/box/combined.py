@@ -2,12 +2,106 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 
-from migotki.common import first_last_and_independent_data, last_and_sessions
+from migotki.common import first_last_and_independent_data, last_and_sessions, first_and_last_data
 
 from contants import BOXPLOT
-from dao import CARERS, PATIENTS
+from dao import CARERS, PATIENTS, OTS
 
 TYPE = BOXPLOT
+
+
+def plot_patient_and_ot_donning_all_s_1_5_10_14():
+    title = 'Patient Donning'
+    p_key = 'Donning'
+    p_indicator = 'total'
+    sessions = [10, 14]
+    p_firsts, p_lasts, _p_common, p_p = first_and_last_data(p_key, p_indicator)
+    ot_key = 'donning'
+    ot_indicator = 'minutes'
+    ot_firsts, ot_lasts, _ot_common, _ot_p = first_and_last_data(ot_key, ot_indicator, OTS)
+
+    patient_donnings = [p.data[p_key] for p in PATIENTS]
+    session_dict = {}
+    for s in sessions:
+        session_dict[s] = []
+    for s in session_dict:
+        for donnings in patient_donnings:
+            session_dict[s].extend([d['total'] for d in donnings if d['session'] == s])
+
+    data = [[ot_firsts, p_firsts], [ot_lasts, p_lasts],  [session_dict[10]], [session_dict[14]]]
+
+    fig, ax = plt.subplots()
+
+    ot_color = 'red'
+    patient_color = 'blue'
+    x_ticks = []
+    patient_x_ticks = []
+    position = 0
+    for pair in data:
+        if len(pair) == 2:
+            bp = ax.boxplot(pair, positions=[position+1, position+2], widths=0.6, patch_artist=True)
+            bp['boxes'][0].set_facecolor(ot_color)
+            bp['boxes'][1].set_facecolor(patient_color)
+            patient_x_ticks.append(position + 2)
+            x_ticks.append(position + 1.5)
+        else:
+            bp = ax.boxplot(pair, positions=[position+1], widths=0.6, patch_artist=True)
+            bp['boxes'][0].set_facecolor(patient_color)
+            patient_x_ticks.append(position + 1)
+            x_ticks.append(position + 1)
+        position = position + 3
+
+    ax.set_ylabel('Time (minutes)')
+    ax.set_title(title)
+    ax.set_xticks(x_ticks)
+    ax.set_xticklabels(('First Training', 'Last Training', '10', '14'))
+
+    ot_label = mpatches.Patch(color=ot_color, label="OT")
+    patient_label = mpatches.Patch(color=patient_color, label="Patient")
+
+    ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
+    ax.set_axisbelow(True)
+
+
+    # logarithmic regression
+    x = patient_x_ticks
+    patient_data = [p_firsts, p_lasts, session_dict[10], session_dict[14]]
+    y = [np.median(t) for t in patient_data]
+
+    def func(t, a, b):
+        return a + b * np.log(t)
+
+    import scipy.optimize
+    popt, pcov = scipy.optimize.curve_fit(func, x, y)
+    log_a = popt[0]
+    log_a_round = round(log_a, 3)
+    log_b = popt[1]
+    log_b_round = round(log_b, 3)
+    trialX = np.linspace(x[0], x[-1], 20)
+    ylog = func(trialX, *popt)
+
+    # r2
+    # https://stackoverflow.com/questions/19189362/getting-the-r-squared-value-using-curve-fit
+    residuals = y - func(x, *popt)
+    ss_res = np.sum(residuals ** 2)
+    ss_tot = np.sum((y - np.mean(y)) ** 2)
+    log_r_squared = 1 - (ss_res / ss_tot)
+    log_r_squared_round = round(log_r_squared, 3)
+
+    plt.plot(trialX, ylog, 'y-', ls='--')
+
+    # legend
+    wilcoxson_text = "Wilcoxon p-value={}".format(p_p)
+    log = mpatches.Patch(linestyle='--', facecolor='yellow',
+                         label="y=a+bln(x)\na={}, b={}\n$r^2={}$".format(log_a_round, log_b_round, log_r_squared_round))
+    plt.legend(handles=[log, ot_label, patient_label])
+
+    ax.annotate(wilcoxson_text, xy=(0.3, 0.75), xytext=(0.3, 0.90), xycoords='axes fraction',
+                fontsize=10, ha='center', va='bottom',
+                bbox=dict(boxstyle='square', fc='white'),
+                arrowprops=dict(arrowstyle='-[, widthB=5.5, lengthB=1', lw=1.0))
+
+    plt.show()
 
 
 def plot_carer_patient_stress_and_satisfaction_first_last_and_independent():

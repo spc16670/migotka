@@ -11,7 +11,7 @@ TYPE = BOXPLOT
 
 
 def plot_patient_and_ot_donning_all_s_1_5_10_14():
-    title = 'Patient Donning'
+    title = 'Patient and OT Donning'
     p_key = 'Donning'
     p_indicator = 'total'
     sessions = [10, 14]

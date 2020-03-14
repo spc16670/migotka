@@ -154,11 +154,17 @@ def plot_carer_patient_stress_and_satisfaction_first_last_and_independent():
     for pair in data:
         bp = ax.boxplot(pair, positions=[position+1, position+2, position+3, position+4], widths=0.6, patch_artist=True)
         bp['boxes'][0].set_facecolor(c_stress_color)
+        print("Carer Stress", pair[0])
         bp['boxes'][1].set_facecolor(c_satisfaction_color)
+        print("Carer Satisfaction", pair[1])
         bp['boxes'][2].set_facecolor(p_stress_color)
+        print("Patient Stress", pair[2])
         bp['boxes'][3].set_facecolor(p_satisfaction_color)
+        print("Patient Satisfaction", pair[3])
         x_ticks.append(position + 2.5)
         position = position + 6
+        print("\n")
+
 
     ax.set_ylabel(ylabel)
     ax.set_title(title)

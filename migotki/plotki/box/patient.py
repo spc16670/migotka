@@ -444,9 +444,27 @@ def plot_fes_greater_than_1_2():
     _fes(lambda a: a >= 1.2, [p.name for p in PATIENTS], False)
 
 
+def plot_tpr_range_for_each_patient():
+    data = {}
+    for p in PATIENTS:
+        trials = p.data['BCIFES_Trials']
+        data[p.name] = []
+        for t in trials:
+            tpr = p.get_tpr(t)
+            if not np.isnan(tpr):
+                data[p.name].append(tpr)
+    y = list(data.values())
+    labels = [k for k in list(data.keys())]
+    fig, ax = plt.subplots()
+    ax.boxplot(y, labels=labels)
+    ax.set_xlabel("Patients")
+    ax.set_ylabel("TPR Value")
+    plt.title("TPR Values For Each Patient Across Sessions")
+    plt.show()
+
+
 def plot_average_tpr_for_each_patient():
     data = []
-    error = []
     for p in PATIENTS:
         trials = p.data['BCIFES_Trials']
         sum = 0
@@ -460,8 +478,6 @@ def plot_average_tpr_for_each_patient():
             else:
                 count -= 1
         pctg = sum / count * 100
-        err = np.std(tprs) * 100
-        error.append(err)
         data.append((count, pctg))
 
     srt = sorted(data, key=lambda x: x[0])

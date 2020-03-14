@@ -12,28 +12,12 @@ TO DO 28/12/2019:
         be clearly grouped together next to each other and other patients' values be further
         off on the same plot.
 
-TO DO 02/03/2020:
+TO DO 14/03/2020:
+- change plot_average_tpr_for_each_patient to plot not average percentage but range of tpr for each patient
+    and same for fdr
 
-    - Check and plot data
-        * Check that all data in FES times in all patients is >1s. If not, give details about
-        in which patient and which session there is a value <1s.
-        * Plot FES times across all patients for first 5 sessions as boxplot, i.e. first box =
-        all trials from first session from all patients for whom the data is available
-        ** When plotting the above print (not on plot) the number of data points which were used and from how many
-            patients for each box.
+- When plotting plot_carer_patient_stress_and_satisfaction_first_last_and_independent
+    print (not on plot) the number of datapoints each box is representing
 
-    - Plot OT NASA TLX workload as boxplot like this:
-        x axis labels FES, BCI, BCIFES1, BCIFES2
-        in general session 1=FES, session 2=BCI, session 3= BCIFES1, sess 4= BCIFES2
-        BUT since OT1 and OT3 have 5 sessions total..
-            For OT3 use session 4 as BCIFES1 and session 5 as BCIFES2
-        AND
-            For OT4 use session 2 as FES, and session 1 as BCI.
-
-    - Plot boxplot of final threshold values from all sessions for each patient
-
-    - Edit boxplot of plot_patient_donning_all_s_1_5_10_14 with log reg and wilcoxon to add OT
-        donning onto the same plot. Use colour coding and add legend to differentiate between
-        OT and patient
 
 

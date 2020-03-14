@@ -408,11 +408,11 @@ def plot_fes_all_s1_5():
     labels = [k for k in list(feses.keys())]
     fig, ax = plt.subplots()
     ax.boxplot(data, labels=labels)
-    ax.set_title('FES Times')
+    ax.set_title('Times for Activation')
     ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
     ax.set_axisbelow(True)
-    ax.set_xlabel('Sessions')
-    ax.set_ylabel('Time(s)')
+    ax.set_xlabel('Session')
+    ax.set_ylabel('Time (s)')
     plt.show()
 
 
@@ -519,9 +519,9 @@ def plot_final_threshold_all_patients():
     labels = [k for k in list(data.keys())]
     fig, ax = plt.subplots()
     ax.boxplot(y, labels=labels)
-    ax.set_title('Final Threshold')
+    ax.set_title('Threshold Values Used by Patients')
     ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
     ax.set_axisbelow(True)
-    ax.set_xlabel('Patients')
-    ax.set_ylabel('Threshold')
+    ax.set_xlabel('Patient')
+    ax.set_ylabel('Threshold (V^2/Hz')
     plt.show()

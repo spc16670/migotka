@@ -12,12 +12,12 @@ TO DO 28/12/2019:
         be clearly grouped together next to each other and other patients' values be further
         off on the same plot.
 
-TO DO 14/03/2020:
-- change plot_average_tpr_for_each_patient to plot not average percentage but range of tpr for each patient
-    and same for fdr
+TO DO 23/04/2020:
+- Plot boxplot TPR for sessions 1-5 for all patients grouped together
+- Plot patient and carer stress for first and last training in one boxplot
+- Plot patient and carer satisfaction for first and last training in one boxplot
 
-- When plotting plot_carer_patient_stress_and_satisfaction_first_last_and_independent
-    print (not on plot) the number of datapoints each box is representing
+
 
 
 

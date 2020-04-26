@@ -44,6 +44,7 @@ def first_and_last_data(key, indicator, data=None):
     common = []
     for p in data:
         patients_trainings = p.get_training_sessions(key)
+
         # firsts
         first = patients_trainings[0]
         first_total = first[indicator]
@@ -52,6 +53,8 @@ def first_and_last_data(key, indicator, data=None):
         # lasts
         last = patients_trainings[-1]
         last_total = last[indicator]
+        if p.name == 'p9':
+            continue
         if not np.isnan(last_total):
             lasts.append(last_total)
         if not np.isnan(first_total) and not np.isnan(last_total):

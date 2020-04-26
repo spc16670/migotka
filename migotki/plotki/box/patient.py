@@ -9,8 +9,6 @@ from dao import PATIENTS
 TYPE = BOXPLOT
 
 
-
-
 def _donnings(patients: list, sessions: list, title: str, linears=False):
     patient_donnings = [p.data['Donning'] for p in PATIENTS if p.name in patients]
     session_dict = {}
@@ -542,4 +540,31 @@ def plot_final_threshold_all_patients():
     ax.set_axisbelow(True)
     ax.set_xlabel('Patient')
     ax.set_ylabel('Threshold (V^2/Hz')
+    plt.show()
+
+
+def plot_tpr_all_patients_s12345():
+    sr = range(1, 6)
+    data = {}
+    for p in PATIENTS:
+        trials = p.data['BCIFES_Trials']
+        for t in trials:
+            s = t['session']
+            if s not in sr:
+                continue
+            if s not in data:
+                data[s] = []
+            if p.name == "p4" and t['session'] == 3:
+                continue
+            tpr = p.get_tpr(t)
+            if not np.isnan(tpr):
+                data[s].append(tpr)
+    print(data)
+    tprs = list(data.values())
+    labels = [s for s in list(data.keys())]
+    fig, ax = plt.subplots()
+    ax.boxplot(tprs, labels=labels)
+    ax.set_xlabel("Session")
+    ax.set_ylabel("TPR")
+    plt.title("TPR for sessions 1-5 for all patients grouped together")
     plt.show()

@@ -1,23 +1,13 @@
 
+TO DO 23/04/2020:
+- Plot boxplot TPR for sessions 1-5 for all patients grouped together
+- Plot patient and carer stress for first and last training in one boxplot
+- Plot patient and carer satisfaction for first and last training in one boxplot
+- For boxplot plot_patient_and_ot_donning_all_s_1_5_10_14 make the last training point for patients
+    be still  labelled as last training but the actual numerical value used to calculate regression be
+    4.43 (i.e. average of the session numbers which were last training sessions). Readjust regression equation
+    parameters to reflect this change.
 
-TO DO 28/12/2019:
-
-    - Add linear and logarithmic regression to plot_patient_donning_all_s_1_5_10_14
-        and plot_patient_donning_p2_p5_p8_s_all. Include r^2 values and equations.
-    - perform Wicoxson signed rank test on NASA workload, stress, and
-        satisfaction first training last training for patients and for carers
-    - For ROM, take the single maximum value of each patient initial (and final if exists)
-        for L and R and plot as histogram with extension being a negative bar, and flexion
-        being a positive bar. Make initial and final assessment values for one patient
-        be clearly grouped together next to each other and other patients' values be further
-        off on the same plot.
-
-TO DO 14/03/2020:
-- change plot_average_tpr_for_each_patient to plot not average percentage but range of tpr for each patient
-    and same for fdr
-
-- When plotting plot_carer_patient_stress_and_satisfaction_first_last_and_independent
-    print (not on plot) the number of datapoints each box is representing
 
 
 

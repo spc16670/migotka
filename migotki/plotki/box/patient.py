@@ -450,6 +450,8 @@ def plot_tpr_range_for_each_patient():
         trials = p.data['BCIFES_Trials']
         data[p.name] = []
         for t in trials:
+            if p.name == "p4" and t['session'] == 3:
+                continue
             tpr = p.get_tpr(t)
             if not np.isnan(tpr):
                 data[p.name].append(tpr)
@@ -457,9 +459,9 @@ def plot_tpr_range_for_each_patient():
     labels = [k for k in list(data.keys())]
     fig, ax = plt.subplots()
     ax.boxplot(y, labels=labels)
-    ax.set_xlabel("Patients")
-    ax.set_ylabel("TPR Value")
-    plt.title("TPR Values For Each Patient Across Sessions")
+    ax.set_xlabel("Patient")
+    ax.set_ylabel("TPR")
+    plt.title("Range of TPR for All Sessions of Each Patient")
     plt.show()
 
 

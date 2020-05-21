@@ -11,7 +11,7 @@ TYPE = BOXPLOT
 
 
 def plot_patient_and_ot_donning_all_s_1_5_10_14_averaged():
-    title = 'Patient and OT Donning'
+    title = 'Donning - OTs and Carers'
     p_key = 'Donning'
     p_indicator = 'total'
     sessions = [10, 14]
@@ -32,8 +32,8 @@ def plot_patient_and_ot_donning_all_s_1_5_10_14_averaged():
     print(data)
     fig, ax = plt.subplots()
 
-    ot_color = 'red'
-    patient_color = 'blue'
+    ot_color = 'lightgreen'
+    patient_color = 'lightblue'
     x_ticks = []
     patient_x_ticks = []
     patient_x_values = [1, 4.43, 10, 14]
@@ -52,15 +52,15 @@ def plot_patient_and_ot_donning_all_s_1_5_10_14_averaged():
             x_ticks.append(position + 1)
         position = position + 3
 
-    ax.set_ylabel('Time (minutes)')
+    ax.set_ylabel('Donning Time (minutes)')
     ax.set_title(title)
     ax.set_xticks(x_ticks)
     ax.set_xticklabels(('First Training', 'Last Training', '10', '14'))
 
     ot_label = mpatches.Patch(color=ot_color, label="OT")
-    patient_label = mpatches.Patch(color=patient_color, label="Patient")
+    patient_label = mpatches.Patch(color=patient_color, label="Carers")
 
-    ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
+    #ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
     ax.set_axisbelow(True)
 
     # logarithmic regression
@@ -90,14 +90,14 @@ def plot_patient_and_ot_donning_all_s_1_5_10_14_averaged():
     plt.plot(trialX, ylog, 'y-', ls='--')
 
     # legend
-    wilcoxson_text = "Wilcoxon p-value={}".format(p_p)
+    wilcoxson_text = "p-value={}".format(p_p)
     log = mpatches.Patch(linestyle='--', facecolor='yellow',
                          label="y=a+bln(x)\na={}, b={}\n$r^2={}$".format(log_a_round, log_b_round, log_r_squared_round))
     plt.legend(handles=[log, ot_label, patient_label])
 
     ax.annotate(wilcoxson_text, xy=(0.3, 0.75), xytext=(0.3, 0.90), xycoords='axes fraction',
                 fontsize=10, ha='center', va='bottom',
-                bbox=dict(boxstyle='square', fc='white'),
+                bbox=dict(boxstyle='square', fc='lightblue'),
                 arrowprops=dict(arrowstyle='-[, widthB=5.5, lengthB=1', lw=1.0))
 
     plt.show()
@@ -348,8 +348,8 @@ def plot_carer_workload_last_training_and_independent():
     data = zip(c_data, p_data)
 
     fig, ax = plt.subplots()
-    c_color = 'cyan'
-    p_color = 'blue'
+    c_color = 'lightblue'
+    p_color = 'pink'
     position = 0
     x_ticks = []
     for pair in data:
@@ -392,8 +392,8 @@ def plot_carer_workload_last_training_and_independent():
 
 
 def plot_carer_patient_stress_first_last_and_independent():
-    title = 'Patients and Carers Stress'
-    ylabel = 'Level'
+    title = 'Stress - Patients and Carers'
+    ylabel = 'Arbitrary Units'
     key_stress = 'stress'
     indicator = 'SAndS'
 
@@ -423,8 +423,8 @@ def plot_carer_patient_stress_first_last_and_independent():
 
     fig, ax = plt.subplots()
 
-    c_stress_color = 'cyan'
-    p_stress_color = 'blue'
+    c_stress_color = 'lightblue'
+    p_stress_color = 'pink'
     x_ticks = []
     position = 0
     for pair in data:
@@ -441,9 +441,9 @@ def plot_carer_patient_stress_first_last_and_independent():
     ax.set_xticks(x_ticks)
     ax.set_xticklabels(('First Training', 'Last Training', 'First Independent', 'Last Independent'))
 
-    p_stress_label = mpatches.Patch(color=p_stress_color, label="Patient Stress")
-    c_stress_label = mpatches.Patch(color=c_stress_color, label="Carer Stress")
-    plt.legend(handles=[c_stress_label, p_stress_label])
+    p_stress_label = mpatches.Patch(color=p_stress_color, label="Patient")
+    c_stress_label = mpatches.Patch(color=c_stress_color, label="Carer")
+    plt.legend(handles=[p_stress_label, c_stress_label])
 
     ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
     ax.set_axisbelow(True)
@@ -453,8 +453,8 @@ def plot_carer_patient_stress_first_last_and_independent():
 
 
 def plot_carer_patient_satisfaction_first_last_and_independent():
-    title = 'Patients and Carers Satisfaction'
-    ylabel = 'Level'
+    title = 'Satisfaction - Patients and Carers'
+    ylabel = 'Arbitrary Units'
     key_satisfaction = 'satisfaction'
     indicator = 'SAndS'
 
@@ -484,8 +484,8 @@ def plot_carer_patient_satisfaction_first_last_and_independent():
 
     fig, ax = plt.subplots()
 
-    c_satisfaction_color = 'cyan'
-    p_satisfaction_color = 'blue'
+    c_satisfaction_color = 'lightblue'
+    p_satisfaction_color = 'pink'
     x_ticks = []
     position = 0
     for pair in data:
@@ -502,9 +502,9 @@ def plot_carer_patient_satisfaction_first_last_and_independent():
     ax.set_xticks(x_ticks)
     ax.set_xticklabels(('First Training', 'Last Training', 'First Independent', 'Last Independent'))
 
-    p_satisfaction_label = mpatches.Patch(color=p_satisfaction_color, label="Patient Satisfaction")
-    c_satisfaction_label = mpatches.Patch(color=c_satisfaction_color, label="Carer Satisfaction")
-    plt.legend(handles=[c_satisfaction_label, p_satisfaction_label])
+    p_satisfaction_label = mpatches.Patch(color=p_satisfaction_color, label="Patient")
+    c_satisfaction_label = mpatches.Patch(color=c_satisfaction_color, label="Carer")
+    plt.legend(handles=[p_satisfaction_label, c_satisfaction_label], loc=4)
 
     ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
     ax.set_axisbelow(True)

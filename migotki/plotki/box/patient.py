@@ -98,7 +98,7 @@ def _donnings(patients: list, sessions: list, title: str, linears=False):
 def plot_patient_donning_first_last_training():
     patients = [p for p in PATIENTS if p.name != 'p9']
     title = [p.name.upper() for p in patients]
-    _first_and_last('Patients ' + ", ".join(title), 'Donning', 'Donning', 'total', np.arange(0, 80, 10), True, patients)
+    _first_and_last('All Patients Donning Times', 'Donning (min)', 'Donning', 'total', np.arange(0, 80, 10), True, patients)
 
 
 def plot_patient_donning_all_s_1_5_10_14():
@@ -406,8 +406,8 @@ def plot_fes_all_s1_5():
     labels = [k for k in list(feses.keys())]
     fig, ax = plt.subplots()
     ax.boxplot(data, labels=labels)
-    ax.set_title('Times for Activation')
-    ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
+    ax.set_title('Training Sessions: AM Duration (Before FES)')
+    #ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
     ax.set_axisbelow(True)
     ax.set_xlabel('Session')
     ax.set_ylabel('Time (s)')
@@ -450,7 +450,7 @@ def plot_tpr_range_for_each_patient():
         for t in trials:
             if p.name == "p4" and t['session'] == 3:
                 continue
-            tpr = p.get_tpr(t)
+            tpr = p.get_tpr(t) * 100
             if not np.isnan(tpr):
                 data[p.name].append(tpr)
     y = list(data.values())
@@ -526,20 +526,21 @@ def plot_final_threshold_all_patients():
         thresholds = p.data['Threshold']
         tdata = []
         for t in thresholds:
-            last = t['threshold'][-1]
-            if not np.isnan(last):
-                tdata.append(last)
+            if t['session'] in [1, 2, 3, 4, 5]:
+                last = t['threshold'][-1]
+                if not np.isnan(last):
+                    tdata.append(last)
         data[p.name] = tdata
 
     y = list(data.values())
     labels = [k for k in list(data.keys())]
     fig, ax = plt.subplots()
     ax.boxplot(y, labels=labels)
-    ax.set_title('Threshold Values Used by Patients')
-    ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
+    ax.set_title('Training Sessions: Threshold Values')
+    #ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
     ax.set_axisbelow(True)
     ax.set_xlabel('Patient')
-    ax.set_ylabel('Threshold (V^2/Hz')
+    ax.set_ylabel('Threshold (V^2/Hz)')
     plt.show()
 
 
@@ -556,7 +557,7 @@ def plot_tpr_all_patients_s12345():
                 data[s] = []
             if p.name == "p4" and t['session'] == 3:
                 continue
-            tpr = p.get_tpr(t)
+            tpr = p.get_tpr(t) * 100
             if not np.isnan(tpr):
                 data[s].append(tpr)
     print(data)
@@ -565,6 +566,6 @@ def plot_tpr_all_patients_s12345():
     fig, ax = plt.subplots()
     ax.boxplot(tprs, labels=labels)
     ax.set_xlabel("Session")
-    ax.set_ylabel("TPR")
-    plt.title("TPR for sessions 1-5 for all patients grouped together")
+    ax.set_ylabel("True Positives (%)")
+    plt.title("Training Sessions: True Positives")
     plt.show()

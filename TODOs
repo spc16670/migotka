@@ -1,13 +1,9 @@
 
-TO DO 23/04/2020:
-- Plot boxplot TPR for sessions 1-5 for all patients grouped together
-- Plot patient and carer stress for first and last training in one boxplot
-- Plot patient and carer satisfaction for first and last training in one boxplot
-- For boxplot plot_patient_and_ot_donning_all_s_1_5_10_14 make the last training point for patients
-    be still  labelled as last training but the actual numerical value used to calculate regression be
-    4.43 (i.e. average of the session numbers which were last training sessions). Readjust regression equation
-    parameters to reflect this change.
+TO DO 20/05/2020:
 
+- Make scatterplot with x values being carers' mental demand (from NASA_TLX)
+    for each session and y the donning time for that particluar session
+- add linear regression to this plot
 
 
 

@@ -87,7 +87,7 @@ def plot_patient_and_ot_donning_all_s_1_5_10_14_averaged():
     ss_tot = np.sum((y - np.mean(y)) ** 2)
     log_r_squared = 1 - (ss_res / ss_tot)
     log_r_squared_round = round(log_r_squared, 3)
-    plt.plot(trialX, ylog, 'y-', ls='--')
+    #plt.plot(trialX, ylog, 'y-', ls='--')
 
     # legend
     wilcoxson_text = "p-value={}".format(p_p)

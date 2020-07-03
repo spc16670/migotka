@@ -74,8 +74,8 @@ def plot_ots_donnings_first_last():
     ax.set_yticks(ticks[1:])
     ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
     ax.set_axisbelow(True)
-    ax.set_xlabel('Sessions')
-    ax.set_ylabel('Donning Time (min)')
+    ax.set_xlabel('Session')
+    ax.set_ylabel('Donning (min)')
     plt.show()
 
 

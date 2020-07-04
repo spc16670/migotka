@@ -7,8 +7,8 @@ from dao import PATIENTS
 
 TYPE = SCATTERPLOT
 
-def plot_carer_workload():
 
+def plot_carer_workload():
     x = []
     y = []
     for id in range(2, 10):

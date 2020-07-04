@@ -36,7 +36,6 @@ def plot_patient_and_ot_donning_all_s_1_5_10_14_averaged_no_log():
     patient_color = 'lightblue'
     x_ticks = []
     patient_x_ticks = []
-    patient_x_values = [1, 4.43, 10, 14]
     position = 0
     for pair in data:
         if len(pair) == 2:
@@ -60,7 +59,6 @@ def plot_patient_and_ot_donning_all_s_1_5_10_14_averaged_no_log():
     ot_label = mpatches.Patch(color=ot_color, label="OT")
     patient_label = mpatches.Patch(color=patient_color, label="Carers")
 
-    #ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
     ax.set_axisbelow(True)
 
     # legend

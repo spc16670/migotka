@@ -2,7 +2,7 @@ import inspect
 import tkinter as tk
 from tkinter import Tk, Frame, Listbox
 
-from contants import BARCHART, BOXPLOT, SCATTERPLOT, HISTOGRAM
+from contants import BARCHART, BOXPLOT, SCATTERPLOT, HISTOGRAM, COMBINED
 
 import migotki.plotki.box.ot as boxplots_ots
 import migotki.plotki.box.carer as boxplots_carers
@@ -11,6 +11,7 @@ import migotki.plotki.box.combined as boxplot_combined
 import migotki.plotki.bar.patient as barchart_patients
 import migotki.plotki.scatter.patient as scatterplots_patients
 import migotki.plotki.scatter.carer as scatterplots_carer
+import migotki.plotki.combined.combined as combined
 import migotki.plotki.hist.patient as histogram_patients
 
 
@@ -39,6 +40,8 @@ class App:
                 self.listbox.itemconfig(ix, bg='grey')
             elif plot_type == HISTOGRAM:
                 self.listbox.itemconfig(ix, bg='magenta')
+            elif plot_type == COMBINED:
+                self.listbox.itemconfig(ix, bg='red')
         self.listbox.bind("<Double-Button-1>", self.call_back)
         self.listbox.bind("<Return>", self.call_back)
         self.listbox.pack(expand=1, fill=tk.BOTH)
@@ -78,7 +81,8 @@ def main():
         boxplot_combined,
         scatterplots_patients,
         scatterplots_carer,
-        histogram_patients
+        histogram_patients,
+        combined
     ])
     App(root, funcs)
     root.bind("<Escape>", lambda q: root.destroy())

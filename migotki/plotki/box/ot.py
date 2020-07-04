@@ -42,7 +42,7 @@ def plot_ots_workload():
     fig, ax = plt.subplots()
     session_str = ['FES', 'BCI', 'BCIFES1', 'BCIFES2']
     ax.boxplot(data, labels=session_str)
-    ax.set_title("OT Workload")
+    ax.set_title("Workload - OTs")
     ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
     ax.set_axisbelow(True)
     ax.set_ylabel('Workload')
@@ -74,8 +74,8 @@ def plot_ots_donnings_first_last():
     ax.set_yticks(ticks[1:])
     ax.yaxis.grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)
     ax.set_axisbelow(True)
-    ax.set_xlabel('Sessions')
-    ax.set_ylabel('Donning Time (min)')
+    ax.set_xlabel('Session')
+    ax.set_ylabel('Donning (min)')
     plt.show()
 
 

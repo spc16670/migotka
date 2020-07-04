@@ -1,13 +1,17 @@
 
-TO DO 23/04/2020:
-- Plot boxplot TPR for sessions 1-5 for all patients grouped together
-- Plot patient and carer stress for first and last training in one boxplot
-- Plot patient and carer satisfaction for first and last training in one boxplot
-- For boxplot plot_patient_and_ot_donning_all_s_1_5_10_14 make the last training point for patients
-    be still  labelled as last training but the actual numerical value used to calculate regression be
-    4.43 (i.e. average of the session numbers which were last training sessions). Readjust regression equation
-    parameters to reflect this change.
+TO DO 20/05/2020:
 
+- Make scatterplot with x values being carers' mental demand (from NASA_TLX)
+    for each session and y the donning time for that particular session
+- make two plots in the same window so can be saved as one image. On the left
+    patient_and_ot_donning_all_s_1_5_10_14_averaged (without log regression on plot or in legend) and on the
+    right the scatter plot described above. The plots should be the same size and same font size for axes,
+     titles etc. Ideally, the width of the entire window should be 17cm
+- similarly do the same but with three plots: TPR_all_patients_s12345 on left, FES_all_S1_5 in middle,
+    final_threshold_all_patients on right
+- also with two workload plots, OTs_workload on left, carer_patient_workload_first_last_and_independent on right
+- also last one with carer_patient_satisfaction_first_last_and_independent on left and
+    carer_patient_stress_first_last_and_independent on right.
 
 
 

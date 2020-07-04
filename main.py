@@ -4,13 +4,13 @@ from tkinter import Tk, Frame, Listbox
 
 from contants import BARCHART, BOXPLOT, SCATTERPLOT, HISTOGRAM
 
-import dao
 import migotki.plotki.box.ot as boxplots_ots
 import migotki.plotki.box.carer as boxplots_carers
 import migotki.plotki.box.patient as boxplots_patients
 import migotki.plotki.box.combined as boxplot_combined
 import migotki.plotki.bar.patient as barchart_patients
 import migotki.plotki.scatter.patient as scatterplots_patients
+import migotki.plotki.scatter.carer as scatterplots_carer
 import migotki.plotki.hist.patient as histogram_patients
 
 
@@ -77,6 +77,7 @@ def main():
         barchart_patients,
         boxplot_combined,
         scatterplots_patients,
+        scatterplots_carer,
         histogram_patients
     ])
     App(root, funcs)
